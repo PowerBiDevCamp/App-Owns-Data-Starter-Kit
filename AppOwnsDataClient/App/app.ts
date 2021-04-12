@@ -146,7 +146,6 @@ export default class App {
     App.tenantName.text(viewModel.tenantName);
     App.reportsList = App.reportsList.empty();
     App.datasetsList = App.datasetsList.empty();
-    App.datasetsListContainer = $("#datasets-list-container");
 
     if (viewModel.reports.length == 0) {
       App.reportsList.append($("<li>")
@@ -388,6 +387,9 @@ export default class App {
         App.fullScreenButton.show();
         if (App.viewModel && App.viewModel.userCanCreate) {
           App.datasetsListContainer.show();
+        }
+        else {
+          App.datasetsListContainer.hide();
         }
         let availableHeight: number = $(window).height() - (App.topBanner.height() + App.viewAuthenticatedHeader.height()) - 8;
         let heightFromWidth = $(App.embedContainer).width() * (9/16);
