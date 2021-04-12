@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>App-Owns-Data Client</title>
+  <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+  <link href="~/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+  <link href="~/css/app.css" rel="stylesheet" />
+</head>
+<body>
+
+  <header id="top-banner">
+    <nav class="navbar navbar-expand-md navbar-toggleable-md navbar-light bg-white border-bottom box-shadow mb-3">
+      <div class="container">
+        <a class="navbar-brand">App-Owns-Data Client</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-dm-inline-flex flex-md-row-reverse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="javascript:void(0)" class="nav-link"><span id="user-greeting"></span></a></li>
+            <li class="nav-item"><a id="login" href="javascript:void(0)" class="nav-link">Login</a></li>
+            <li class="nav-item"><a id="logout" href="javascript:void(0)" class="nav-link">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <main role="main">
+      <div id="main-body" class='container-fluid'>
+        <div id="view-anonymous" class="row">
+          <div class="jumbotron" style="width: 100%;">
+            <h1>Welcome to the App-Owns-Data Starter Kit</h1>
+            <div>
+              This sample application has been implemented as a Single Page Application (SPA) using HTML, CSS and TypeScript.
+              After authenticating with Azure AD, the app is able to make authenticated calls the custom web API named AppOwnsDataWebApi to get the data and embed tokens
+              required to embed reports in the browser. Click on the login link in the upper right to get started.
+            </div>
+          </div>
+        </div>
+        <div id="view-loading-spinner" class="row" style="display:none">
+          <div id="loading-spinner-container" class="justify-content-center">
+            <div id='spinner-message'></div>
+            <div class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+        </div>
+        <div id="view-unassigned" style="display: none;">
+          <div class="jumbotron" style="width: 100%;">
+            <h1>Thanks for logging in</h1>
+            <div>
+              You user account has no assigned tenant. Once your user account has been assigned to a tenant,
+              you will be able to use this application and interact with embedded report from Power BI.
+            </div>
+          </div>
+        </div>
+        <div id="view-authenticated" style="display: none;">
+          <div id="view-authenticated-header" class='row'>
+            <div id="tenant-header" class='navbar-header'>
+              <div id="tenant-name" ></div>
+              <div id="embed-toolbar" role="toolbar">
+                <span id="breadcrumb">&nbsp;</span>
+                <button type="button" id="full-screen" class="btn btn-md "><i class="fa fa-expand"></i>Full Screen</button>
+                <button type="button" id="toggle-edit" class="btn btn-md "><i class="fa fa-edit"></i>Toggle Edit Mode</button>
+              </div>
+            </div>
+          </div>
+          <div class='row'>
+            <div id="left-nav" class='col-md-2'>
+              <div>
+                <div class='navbar-header navbar-toggle' data-toggle='collapse' data-target='.reports-collapse'>
+                  View Report
+                </div>
+                <div id='reports-menu' class='navbar-collapse reports-collapse'>
+                  <ul id='reports-list' class='nav navbar-nav'></ul>
+                </div>
+                <div id='datasets-list-container'>
+                  <div class='navbar-header navbar-toggle' data-toggle='collapse' data-target='.datasets-collapse'>
+                    Create Report
+                  </div>
+                  <div id='datasets-menu' class='navbar-collapse datasets-collapse'>
+                    <ul id='datasets-list' class='nav navbar-nav'></ul>
+                  </div>
+                </div>
+                </div>           
+            </div>
+            <div id="content-box" class='col-md-10'>
+              <div id="embed-container"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="text/javascript" src="~/js/bundle.js"></script>
+
+</body>
+</html>
+

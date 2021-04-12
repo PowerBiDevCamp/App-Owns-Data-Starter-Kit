@@ -1,0 +1,33 @@
+@model IList<AppOwnsDataShared.Models.PowerBiTenant>
+
+<H2>Power BI Tenants</H2>
+
+<div class="toolbar">
+  <a id="create-workspace-button" class="btn btn-primary" asp-action="OnboardTenant">
+    <i class="fa fa-user-plus"></i>
+    Onboard New Tenant
+  </a>
+</div>
+
+<table class="table table-bordered table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>Tenant</th>
+      <th>Workspace ID</th>
+      <th style="text-align:center;">Embed</th>
+      <th style="text-align:center;">Web URL</th>
+      <th style="text-align:center;">View</th>
+      <th style="text-align:center;">Delete</th>
+    </tr>
+  </thead>
+  @foreach (var tenant in Model) {
+    <tr>
+      <td>@tenant.Name</td>
+      <td>@tenant.WorkspaceId</td>
+      <td style="text-align:center"><a href="~/Home/Embed/?Tenant=@tenant.Name" class="nav nav-link" target="_blank"><i class="fa fa-bar-chart"></a></td>
+      <td style="text-align:center"><a href="@tenant.WorkspaceUrl" class="nav nav-link" target="_blank"><i class="fa fa-line-chart"></a></td>
+      <td style="text-align:center"><a href="Tenant/?Name=@tenant.Name" class="nav nav-link"><i class="fa fa-binoculars"></i></a></td>
+      <td style="text-align:center"><a href="DeleteTenant/?TenantName=@tenant.Name" class="nav nav-link"><i class="fa fa-remove"></i></a></td>
+    </tr>
+  }
+</table>
