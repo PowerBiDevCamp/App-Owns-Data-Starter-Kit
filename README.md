@@ -1,54 +1,73 @@
 # The App-Owns-Data Starter Kit
 
 The  **App-Owns-Data Starter Kit** is a developer sample built using the
-.NET 5 SDK which demonstrates how to design and implement a solution for
-App-Owns-Data embedding with Power BI in a multi-tenant environment.
+.NET 5 SDK which demonstrates how to design a solution for a
+multi-tenant environment that implements App-Owns-Data embedding with
+Power BI. This solution contains a custom database and three separate
+web applications which demonstrate how to leverage common design
+patterns with App-Owns-Data embedding such as how to provision new Power
+BI workspaces for tenants, how to manage user permissions and how to
+monitor usage across users.
 
 If you have worked with Azure AD, the word **"tenant"** might make you
 think of an Azure AD tenant. However, the concept of a tenant is
 different when designing a multi-tenant environment for App-Owns-Data
 embedding. In this context, each tenant represents a customer for which
-you are embedding Power BI reports using the app-owns-data embedding
-model. In order to manage a multi-tenant environment, you must create a
-separate tenant for each customer. Provisioning a new customer tenant
-for Power BI embedding typically involves writing code to create a Power
-BI workspace, import a PBIX file, patch datasource credentials and start
-a dataset refresh operation.
+you are embedding Power BI reports using the App-Owns-Data embedding
+model. In a multi-tenant environment, you must create a separate tenant
+for each customer. Provisioning a new tenant for Power BI embedding
+typically involves writing code which programs the Power BI REST API to
+create a Power BI workspace, import a PBIX file, patch datasource
+credentials and start a dataset refresh operation.
 
-The problem that **App-Owns-Data Starter Kit** addresses.
+The **App-Owns-Data Starter Kit** solution provides support for solving
+common problems when developing with App-Owns-Data embedding.
 
--   Onboarding new custom tenant
+-   Onboarding new customer tenants
 
 -   Managing user permissions
 
+-   Implementing the client application as an Single Page Application
+    (SPA)
+
 -   Creating a custom telemetry layer to log user activity
 
--   Monitoring user actions and report performance
+-   Monitoring user actions such as ViewReport, EditReport and
+    CreateReport
 
-The solution is built on top of a custom SQL Server database named
-**AppOwnsDataDB**. In addition to the **AppOwnsDataDB** database, the
-solution contains the following three Web application projects.
+-   Monitoring report loading and rendering performance
 
--   **AppOwnsDataAdmin**: An ASP.NET MVC Web Application used to
-    provision custom tenants and manager users
+## Solution Architecture
 
--   **AppOwnsClient**: A single page application built using HTML, CSS
-    and Typescript
-
--   **AppOwnsDataWebApi**: Custom Web API used AppOwnsData client to get
-    embedding data and embed tokens.
+The **App-Owns-Data Starter Kit** solution is built on top of a custom
+SQL Server database named **AppOwnsDataDB**. In addition to the
+**AppOwnsDataDB** database, the solution contains the following three
+Web application projects named **AppOwnsDataAdmin**,
+**AppOwnsDataWebApi** and **AppOwnsDataClient** as shown in the
+following diagram.
 
 <img src="Images\ReadMe\media\image1.png" style="width:5.86409in;height:2.725in" />
+
+Here is a brief description of each of these web application
+
+-   **AppOwnsDataAdmin**: An administrative application used to
+    provision new customer tenants and manager user permissions
+
+-   **AppOwnsClient**: An SPA built using HTML, CSS and Typescript that
+    customers will use to view and author reports
+
+-   **AppOwnsDataWebApi**: Custom Web API used to return embedding data
+    and embed tokens to the **AppOwnsDataClient** application.
 
 You can follow the steps in this document to set up the **App-Owns-Data
 Starter Kit** solution for testing. To complete these steps, you will
 require a Microsoft 365 tenant in which you have permissions to create
 and manage Azure AD applications and security groups. You will also need
 Power BI Service administrator permissions to configure Power BI
-settings to give service principals to ability to access the Power BI
-Service API. If you do not have a Microsoft 365 environment for testing,
-you can create one for free by following the steps in [Create a
-Development Environment for Power BI
+settings to give the service principal for an Azure AD application to
+ability to access the Power BI Service API. If you do not have a
+Microsoft 365 environment for testing, you can create one for free by
+following the steps in [Create a Development Environment for Power BI
 Embedding](https://github.com/PowerBiDevCamp/Camp-Sessions/raw/master/Create%20Power%20BI%20Development%20Environment.pdf).
 
 ## Set up your development environment
@@ -57,13 +76,12 @@ To set up the  **App-Owns-Data Starter Kit** solution for testing, you
 will need to configure a Microsoft 365 environment by completing the
 following tasks.
 
-1.  Create an Azure AD security group named **Power BI Apps**
+-   Create an Azure AD security group named Power BI Apps
 
-2.  Configure Power BI tenant-level settings for service principal
+-   Configure Power BI tenant-level settings for service principal
     access
 
-3.  Create the Azure AD Application for
-    the **AppOwnsDataAdmin** Application
+-   Create the Azure AD Application for the AppOwnsDataAdmin Application
 
 The following three sections will step through each of these setup
 tasks.
