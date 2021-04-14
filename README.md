@@ -1,33 +1,63 @@
 # The App-Owns-Data Starter Kit
 
 The  **App-Owns-Data Starter Kit** is a developer sample built using the
-.NET 5 SDK which demonstrates how to design a solution for a
-multi-tenant environment that implements App-Owns-Data embedding with
-Power BI. This solution contains a custom database and three separate
-web applications which demonstrate how to leverage common design
-patterns with App-Owns-Data embedding such as how to provision new Power
-BI workspaces for tenants, how to manage user permissions and how to
-monitor usage across users.
+.NET 5 SDK to provide guidance for organizations and ISVs who are using
+App-Owns-Data embedding with Power BI in a multi-tenant environment.
+This solution consists of a custom database and three separate web
+applications which demonstrate common design patterns when developing
+with the App-Owns-Data embedding model such as creating new Power BI
+workspaces for tenants, assigning user permissions and monitoring report
+usage and performance.
 
 If you have worked with Azure AD, the word **"tenant"** might make you
 think of an Azure AD tenant. However, the concept of a tenant is
 different when designing a multi-tenant environment for App-Owns-Data
-embedding. In this context, each tenant represents a customer for which
-you are embedding Power BI reports using the App-Owns-Data embedding
-model. In a multi-tenant environment, you must create a separate tenant
-for each customer. Provisioning a new tenant for Power BI embedding
-typically involves writing code which programs the Power BI REST API to
-create a Power BI workspace, import a PBIX file, patch datasource
-credentials and start a dataset refresh operation.
+embedding. In this context, each tenant represents a customer with one
+or more users for which you are embedding Power BI reports. In a
+multi-tenant environment, you must create a separate tenant for each
+customer. Provisioning a new customer tenant in a Power BI embedding
+solution typically involves writing code which programs the Power BI
+REST API to create a Power BI workspace, assign the workspace to a
+dedicated capacity, import PBIX files, patch datasource credentials and
+start dataset refresh operations.
 
-The **App-Owns-Data Starter Kit** solution provides support for solving
-common problems when developing with App-Owns-Data embedding.
+There is a critical aspect to the App-Owns-Data embedding model that
+must be addressed in your initial application design. A distinct
+advantage of App-Owns-Data embedding is that you pay Microsoft by
+licensing dedicated capacities instead of by licensing individual users.
+This allows organizations and ISVs to reach users that remain completely
+unknown to Power BI.
+
+So, here's the rub. If Power BI doesn’t know anything about your users,
+Power BI cannot really provide any assistance when it comes to
+authorization and determining which users should have access to what
+content. This isn't a problem in a simplistic scenario where you intend
+to give every user the exact same access to content. However, it's far
+more common that your application requirements will define authorization
+policies to determine which users have access to which customer tenants.
+Furthermore, if you're planning to take advantage of the Power BI
+embedding support for report authoring, you'll also need to implement an
+authorization scheme that allows an administrator to assign permissions
+to users with a granularity of view permissions, edit permissions and
+content creation permissions.
+
+There are three key observation about developing with the App-Owns-Data
+embedding model. First, you have the flexibility to design the
+authorization scheme for your application any way you'd like. Second,
+you have the responsibility to design and implement this authorization
+scheme from the ground up. Third, your solution should include a custom
+database to track whatever data and metadata you need to design and
+implement the authorization policies and enforcement you require.
+
+The **App-Owns-Data Starter Kit** solution provides a starting point
+when developing with App-Owns-Data embedding and demonstrates how to
+implement the following application requirements.
 
 -   Onboarding new customer tenants
 
 -   Managing user permissions
 
--   Implementing the client application as an Single Page Application
+-   Implementing the customer-facing client as a Single Page Application
     (SPA)
 
 -   Creating a custom telemetry layer to log user activity
@@ -35,7 +65,7 @@ common problems when developing with App-Owns-Data embedding.
 -   Monitoring user actions such as ViewReport, EditReport and
     CreateReport
 
--   Monitoring report loading and rendering performance
+-   Monitoring the performance of report loading and rendering
 
 ## Solution Architecture
 
@@ -52,11 +82,32 @@ Here is a brief description of each of these web application
 -   **AppOwnsDataAdmin**: administrative application used to create new
     tenants and manage user permissions.
 
--   **AppOwnsClient**: An SPA built using HTML, CSS and Typescript that
-    customers will use to view and author reports.
+-   **AppOwnsClient**: customer-facing SPA built using HTML, CSS and
+    Typescript used to view and author reports.
 
--   **AppOwnsDataWebApi**: Custom Web API used to return embedding data
-    to the **AppOwnsDataClient** application.
+-   **AppOwnsDataWebApi**: custom Web API used by the
+    **AppOwnsDataClient** application.
+
+The **AppOwnsDataAdmin** application is what the hosting company uses to
+manage its multi-tenant environment. The **AppOwnsDataAdmin**
+application provides support to create new customer tenants which
+involves creating Power BI workspaces and importing PBIX files to create
+datasets and reports. The **AppOwnsDataAdmin** application also provides
+a UI experience for administrators at the hosting company with the
+ability to assign users to a customer tenant and to configure the
+assignment within a tenant with view permissions, edit permissions and
+create permissions.
+
+The **AppOwnsDataClient** application is the web application used by
+customers to access embedded reports within a customer tenant. This
+application has been created as an SPA to provide the best reach across
+different browsers and to provide a responsive design for users
+accessing the application using a mobile device such as an iPhone or a
+small tablet.
+
+The **AppOwnsDataWebApi** xxxxx
+
+The **AppOwnsDataShared** project
 
 You can follow the steps in this document to set up the **App-Owns-Data
 Starter Kit** solution for testing. To complete these steps, you will
