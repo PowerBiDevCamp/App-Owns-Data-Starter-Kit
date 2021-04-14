@@ -41,23 +41,22 @@ common problems when developing with App-Owns-Data embedding.
 
 The **App-Owns-Data Starter Kit** solution is built on top of a custom
 SQL Server database named **AppOwnsDataDB**. In addition to the
-**AppOwnsDataDB** database, the solution contains the following three
-Web application projects named **AppOwnsDataAdmin**,
-**AppOwnsDataWebApi** and **AppOwnsDataClient** as shown in the
-following diagram.
+**AppOwnsDataDB** database, the solution contains three Web application
+projects named **AppOwnsDataAdmin**, **AppOwnsDataWebApi** and
+**AppOwnsDataClient** as shown in the following diagram.
 
 <img src="Images\ReadMe\media\image1.png" style="width:5.86409in;height:2.725in" />
 
 Here is a brief description of each of these web application
 
--   **AppOwnsDataAdmin**: An administrative application used to
-    provision new customer tenants and manager user permissions
+-   **AppOwnsDataAdmin**: administrative application used to create new
+    tenants and manage user permissions.
 
 -   **AppOwnsClient**: An SPA built using HTML, CSS and Typescript that
-    customers will use to view and author reports
+    customers will use to view and author reports.
 
 -   **AppOwnsDataWebApi**: Custom Web API used to return embedding data
-    and embed tokens to the **AppOwnsDataClient** application.
+    to the **AppOwnsDataClient** application.
 
 You can follow the steps in this document to set up the **App-Owns-Data
 Starter Kit** solution for testing. To complete these steps, you will
