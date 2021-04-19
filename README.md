@@ -1,5 +1,93 @@
 # The App-Owns-Data Starter Kit
 
+# Contents
+
+[The App-Owns-Data Starter Kit 1](#the-app-owns-data-starter-kit)
+
+[Introduction 2](#introduction)
+
+[Solution Architecture 3](#solution-architecture)
+
+[Understanding the AppOwnsDataAdmin application
+3](#understanding-the-appownsdataadmin-application)
+
+[Understanding the AppOwnsDataClient application
+4](#understanding-the-appownsdataclient-application)
+
+[Understanding the AppOwnsDataWebAPI application
+6](#understanding-the-appownsdatawebapi-application)
+
+[Designing a custom telemetry layer
+7](#designing-a-custom-telemetry-layer)
+
+[Understanding the AppOwnsDataShared class library project
+8](#understanding-the-appownsdatashared-class-library-project)
+
+[Set up your development environment
+10](#set-up-your-development-environment)
+
+[Create an Azure AD security group named Power BI Apps
+10](#create-an-azure-ad-security-group-named-power-bi-apps)
+
+[Configure Power BI tenant-level settings for service principal access
+11](#configure-power-bi-tenant-level-settings-for-service-principal-access)
+
+[Create the App-Owns-Data Service App in Azure AD
+13](#create-the-app-owns-data-service-app-in-azure-ad)
+
+[Create the Azure AD Application for the App-Owns-Data Client App
+16](#create-the-azure-ad-application-for-the-app-owns-data-client-app)
+
+[Open the App-Owns-Data Starter Kit solution in Visual Studio 2019
+19](#open-the-app-owns-data-starter-kit-solution-in-visual-studio-2019)
+
+[Download the Source Code 19](#download-the-source-code)
+
+[Open AppOwnsDataStarterKit.sln in Visual Studio 2019
+20](#open-appownsdatastarterkit.sln-in-visual-studio-2019)
+
+[Update the appsettings.json file of AppOwnsDataAdmin project
+20](#update-the-appsettings.json-file-of-appownsdataadmin-project)
+
+[Create the AppOwnsDataDB database
+21](#create-the-appownsdatadb-database)
+
+[Test the AppOwnsDataAdmin Application
+24](#test-the-appownsdataadmin-application)
+
+[Create New Customer Tenants 26](#create-new-customer-tenants)
+
+[Embed Reports 28](#embed-reports)
+
+[Inspect the Power BI Workspaces 29](#inspect-the-power-bi-workspaces)
+
+[Test the AppOwnsDataClient Application
+30](#test-the-appownsdataclient-application)
+
+[Update the appsettings.json file for AppOwnsDataWebApi
+31](#update-the-appsettings.json-file-for-appownsdatawebapi)
+
+[Configure the AppOwnsDataClient application
+32](#configure-the-appownsdataclient-application)
+
+[Run the AppOwnsDataClient application
+33](#run-the-appownsdataclient-application)
+
+[Assign User Permissions 35](#assign-user-permissions)
+
+[Create and Edit Reports using AppOwnsDataClient
+37](#create-and-edit-reports-using-appownsdataclient)
+
+[Use the Activity Log to monitor usage and report performance
+40](#use-the-activity-log-to-monitor-usage-and-report-performance)
+
+[Inspect Usage Data using AppOwsDataUsageReporting.pbix
+40](#inspect-usage-data-using-appowsdatausagereporting.pbix)
+
+[Next Steps 41](#next-steps)
+
+## Introduction
+
 The  **App-Owns-Data Starter Kit** is a developer sample built using the
 .NET 5 SDK to provide guidance for organizations and ISVs who are using
 App-Owns-Data embedding with Power BI in a multi-tenant environment.
@@ -692,14 +780,17 @@ is created in the format of
 ## Open the App-Owns-Data Starter Kit solution in Visual Studio 2019
 
 In order to run and test the **App-Owns-Data Starter Kit** solution on a
-developer workstation, you must install the .NET 5 SDK and Visual Studio
-2019. While this document will walk through the steps of opening and
-running the projects of the **App-Owns-Data Starter Kit** solution using
-Visual Studio 2019, you can also use Visual Studio Code if you prefer
-that IDE. Here are links to download this software if you need them.
+developer workstation, you must install the .NET 5 SDK, Node.js and
+Visual Studio 2019. While this document will walk through the steps of
+opening and running the projects of the **App-Owns-Data Starter Kit**
+solution using Visual Studio 2019, you can also use Visual Studio Code
+if you prefer that IDE. Here are links to download this software if you
+need them.
 
 -   .NET 5 SDK –
     \[[download](https://dotnet.microsoft.com/download/dotnet/5.0)\]
+
+-   Node.js – \[[download](https://nodejs.org/en/download/)\]
 
 -   Visual Studio 2019 –
     \[[download](https://visualstudio.microsoft.com/downloads/)\]
@@ -771,8 +862,8 @@ Here is a brief description of each of these projects.
 Before you can run the application in the Visual Studio debugger, you
 must update several important application settings in
 the **appsettings.json** file. Open the **appsettings.json** file and
-examine the JSON content inside. There is three important sections
-named **AzureAd**, **AppOwnsDataDB** and **DemoSettings**.
+examine the JSON content inside. There is four important sections
+named **AzureAd**, **PowerBi, AppOwnsDataDB** and **DemoSettings**.
 
 <img src="Images\ReadMe\media\image60.png" style="width:6.13686in;height:2.14286in" />
 
@@ -783,13 +874,19 @@ Service App.**
 
 <img src="Images\ReadMe\media\image61.png" style="width:3.59649in;height:1.36527in" alt="Text Description automatically generated" />
 
+The **PowerBi** section contains a property named **ServiceRootUrl**.
+You do not have to modify this value if you are using Power BI in the
+public cloud as most companies do. If you are using Power BI in one of
+the government clouds or in the Microsoft clouds for Germany or China,
+this URL must be updated appropriately.
+
 If you are using Visual Studio 2019, you should be able leave the
 database connection string the way it is with the **Server** setting
 of **(localdb)\\\\MSSQLLocalDB**. You can change this connection string
 to a different SQL Server instance if you'd rather create the project
 database named **AppOwnsDataDB** in a different location.
 
-<img src="Images\ReadMe\media\image62.png" style="width:6.5in;height:0.8375in" alt="Text Description automatically generated with low confidence" />
+<img src="Images\ReadMe\media\image62.png" style="width:6.76074in;height:0.82631in" />
 
 In the **DemoSettings** section there is a property named **AdminUser**.
 The reason that this property exists has to with you being able to see
@@ -937,21 +1034,22 @@ begin the process of creating a new customer tenant.
 After a few seconds, you should see the new customer tenant has been
 created.
 
-Click the **Onboard New Tenant** button again to create a second tenant.
+<img src="Images\ReadMe\media\image81.png" style="width:7.00614in;height:1.62374in" />
 
+Click the **Onboard New Tenant** button again to create a second tenant.
 This time, select a different database for **Database Name** and then
 click **Create New Tenant**.
+
+<img src="Images\ReadMe\media\image82.png" style="width:6.06748in;height:2.28908in" />
 
 You should now have two customer tenants. Note they each tenant has its
 own unique workspace ID.
 
-Follow the same steps to create two more customer tenants.
+<img src="Images\ReadMe\media\image83.png" style="width:7.49097in;height:1.82222in" />
 
-<img src="Images\ReadMe\media\image4.png" style="width:5.06135in;height:2.0492in" />
-
-Let's review what's going on behind the scenes. As you create a new
-customer tenant, the **AppOwnsDataAdmin** application uses the Power BI
-REST API to implement the following onboarding logic.
+Now let's review what's going on behind the scenes whenever the user
+create a new customer tenant. The **AppOwnsDataAdmin** application uses
+the Power BI REST API to implement the following onboarding logic.
 
 -   Create a new Power BI workspace
 
@@ -972,37 +1070,41 @@ implements this logic using the Power BI .NET SDK, you can examine the
 [PowerBiServiceApi.cs](https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit/blob/main/AppOwnsDataAdmin/Services/PowerBiServiceApi.cs).
 
 The **AppOwnsDataAdmin** application also create a new record in
-the **Tenants** table of the **AppOwnsDataDB** database. Note that the
-application identity associated with this customer tenant is tracked in
-the **Owner** column.
+the **Tenants** table of the **AppOwnsDataDB** database to track the
+relevant data associated with each customer tenant.
+
+<img src="Images\ReadMe\media\image84.png" style="width:6.80982in;height:0.52398in" />
 
 Click on the **View** button for a specific tenant on the **Power BI
 Tenants** page to drill into the **Tenant Details** page.
 
+<img src="Images\ReadMe\media\image85.png" style="width:4.63804in;height:1.13459in" />
+
 The **Tenant Details** page displays Power BI workspace details
 including its members, datasets and reports.
 
+<img src="Images\ReadMe\media\image86.png" style="width:4.30675in;height:2.39264in" />
+
 Click on the back arrow to return to the **Power BI Tenants** page.
 
-If you're interested, you can examine the details of other tenants as
-well.
+<img src="Images\ReadMe\media\image87.png" style="width:3.38037in;height:1.31479in" />
 
 ### Embed Reports
 
 Now it's time to make use of the **AppOwnsDataAdmin** application's
-ability to embed reports. Click the Embed button of a customer tenant to
-navigate to the **Embed** page and view the **Sales** report.
+ability to embed reports. Click the **Embed** button of a customer
+tenant to navigate to the **Embed** page and view the **Sales** report.
 
-The **AppOwnsDataAdmin** application should now present a view with the
-embedded report. Navigate back to the **Power BI Tenants** page and
-click on the **Embed** button for the first customer tenant.
+<img src="Images\ReadMe\media\image88.png" style="width:5.2454in;height:1.26616in" />
 
 You should now see a page with an embedded report for that tenant. Click
 on the back arrow button to return to the **Tenants** page.
 
-1.  Now test clicking the **Embed** button for other customer tenants.
-    As you can see, the **AppOwnsDataAdmin** application has the ability
-    to embed reports from any f the tenant workspaces it has created.
+<img src="Images\ReadMe\media\image89.png" style="width:4.87839in;height:2.7546in" />
+
+Now test clicking the **Embed** button for other customer tenants. As
+you can see, the **AppOwnsDataAdmin** application has the ability to
+embed reports from any f the tenant workspaces it has created.
 
 ### Inspect the Power BI Workspaces
 
@@ -1012,43 +1114,234 @@ at [https://app.powerbi.com](https://app.powerbi.com/). You should be
 able to see and navigate to any of the Power BI workspaces that have
 been created by the **AppOwnsDataAdmin** application.
 
-<img src="Images\ReadMe\media\image81.png" style="width:1.66667in;height:1.79669in" alt="A picture containing graphical user interface Description automatically generated" />
+<img src="Images\ReadMe\media\image90.png" style="width:3.37719in;height:3.29022in" />
 
 Navigate to one of these workspaces such as **Tenant01**.
 
-<img src="Images\ReadMe\media\image82.png" style="width:4in;height:1.51111in" alt="Graphical user interface, text, email Description automatically generated" />
+<img src="Images\ReadMe\media\image91.png" style="width:7.43034in;height:2.80702in" alt="Graphical user interface, text, email Description automatically generated" />
 
 Drill into the **Setting** page for the dataset named **Sales**.
 
-<img src="Images\ReadMe\media\image83.png" style="width:3.52632in;height:1.81682in" alt="Graphical user interface, application Description automatically generated" />
+<img src="Images\ReadMe\media\image92.png" style="width:3.52632in;height:1.81682in" alt="Graphical user interface, application Description automatically generated" />
 
 You should be able to verify that the **Sales** dataset has been
-configured by one of the Azure AD applications that was created by
-the **AppOwnsDataAdmin** application. You should also be able to see
-the **Last refresh succeeded** message for the dataset refresh operation
-that was started by the **AppOwnsDataAdmin** as part of its tenant
-onboarding logic.
+configured by the **App-Owns-Data Service App**. You should also be able
+to see the **Last refresh succeeded** message for the dataset refresh
+operation that was started by the **AppOwnsDataAdmin** as part of its
+tenant onboarding logic.
 
-<img src="Images\ReadMe\media\image84.png" style="width:4.85965in;height:1.41376in" alt="Graphical user interface, application Description automatically generated" />
+<img src="Images\ReadMe\media\image93.png" style="width:7.49097in;height:2.24583in" />
 
 ## Test the AppOwnsDataClient Application
 
-xxxx
+In order to test the AppOwnsDataClient application, you must first
+configure the project for **AppOwnsDataWebApi**. Once you configure the
+project for **AppOwnsDataWebApi**, you will then be able to configure
+and test the **AppOwnsDataClient** application.
 
-### Configure the WebAPI appsettings.
+### Update the appsettings.json file for AppOwnsDataWebApi
 
-This concludes the walkthrough of the **AppOwnsDataAdmin** application.
+Before you can run the **AppOwnsDataWebApi** project in the Visual
+Studio debugger, you must update several important application settings
+in the **appsettings.json** file. Open the **appsettings.json** file
+inside the **AppOwnsDataWebApi** project and examine the JSON content
+inside. There is four important sections
+named **ClientApp**, **ServicePrincipalApp**, **PowerBi** and
+**AppOwnsDataDB**.
+
+<img src="Images\ReadMe\media\image94.png" style="width:5.55215in;height:2.67802in" />
+
+Inside the **ClientApp** section, update the update the
+**ClientId** with the data you collected when creating the Azure AD
+application named **App-Owns-Data Client App.**
+
+<img src="Images\ReadMe\media\image95.png" style="width:3.72393in;height:0.87465in" />
+
+Inside the **ServicePrincipalApp** section, update
+the **TenantId**, **ClientId** and **ClientSecret** with the data you
+collected when creating the Azure AD application named **App-Owns-Data
+Service App.**
+
+<img src="Images\ReadMe\media\image96.png" style="width:3.45399in;height:0.97653in" />
+
+There is no need to update the **PowerBi** section as long as your are
+using Power BI in the public cloud. If you are using Power BI in one of
+the government clouds or in the Microsoft clouds for Germany or China,
+this URL must be updated appropriately.
+
+Inside the **AppOwnsDataDB** section, ensure that the database
+connection string used here is the same as the database connection
+string used in the **appsettings.json** file in the **AppOwnsDataAdmin**
+application. Obviously, it's important for both applications to use the
+same database instance.
+
+<img src="Images\ReadMe\media\image62.png" style="width:6.5092in;height:0.79557in" />
+
+Save your changes and close the **appsettings.json** file in the
+AppOwnsDataWebApi project.
 
 ### Configure the AppOwnsDataClient application
 
+Xxx
+
+<img src="Images\ReadMe\media\image97.png" style="width:5.61963in;height:1.62353in" />
+
+Xxxx
+
+<img src="Images\ReadMe\media\image98.png" style="width:4.80982in;height:1.38957in" />
+
+Save your changes and close **appSettings.ts**.
+
+Zzzz
+
+<img src="Images\ReadMe\media\image99.png" style="width:4.74847in;height:1.81476in" />
+
+Ssss
+
+<img src="Images\ReadMe\media\image100.png" style="width:2.91411in;height:0.6237in" />
+
+Xxxxx
+
+<img src="Images\ReadMe\media\image101.png" style="width:5.87708in;height:2.00625in" />
+
+Ssssss
+
+<img src="Images\ReadMe\media\image102.png" style="width:5.03067in;height:2.32569in" />
+
 ### Run the AppOwnsDataClient application
+
+Xxx
+
+<img src="Images\ReadMe\media\image103.png" style="width:3.71779in;height:2.37629in" />
+
+Xx
+
+<img src="Images\ReadMe\media\image104.png" style="width:4.09816in;height:2.847in" />
+
+X
+
+<img src="Images\ReadMe\media\image105.png" style="width:4.33742in;height:1.05872in" />
+
+z
+
+<img src="Images\ReadMe\media\image106.png" style="width:6.00991in;height:1.7362in" />
+
+X
+
+<img src="Images\ReadMe\media\image107.png" style="width:5.10429in;height:1.56637in" />
+
+Xx
+
+<img src="Images\ReadMe\media\image108.png" style="width:4.1411in;height:1.28529in" />
+
+Xxx
+
+<img src="Images\ReadMe\media\image109.png" style="width:2.62835in;height:3.02454in" />
+
+Xxx
+
+<img src="Images\ReadMe\media\image110.png" style="width:4.98159in;height:1.38614in" />
 
 ### Assign User Permissions
 
+Switch to admin
+
+<img src="Images\ReadMe\media\image111.png" style="width:5.89571in;height:1.50668in" />
+
+Xx
+
+<img src="Images\ReadMe\media\image112.png" style="width:4.41718in;height:0.84273in" />
+
+Sssss
+
+<img src="Images\ReadMe\media\image113.png" style="width:5.17791in;height:1.56354in" />
+
+Xxx
+
+<img src="Images\ReadMe\media\image114.png" style="width:5.14724in;height:2.08237in" />
+
+X
+
+<img src="Images\ReadMe\media\image115.png" style="width:5.28834in;height:0.98737in" />
+
+Return to client
+
+<img src="Images\ReadMe\media\image116.png" style="width:4.39264in;height:2.37448in" />
+
+Xxx
+
+<img src="Images\ReadMe\media\image117.png" style="width:3.59776in;height:4.31288in" />
+
 ### Create and Edit Reports using AppOwnsDataClient
 
-## Use the Activity Log to monitor usage and report performance 
+Return to admin
 
-### Inspect the Usage Data in AppOwnsDataDB
+<img src="Images\ReadMe\media\image118.png" style="width:5.14724in;height:2.07808in" />
+
+X
+
+<img src="Images\ReadMe\media\image119.png" style="width:4.83436in;height:0.91874in" />
+
+Return to
+
+<img src="Images\ReadMe\media\image120.png" style="width:5.04295in;height:1.20889in" />
+
+Xxx
+
+<img src="Images\ReadMe\media\image121.png" style="width:4.31288in;height:2.17402in" />
+
+Xxxxx
+
+<img src="Images\ReadMe\media\image122.png" style="width:5.06135in;height:1.52962in" />
+
+Return to
+
+<img src="Images\ReadMe\media\image123.png" style="width:4.63804in;height:1.94086in" />
+
+Xxxxx
+
+<img src="Images\ReadMe\media\image124.png" style="width:5.19632in;height:0.99055in" />
+
+Xxxx
+
+<img src="Images\ReadMe\media\image125.png" style="width:4.96319in;height:1.33228in" />
+
+Xxxx
+
+<img src="Images\ReadMe\media\image126.png" style="width:4.88344in;height:2.63758in" />
+
+Xxxx
+
+<img src="Images\ReadMe\media\image127.png" style="width:4.88251in;height:2.77914in" />
+
+Press the Esc key to get out of full screen mode.
+
+<img src="Images\ReadMe\media\image128.png" style="width:4.58896in;height:1.20265in" />
+
+Xxx
+
+<img src="Images\ReadMe\media\image129.png" style="width:4.57669in;height:1.73003in" />
+
+<img src="Images\ReadMe\media\image130.png" style="width:5.58896in;height:1.35955in" />
+
+sssss
+
+## Use the Activity Log to monitor usage and report performance
+
+dddddd Inspect the Usage Data in AppOwnsDataDB
+
+<img src="Images\ReadMe\media\image131.png" style="width:5.78528in;height:1.60494in" />
 
 ### Inspect Usage Data using AppOwsDataUsageReporting.pbix
+
+<img src="Images\ReadMe\media\image132.png" style="width:4.34356in;height:2.99223in" />
+
+Xxx
+
+<img src="Images\ReadMe\media\image133.png" style="width:3.95092in;height:0.56918in" />
+
+Xxxx
+
+<img src="Images\ReadMe\media\image134.png" style="width:5.49693in;height:1.46303in" />
+
+## Next Steps
