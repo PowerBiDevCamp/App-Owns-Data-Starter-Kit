@@ -214,7 +214,7 @@ application which makes it possible for users of the
 **AppOwnsDataClient** application to login and to make secure APIs calls
 to **AppOwnsDataWebApi**.
 
-<img src="media\image10.png" width=800 />
+<img src="media\image10.png" width=750 />
 
 When the **AppOwnsDataClient** application executes an API call on
 **AppOwnsDataWebApi**, it's required to pass an access token that's been
