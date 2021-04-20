@@ -265,7 +265,7 @@ view model with no embedding data and a blank tenant name. The
 following screen notifying the user that they need to be assigned to a
 tenant before they can begin to view reports.
 
-<img src="media\image13.png" width=750 />
+<img src="media\image13.png" width=800 />
 
 ### Designing a custom telemetry layer
 
