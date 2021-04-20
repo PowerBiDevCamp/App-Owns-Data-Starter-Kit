@@ -171,7 +171,7 @@ report transition between the master view and the responsive view. The
 following screenshot shows what the **AppOwnsDataClient** application
 looks like when viewed on a mobile device such as an iPhone.
 
-<img src="media\image8.png" width=800 />
+<img src="media\image8.png" width=400 />
 
 ### Understanding the AppOwnsDataWebAPI application
 
