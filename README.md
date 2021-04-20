@@ -94,7 +94,7 @@ customer tenants. The **Onboard New Tenant** form of the
 Name** along with the configuration settings to connect to a SQL Server
 database with the customer's data.
 
-<img src="media\image2.png" style="width:4in;height:1.4797in" />
+<img src="media\image2.png" width=700 />
 
 When you click the **Create New Tenant** button, the
 **AppOwnsDataAdmin** application makes several calls to the Power BI
