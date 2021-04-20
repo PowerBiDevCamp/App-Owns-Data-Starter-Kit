@@ -126,7 +126,7 @@ After creating customer tenants in the **AppOwnsDataAdmin** application,
 they can be viewed, managed or deleted from the **Power BI Tenants**
 page.
 
-<img src="media\image4.png" width=600 />
+<img src="media\image4.png" width=700 />
 
 The **Edit User** form of **AppOwnsDataAdmin** application provides
 administrative users with a UI experience to assign users to a customer
