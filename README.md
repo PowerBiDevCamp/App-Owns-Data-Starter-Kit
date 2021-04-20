@@ -78,14 +78,9 @@ projects named **AppOwnsDataAdmin**, **AppOwnsDataClient** and
 Let's begin with a brief description of each of these three web
 applications.
 
--   **AppOwnsDataAdmin**: administrative application used to create
-    tenants and manage user permissions.
-
--   **AppOwnsDataClient**: customer-facing SPA used to view and author
-    reports.
-
--   **AppOwnsDataWebApi**: custom Web API used by the
-    **AppOwnsDataClient** application.
+-   **AppOwnsDataAdmin**: administrative application used to create tenants and manage user permissions.
+-   **AppOwnsDataClient**: customer-facing SPA used to view and author reports.
+-   **AppOwnsDataWebApi**: custom Web API used by the **AppOwnsDataClient** application.
 
 Now, we'll look at each of these web applications in a greater detail.
 
