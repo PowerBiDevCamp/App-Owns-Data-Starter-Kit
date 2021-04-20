@@ -146,7 +146,7 @@ accessing the application using a mobile device or a tablet. Here is a
 screenshot of the **AppOwnsDataClient** application when run in the full
 browser experience on a desktop or laptop computer.
 
-<img src="media\image6.png" style="width:4.21962in;height:2.32515in" />
+<img src="media\image6.png" width=800 />
 
 The **AppOwnsDataClient** application provides a report authoring
 experience when it see the current user has edit permission or create
@@ -157,7 +157,7 @@ report editing experience provided to SaaS users in the Power BI
 Service. After customizing a report, a user with edit permissions can
 save the changes using the **File &gt; Save** command.
 
-<img src="media\image7.png" style="width:5.69802in;height:3.11429in" />
+<img src="media\image7.png" width=800 />
 
 We live in an age where targeting mobile devices and tablets is a common
 application requirement. The **AppOwnsDataClient** application was
