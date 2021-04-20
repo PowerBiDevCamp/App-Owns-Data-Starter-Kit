@@ -108,7 +108,7 @@ the **AppOwnsDataAdmin** application retrieves the new workspace ID and
 tracks it with a new record in the **Tenants** table in the
 **AppOwnsDataDB** database.
 
-<img src="media\image3.png" style="width:2.74233in;height:1.28876in" />
+<img src="media\image3.png" width=700 />
 
 After creating a new Power BI workspace, the **AppOwnsDataAdmin**
 application continues the tenant onboarding process by importing a
