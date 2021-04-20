@@ -1,1 +1,1 @@
-pandoc --extract-media ./Images/ReadMe "App-Owns-Data Starter Kit.docx" -t gfm -o Readme.md
+pandoc --extract-media ./Images "App-Owns-Data Starter Kit.docx" -t gfm -o Readme.md
