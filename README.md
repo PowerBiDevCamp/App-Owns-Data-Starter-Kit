@@ -244,7 +244,7 @@ update the **LastLogin** value for existing users and to add a new
 record in the **Users** table of **AppOwnsDataDB** for any authenticated
 user who did not previous have an associated record.
 
-<img src="media\image11.png" style="width:3.99386in;height:0.73878in" />
+<img src="media\image11.png" width=750 />
 
 After the user has logged in, the **AppOwnsDataClient** application
 calls the **Embed** endpoint to retrieve a view model which contains all
@@ -252,7 +252,7 @@ the data required for embedding reports from the user's tenant workspace
 in Power BI. This view model includes an embed token which has been
 generated to give the current user the correct level of permissions.
 
-<img src="media\image12.png" style="width:4.04908in;height:1.00544in" />
+<img src="media\image12.png" width=750 />
 
 Any user with an organizational account or a personal account can log
 into the **AppOwnsDataClient** application. When a user logs in for the
@@ -265,7 +265,7 @@ view model with no embedding data and a blank tenant name. The
 following screen notifying the user that they need to be assigned to a
 tenant before they can begin to view reports.
 
-<img src="media\image13.png" style="width:4.45714in;height:1.4354in" />
+<img src="media\image13.png" width=750 />
 
 ### Designing a custom telemetry layer
 
