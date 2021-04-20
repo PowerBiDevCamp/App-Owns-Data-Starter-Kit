@@ -134,7 +134,7 @@ tenant. It also makes it possible to configure the user permission
 assignment within a customer tenant with a granularity of view
 permissions, edit permissions and create permissions.
 
-<img src="media\image5.png" style="width:3.60123in;height:1.5039in" />
+<img src="media\image5.png" width=700 />
 
 ### Understanding the AppOwnsDataClient application
 
