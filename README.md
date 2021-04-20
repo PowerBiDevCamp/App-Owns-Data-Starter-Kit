@@ -59,16 +59,10 @@ demonstrate implementing the following application requirements that are
 common when developing with App-Owns-Data embedding in a multi-tenant.
 
 -   Onboarding new customer tenants
-
 -   Assigning and managing user permissions
-
--   Implementing the customer-facing client as a Single Page Application
-    (SPA)
-
+-   Implementing the customer-facing client as a Single Page Application (SPA)
 -   Creating a custom telemetry layer to log user activity
-
 -   Monitoring user activity for viewing, editing and creating reports
-
 -   Monitoring the performance of report loading and rendering
 
 ## Solution Architecture
