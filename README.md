@@ -205,7 +205,7 @@ identity of a single service principal giving **AppOwnsDataWebApi**
 admin access to any Power BI workspaces that have been created by
 **AppOwnsDataAdmin**.
 
-<img src="media\image9.png" width=700 />
+<img src="media\image9.png" width=600 />
 
 The **AppOwnsDataClient** application is designed to be a consumer of
 the Web API exposed by **AppOwnsDataWebApi**. The security requirements
@@ -214,7 +214,7 @@ application which makes it possible for users of the
 **AppOwnsDataClient** application to login and to make secure APIs calls
 to **AppOwnsDataWebApi**.
 
-<img src="media\image10.png" style="width:4.45714in;height:1.31905in" />
+<img src="media\image10.png" width=600 />
 
 When the **AppOwnsDataClient** application executes an API call on
 **AppOwnsDataWebApi**, it's required to pass an access token that's been
