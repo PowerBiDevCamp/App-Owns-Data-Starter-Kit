@@ -73,7 +73,7 @@ SQL Server database named **AppOwnsDataDB**. In addition to the
 projects named **AppOwnsDataAdmin**, **AppOwnsDataClient** and
 **AppOwnsDataWebApi** as shown in the following diagram.
 
-<img src="media\image1.png" style="width:3.46626in;height:1.66217in" />
+<img src="media\image1.png" width=850 />
 
 Let's begin with a brief description of each of these three web
 applications.
