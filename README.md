@@ -1236,39 +1236,39 @@ application and navigate to the **Users** page. You should see that the
 user account you used to log into **AppOwnsDataClient** is currently
 **unassigned**.
 
-<img src="media\image121.png" style="width:5.89571in;height:1.50668in" />
+<img src="media\image121.png"  />
 
 Click the **Edit** button to open the **Edit User** page for this user
 account.
 
-<img src="media\image122.png" style="width:4.41718in;height:0.84273in" />
+<img src="media\image122.png"  />
 
 On the **Edit User** page, drop down the **Home Tenant** options menu
 and select an available tenant.
 
-<img src="media\image123.png" style="width:4.61635in;height:1.39397in" />
+<img src="media\image123.png"  />
 
 Once you have selected a tenant such as **Tenant01**, click the **Save**
 button to save your changes.
 
-<img src="media\image124.png" style="width:4.69182in;height:1.89813in" />
+<img src="media\image124.png"  />
 
 You should be able to verify that this user account has been assigned to
 an existing tenant.
 
-<img src="media\image125.png" style="width:6.23183in;height:1.16352in" />
+<img src="media\image125.png"  />
 
 Return to the browser session running the **AppOwnsDataClient**
 application and refresh the page. When the page refreshes, you should
 see the **Sales** report has been successfully embedded in the browser
 
-<img src="media\image126.png" style="width:3.89767in;height:2.10692in" />
+<img src="media\image126.png"  />
 
 Adjust the size of the browser window to make it more narrow. Once the
 browser window width is small enough, the report should begin to render
 using the mobile view.
 
-<img src="media\image127.png" style="width:1.79954in;height:2.15723in" />
+<img src="media\image127.png"  />
 
 ### Create and edit reports using the AppOwnsDataClient application
 
