@@ -1127,7 +1127,7 @@ the **appSettings.ts** file
 Update the **ClientId** with the Client ID of the Azure AD application
 named **App-Owns-Data Client App.**
 
-<img src="media\image107.png" width=500 />
+<img src="media\image107.png" width=600 />
 
 Save your changes and close **appSettings.ts**.
 
