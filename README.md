@@ -452,30 +452,30 @@ to** setting to **Specific security groups** and add the **Power BI
 Apps** security group as shown in the screenshot below. Click
 the **Apply** button to save your configuration changes.
 
-<img src="media\image28.png" style="width:3.13959in;height:2.06748in"  />
+<img src="media\image28.png"  />
 
 You will see a notification indicating it might take up to 15 minutes to
 apply these changes to the organization.
 
-<img src="media\image29.png" style="width:2.7217in;height:0.49049in" alt="Text Description automatically generated with medium confidence" />
+<img src="media\image29.png"  />
 
 Now scroll upward in the **Tenant setting** section of the Power BI
 admin portal and locate **Workspace settings**.
 
-<img src="media\image30.png" style="width:4.0241in;height:2.01429in" alt="Graphical user interface, application, Teams Description automatically generated" />
+<img src="media\image30.png"  />
 
 Note that a new Power BI tenant has an older policy where only users who
 have the permissions to create Office 365 groups can create new Power BI
 workspaces. You must reconfigure this setting so that service principals
 in the **Power BI Apps** group will be able to create new workspaces.
 
-<img src="media\image31.png" style="width:4.22802in;height:2.12857in"  />
+<img src="media\image31.png"  />
 
 In **Workspace settings**, set **Apply to** to **Specific security**
 groups, add the **Power BI Apps** security group and click
 the **Apply** button to save your changes.
 
-<img src="media\image32.png" style="width:3.8in;height:3.34435in" />
+<img src="media\image32.png"  />
 
 You have now completed the configuration of the required Power BI
 tenant-level settings.
