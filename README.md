@@ -1009,17 +1009,17 @@ support in the Power BI .NET SDK.
 Close the Power Query Editor window and return to the main Power BI
 Desktop window. Have a look at the report.
 
-<img src="media\image94.png" style="width:3.61194in;height:1.97837in" />
+<img src="media\image94.png"  />
 
 Now navigate to the **View** tab in the ribbon and click the **Mobile
 layout** button to see the report's mobile view.
 
-<img src="media\image95.png" style="width:3.34328in;height:0.8421in" />
+<img src="media\image95.png" width=600 />
 
 You should see that this report has been designed with a mobile view in
 addition to the standard master view.
 
-<img src="media\image96.png" style="width:2.62687in;height:1.48612in" />
+<img src="media\image96.png"  />
 
 You can now close Power BI Desktop and move back to the
 **AppOwnsDataAdmin** application.
