@@ -543,14 +543,14 @@ In the **Add a client secret** dialog, add a **Description** such
 as **Test Secret** and set **Expires** to any value you'd like from the
 dropdown list. Click the **Add** button to create the new Client Secret.
 
-<img src="media\image41.png" width=500 />
+<img src="media\image41.png" width=450 />
 
 Once you have created the Client Secret, you should be able to see
 its **Value** in the **Client secrets** section. Click on the **Copy to
 clipboard** button to copy the **Value** for the Client Secret into the
 clipboard.
 
-<img src="media\image42.png" width=650  />
+<img src="media\image42.png" width=700  />
 
 Paste the **Client Secret** into the same text document with
 the **Client ID** and **Tenant ID**.
