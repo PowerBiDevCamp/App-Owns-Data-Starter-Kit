@@ -537,13 +537,13 @@ the **Certificates & secrets** page. On the **Certificates &
 secrets** page, click the **New client secret** button as shown in the
 following screenshot.
 
-<img src="media\image40.png" style="width:5.75714in;height:2.71271in" />
+<img src="media\image40.png"  />
 
 In the **Add a client secret** dialog, add a **Description** such
 as **Test Secret** and set **Expires** to any value you'd like from the
 dropdown list. Click the **Add** button to create the new Client Secret.
 
-<img src="media\image41.png" style="width:3.35714in;height:1.68475in" />
+<img src="media\image41.png" width=500 />
 
 Once you have created the Client Secret, you should be able to see
 its **Value** in the **Client secrets** section. Click on the **Copy to
