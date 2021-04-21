@@ -946,12 +946,12 @@ relevant data associated with each customer tenant.
 Click on the **View** button for a tenant on the **Power BI
 Tenants** page to drill into the **Tenant Details** page.
 
-<img src="media\image85.png" style="width:5.02221in;height:1.22857in" />
+<img src="media\image85.png" width=750 />
 
 The **Tenant Details** page displays Power BI workspace details
 including its members, datasets and reports.
 
-<img src="media\image86.png" style="width:5.87485in;height:3.2638in" />
+<img src="media\image86.png"  width=750 />
 
 Click on the back arrow to return to the **Power BI Tenants** page.
 
