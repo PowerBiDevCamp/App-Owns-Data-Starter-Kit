@@ -987,7 +987,7 @@ then click the **Manage Parameters** button.
 In the **Manage Parameters** window, you should two **Text** parameters
 named **DatabaseServer** and **DatabaseName**.
 
-<img src="media\image91.png" width=500 />
+<img src="media\image91.png" width=450 />
 
 Click **Cancel** to close the **Manage Parameters** window and return to
 the **Power Query Editor** window.
