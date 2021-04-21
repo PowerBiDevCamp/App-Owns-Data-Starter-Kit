@@ -879,7 +879,7 @@ the **Permissions requested** dialog asking you to accept the
 **Permissions requested** by the application. Click
 the **Accept** button to grant these permissions and continue.
 
-<img src="media\image76.png" width=500 />
+<img src="media\image76.png" width=400 />
 
 Once you have logged in, you should see your name in the welcome
 message.
