@@ -1,9 +1,7 @@
 # The App-Owns-Data Starter Kit
 
 ## Abstract
-The **App-Owns-Data Starter Kit** is a developer sample built using the .NET 5 SDK to provide guidance for organizations and ISVs who are using App-Owns-Data embedding with Power BI in a multi-tenant environment. This document describes the high-level design and provides step-by-step instructions for setting up the solution for testing on local developer workstation.
-
-This document is also available in [**DOCX**](https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit/raw/main/Docs/App-Owns-Data%20Starter%20Kit.docx) and [**PDF**](https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit/raw/main/Docs/App-Owns-Data%20Starter%20Kit.pdf) formats
+The **App-Owns-Data Starter Kit** is a developer sample built using the .NET 5 SDK to provide guidance for organizations and ISVs who are using App-Owns-Data embedding with Power BI in a multi-tenant environment. This document describes the high-level design and provides step-by-step instructions for setting up the solution for testing on local developer workstation. This document is also available in [**DOCX**](https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit/raw/main/Docs/App-Owns-Data%20Starter%20Kit.docx) and [**PDF**](https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit/raw/main/Docs/App-Owns-Data%20Starter%20Kit.pdf) formats
 
 ## Table of contents
 - [Introduction](https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit#introduction)
