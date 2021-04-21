@@ -1,4 +1,43 @@
 # The App-Owns-Data Starter Kit
+
+## Abstract
+The **App-Owns-Data Starter Kit** is a developer sample built using the .NET 5 SDK to provide guidance for organizations and ISVs who are using App-Owns-Data embedding with Power BI in a multi-tenant environment. This document describes the high-level design and provides step-by-step instructions for setting up the solution for testing on local developer workstation.
+
+## Table of contents
+- [Introduction]()
+- [Solution Architecture]()
+  - [Understanding the AppOwnsDataAdmin application]()
+  - [Understanding the AppOwnsDataClient application]()
+  - [Understanding the AppOwnsDataWebAPI application]()
+  - [Designing a custom telemetry layer]()
+  - [Understanding the AppOwnsDataShared class library ]()
+- [Set up your development environment]()
+  - [Create an Azure AD security group named Power BI Apps]()
+  - [Configure Power BI tenant-level settings for service principal access]()
+  - [Create the App-Owns-Data Service App in Azure AD]()
+  - [Create the App-Owns-Data Client App in Azure ADv
+- [Open the App-Owns-Data Starter Kit solution in Visual Studio 2019]()
+  - [Download the source code]()
+  - [Open AppOwnsDataStarterKit.sln in Visual Studio 2019]()
+  - [Update the appsettings.json file of AppOwnsDataAdmin project]()
+  - [Create the AppOwnsDataDB database]()
+- [Test the AppOwnsDataAdmin Application]()
+  - [Create new customer tenants]()
+  - [Understanding the PBIX template file named SalesReportTemplate.pbix]()
+  - [Embed reports]()
+  - [Inspect the Power BI workspaces being created]()
+- [Test the AppOwnsDataClient application]()
+  - [Update the appsettings.json file for AppOwnsDataWebApi]()
+  - [Configure the AppOwnsDataClient application]()
+  - [Launch AppOwnsDataClient in the Visual Studio debugger]()
+  - [Assign user permissions]()
+  - [Create and edit reports using the AppOwnsDataClient application]()
+- [Use the Activity Log to monitor usage and report performance]()
+  - [Inspect usage and performance data using AppOwsDataUsageReporting.pbix]()
+-  [Next Steps]()
+
+
+## Introduction
 The  **App-Owns-Data Starter Kit** is a developer sample built using the
 .NET 5 SDK to provide guidance for organizations and ISVs who are using
 App-Owns-Data embedding with Power BI in a multi-tenant environment.
