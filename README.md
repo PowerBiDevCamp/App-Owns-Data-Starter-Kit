@@ -698,7 +698,7 @@ If you are familiar with the **git** utility, you can clone the project
 source files to your local developer workstation using the
 following **git** command:
 
-```powershell
+```shell
 git clone https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit.git
 ```
 
