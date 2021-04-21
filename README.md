@@ -393,9 +393,9 @@ groups. You will also need Power BI Service administrator permissions to
 configure Power BI settings to give the service principal for an Azure
 AD application to ability to access the Power BI REST API. If you do not
 have a Microsoft 365 environment for testing, you can create one for
-free by following the steps in [Create a Development Environment for
+free by following the steps in **[Create a Development Environment for
 Power BI
-Embedding](https://github.com/PowerBiDevCamp/Camp-Sessions/raw/master/Create%20Power%20BI%20Development%20Environment.pdf).
+Embedding](https://github.com/PowerBiDevCamp/Camp-Sessions/raw/master/Create%20Power%20BI%20Development%20Environment.pdf)**.
 
 To set up the  **App-Owns-Data Starter Kit** solution for testing, you
 will need to configure a Microsoft 365 tenant by completing the
