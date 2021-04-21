@@ -1345,17 +1345,17 @@ Once you have created a simple report, press the **Esc** key to get out
 of full screen mode. Now click the **File &gt; Save As** menu command to
 save the report back to the customer tenant workspace.
 
-<img src="media\image138.png" style="width:4.58896in;height:1.20265in" />
+<img src="media\image138.png"  />
 
 In the **Save your repot** dialog, enter a name such as **Sales by Year
 and Quarter** and click the **Save** button.
 
-<img src="media\image139.png" style="width:4.57669in;height:1.73003in" />
+<img src="media\image139.png"  />
 
 After saving the report, you should see in the left navigation and the
 application breadcrumb are updated appropriately.
 
-<img src="media\image140.png" style="width:5.58896in;height:1.35955in" />
+<img src="media\image140.png"  />
 
 You have now seen how to configure user permissions for viewing, editing
 and creating content.
