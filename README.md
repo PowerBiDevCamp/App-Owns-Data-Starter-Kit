@@ -1,5 +1,4 @@
 # The App-Owns-Data Starter Kit
-
 The  **App-Owns-Data Starter Kit** is a developer sample built using the
 .NET 5 SDK to provide guidance for organizations and ISVs who are using
 App-Owns-Data embedding with Power BI in a multi-tenant environment.
@@ -7,7 +6,6 @@ This solution consists of a custom database and three separate web
 applications which demonstrate common design patterns in App-Owns-Data
 embedding such as creating new Power BI workspaces for tenants,
 assigning user permissions and monitoring report usage and performance.
-
 If you have worked with Azure AD, the word **"tenant"** might make you
 think of an Azure AD tenant. However, the concept of a tenant is
 different when designing a multi-tenant environment for App-Owns-Data
