@@ -1065,7 +1065,7 @@ to see the **Last refresh succeeded** message for the dataset refresh
 operation that was started by the **AppOwnsDataAdmin** as part of its
 tenant onboarding logic.
 
-<img src="media\image102.png" />
+<img src="media\image102.png" width=100% />
 
 ## Test the AppOwnsDataClient application
 
