@@ -997,7 +997,7 @@ Select the **Customers** query in the **Queries** list and click
 window. You should see that the call to **Sql.Database** uses the
 parameters values instead of hard-coded values.
 
-<img src="media\image92.png" style="width:4.375in;height:1.71248in" />
+<img src="media\image92.png" width=850 />
 
 If you inspect the **OnboardNewTenant** method in the source file named
 [**PowerBiServiceApi.cs**](https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit/blob/main/AppOwnsDataAdmin/Services/PowerBiServiceApi.cs),
