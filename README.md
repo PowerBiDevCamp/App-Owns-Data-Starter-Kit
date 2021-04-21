@@ -804,18 +804,20 @@ project and selecting **Set as Start Project**.
 Inside the **Package Manager Console** window, set the **Default
 project** to **AppOwnsDataShared**.
 
-<img src="media\image67.png" style="width:6.30804in;height:2.24286in" />
+<img src="media\image67.png" />
 
 Type and execute the following **Add-Migration** command to create a new
 migration in the project.
 
-**Add-Migration InitialCreate**
+```shell
+Add-Migration InitialCreate
+```
 
 The **Add-Migration** command should run without errors. If this command
 fails you might have to modify the database connection string
 in **appsettings.json**.
 
-<img src="media\image68.png" style="width:4.58291in;height:0.93252in" />
+<img src="media\image68.png"  />
 
 After running the **Add-Migration** command, you will see a new folder
 has been automatically created in the **AppOwnsDataShared** project
