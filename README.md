@@ -955,7 +955,7 @@ including its members, datasets and reports.
 
 Click on the back arrow to return to the **Power BI Tenants** page.
 
-<img src="media\image87.png" style="width:2.35714in;height:0.91681in" />
+<img src="media\image87.png" width=550 />
 
 ### Understanding the PBIX template file named SalesReportTemplate.pbix
 
