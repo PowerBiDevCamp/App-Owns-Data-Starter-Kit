@@ -904,7 +904,7 @@ can create the first tenant using the default value for **Tenant Name**
 or supply a different name. Click the **Create New Tenant** button to
 begin the process of creating a new customer tenant.
 
-<img src="media\image80.png" width=720 />
+<img src="media\image80.png" width=800 />
 
 After a few seconds, you should see the new customer tenant has been
 created.
