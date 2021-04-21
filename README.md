@@ -28,7 +28,7 @@ The **App-Owns-Data Starter Kit** is a developer sample built using the .NET 5 S
   - [Inspect the Power BI workspaces being created](https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit#inspect-the-power-bi-workspaces-being-created)
 - [Test the AppOwnsDataClient application](https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit#test-the-appownsdataclient-application)
   - [Update the appsettings.json file for AppOwnsDataWebApi](https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit#update-the-appsettingsjson-file-for-appownsdatawebapi)
-  - [Configure and build the AppOwnsDataClient application](https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit#configure-the-appownsdataclient-application)
+  - [Configure and build the AppOwnsDataClient application](https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit#configure-and-build-the-appownsdataclient-application)
   - [Launch AppOwnsDataClient in the Visual Studio debugger](https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit#launch-appownsdataclient-in-the-visual-studio-debugger)
   - [Assign user permissions](https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit#assign-user-permissions)
   - [Create and edit reports using the AppOwnsDataClient application](https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit#create-and-edit-reports-using-the-appownsdataclient-application)
