@@ -1153,7 +1153,7 @@ here](https://nodejs.org/en/download/). Once Node.js has been installed,
 right-click the **AppOwnsDataClient** solution in the Solution Explorer
 and select the **Rebuild** command
 
-<img src="media\image110.png" width=450  />
+<img src="media\image110.png" width=480  />
 
 When Visual Studio runs the build process, you should be able to watch
 the **Output** window and see output messages indicating that the **npm
