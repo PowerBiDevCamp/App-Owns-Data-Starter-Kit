@@ -566,7 +566,7 @@ Navigate to the **Members** page for the **Power BI Apps** security
 group using the **Members** link in the left navigation. Add the Azure
 AD application named **App-Owns-Data Service App** as a group member.
 
-<img src="media\image45.png" style="width:6.19114in;height:1.85276in" />
+<img src="media\image45.png" />
 
 You have now completed the registration of the Azure AD application
 named **App-Owns-Data Service App**. This is the Azure application that
