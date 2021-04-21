@@ -817,7 +817,7 @@ The **Add-Migration** command should run without errors. If this command
 fails you might have to modify the database connection string
 in **appsettings.json**.
 
-<img src="media\image68.png" width=500  />
+<img src="media\image68.png" width=650  />
 
 After running the **Add-Migration** command, you will see a new folder
 has been automatically created in the **AppOwnsDataShared** project
