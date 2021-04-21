@@ -786,12 +786,12 @@ the database.
 Open the Package Manager console using **Tools &gt; NuGet Package
 Manager &gt; Package Manager Console**.
 
-<img src="media\image64.png" style="width:5.31326in;height:1.62577in" alt="Graphical user interface, application Description automatically generated" />
+<img src="media\image64.png"  />
 
 You should see the **Package Manager Console** where you can type and
 execute PowerShell commands.
 
-<img src="media\image65.png" style="width:4.87428in;height:2.14286in" />
+<img src="media\image65.png"  />
 
 Next, you must configure the **AppOwnsDataAdmin** project as the
 solution's startup project so the Entity Framework can retrieve the
@@ -799,7 +799,7 @@ database connection string from that project's **appsettings.json**
 file. You can accomplish that by right-clicking the **AppOwnsDataAdmin**
 project and selecting **Set as Start Project**.
 
-<img src="media\image66.png" style="width:2.68883in;height:3.07975in" />
+<img src="media\image66.png"  />
 
 Inside the **Package Manager Console** window, set the **Default
 project** to **AppOwnsDataShared**.
