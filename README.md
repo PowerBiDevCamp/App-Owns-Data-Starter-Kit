@@ -723,6 +723,7 @@ and **AppOwnsDataWebApi**.
 <img src="media\image59.png"  />
 
 Here is a brief description of each of these projects.
+
 -   **AppOwnsDataAdmin**: ASP.NET MVC Web Application built using .NET 5
 -   **AppOwnsClient**: Single page application built using HTML, CSS and Typescript
 -   **AppOwnsDataShared**: Class library project used to generate **AppOwnsDataDB**
@@ -736,14 +737,14 @@ the **appsettings.json** file. Open **appsettings.json** and examine the
 JSON content inside. There is four important sections
 named **AzureAd**, **PowerBi, AppOwnsDataDB** and **DemoSettings**.
 
-<img src="media\image60.png" style="width:6.13686in;height:2.14286in" />
+<img src="media\image60.png" />
 
 Inside the **AzureAd** section, update
 the **TenantId**, **ClientId** and **ClientSecret** with the data you
 collected when creating the Azure AD application named **App-Owns-Data
 Service App.**
 
-<img src="media\image61.png" style="width:3.02857in;height:1.14968in" alt="Text Description automatically generated" />
+<img src="media\image61.png" />
 
 The **PowerBi** section contains a property named **ServiceRootUrl**.
 You do not have to modify this value if you are using Power BI in the
