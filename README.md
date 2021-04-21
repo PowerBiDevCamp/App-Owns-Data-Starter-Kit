@@ -1030,12 +1030,12 @@ Now it's time to make use of the **AppOwnsDataAdmin** application's
 ability to embed reports. Click the **Embed** button for a customer
 tenant to navigate to the **Embed** page and view the **Sales** report.
 
-<img src="media\image97.png" style="width:4.31429in;height:1.04141in" />
+<img src="media\image97.png"  />
 
 You should now see a page with an embedded report for that tenant. Click
 on the back arrow button to return to the **Tenants** page.
 
-<img src="media\image98.png" style="width:3.64286in;height:2.05695in" />
+<img src="media\image98.png"  />
 
 Now test clicking the **Embed** button for other customer tenants. The
 **AppOwnsDataAdmin** application has the ability to embed the **Sales**
