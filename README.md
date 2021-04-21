@@ -1214,7 +1214,7 @@ After authenticating with your user name and password, you'll be
 prompted with the **Permissions requested** dialog. Click the **Accept**
 button to continue.
 
-<img src="media\image119.png" width=300 />
+<img src="media\image119.png" width=360 />
 
 After logging in you should see a web page like the one in the following
 screenshot inducing that the current user has not been assigned to a
