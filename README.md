@@ -1004,7 +1004,7 @@ If you inspect the **OnboardNewTenant** method in the source file named
 you will find this code which updates these two parameters using the
 support in the Power BI .NET SDK.
 
-<img src="media\image93.png" style="width:3.64179in;height:0.73707in" />
+<img src="media\image93.png" width=650 />
 
 Close the Power Query Editor window and return to the main Power BI
 Desktop window. Have a look at the report.
