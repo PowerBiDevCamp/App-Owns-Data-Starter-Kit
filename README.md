@@ -651,12 +651,12 @@ Fill out the data in the **App a scope** pane using these steps.
 3.  Fill in all display names and descriptions using the text shown in the following screenshot.
 4.  Click the **Add scope** button.
 
-<img src="media\image54.png" style="width:2.6135in;height:2.37676in" />
+<img src="media\image54.png" />
 
 You should now see the new scopes in the **Scopes defined by this API**
 section. If you copy the scope value to the clipboard, you will see that
 is created in the format of
-**api://**\[ApplicationID\]**/Reports.Embed**.
+**api://\[ApplicationID\]/Reports.Embed**.
 
 <img src="media\image55.png" style="width:4.73089in;height:1.43558in" />
 
