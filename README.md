@@ -367,7 +367,7 @@ the **User** class.
 The **ActivityLog** table is generated using the table schema defined by
 the **ActivityLogEntry** class.
 
-<img src="media\image19.png" width=800  />
+<img src="media\image19.png" width=600  />
 
 The database model itself is created by the **AppOwnsDataDB** class
 which derives from **DbContext**.
