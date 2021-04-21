@@ -401,12 +401,8 @@ will need to configure a Microsoft 365 tenant by completing the
 following tasks.
 
 -   Create an Azure AD security group named **Power BI Apps**
-
--   Configure Power BI tenant-level settings for service principal
-    access
-
+-   Configure Power BI tenant-level settings for service principal access
 -   Create the Azure AD Application named **App-Owns-Data Service App**
-
 -   Create the Azure AD Application named **App-Owns-Data Client App**
 
 The following four sections will step through each of these setup tasks
@@ -414,8 +410,8 @@ in step-by-step detail.
 
 ### Create an Azure AD security group named Power BI Apps
 
-Navigate to the [Groups management
-page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups) in
+Navigate to the **[Groups management
+page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups)** in
 the Azure portal. Once you get to the **Groups** page in the Azure
 portal, click the **New group** link.
 
