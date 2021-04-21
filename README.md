@@ -884,19 +884,19 @@ the **Accept** button to grant these permissions and continue.
 Once you have logged in, you should see your name in the welcome
 message.
 
-<img src="media\image77.png" style="width:7.02857in;height:1.96529in" />
+<img src="media\image77.png"  />
 
 ### Create new customer tenants
 
 Start by creating a few new customer tenants. Click the **Tenants** link
 to navigate to the **Tenants** page.
 
-<img src="media\image78.png" style="width:6.99813in;height:2.00208in" />
+<img src="media\image78.png"  />
 
 Click the **Onboard New Tenant** button to display the **Onboard New
 Tenant** page.
 
-<img src="media\image79.png" style="width:6.25767in;height:1.15595in" />
+<img src="media\image79.png"  />
 
 When you open the **Onboard New Tenant** page, it will automatically
 populate the **Tenant Name** textbox with a value of **Tenant01**. You
@@ -904,7 +904,7 @@ can create the first tenant using the default value for **Tenant Name**
 or supply a different name. Click the **Create New Tenant** button to
 begin the process of creating a new customer tenant.
 
-<img src="media\image80.png" style="width:5.9894in;height:2.34286in" />
+<img src="media\image80.png" width=600 />
 
 After a few seconds, you should see the new customer tenant has been
 created.
