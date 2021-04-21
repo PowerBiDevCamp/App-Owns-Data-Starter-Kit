@@ -584,18 +584,18 @@ browser so it can execute secure API calls on **AppOwnsDataWebApi**.
 
 ### Create the **App-Owns-Data Client App in Azure AD**
 
-Navigate to the [App
-registration](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page
+Navigate to the **[App
+registration](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)** page
 in the Azure portal and click the **New registration** link.
 
-<img src="media\image46.png" style="width:7.0923in;height:1.96933in"  />
+<img src="media\image46.png"   />
 
 On the **Register an application** page, enter an application name of
 **App-Owns-Data Client App** and change **Supported account
 types** to **Accounts in any organizational directory and personal
 Microsoft accounts**.
 
-<img src="media\image47.png" style="width:5.69911in;height:2.2454in" />
+<img src="media\image47.png"  />
 
 Complete the following steps in the **Redirect URI** section.
 
