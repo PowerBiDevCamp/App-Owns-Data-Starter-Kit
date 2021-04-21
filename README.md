@@ -799,7 +799,7 @@ database connection string from that project's **appsettings.json**
 file. You can accomplish that by right-clicking the **AppOwnsDataAdmin**
 project and selecting **Set as Start Project**.
 
-<img src="media\image66.png"  />
+<img src="media\image66.png" width=500 />
 
 Inside the **Package Manager Console** window, set the **Default
 project** to **AppOwnsDataShared**.
