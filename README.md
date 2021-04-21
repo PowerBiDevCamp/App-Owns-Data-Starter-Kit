@@ -974,7 +974,7 @@ named **Customers** and **Sales** are populated by importing and
 refreshing data from SQL Server databases that share a common table
 schema.
 
-<img src="media\image89.png" width=750 />
+<img src="media\image89.png" width=850 />
 
 It's important to understand how this PBIX template allows the developer
 to update the database server and database name after the import
