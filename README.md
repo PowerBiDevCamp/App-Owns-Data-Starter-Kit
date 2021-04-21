@@ -825,7 +825,7 @@ named **Migrations** with several C\# source files. There is no need to
 change anything in these source files but you can inspect what's inside
 them if you are curious how the Entity Framework Core does its work.
 
-<img src="media\image69.png" />
+<img src="media\image69.png" width=650 />
 
 Return to the **Package Manager Console** and run the
 following **Update-Database** command to generate the database
@@ -838,7 +838,7 @@ Update-Database
 The **Update-Database** command should run without errors and generate
 the **AppOwnsDataDB** database.
 
-<img src="media\image70.png" />
+<img src="media\image70.png" width=600 />
 
 In Visual Studio, you can use the **SQL Server Object Explorer** to see
 the database that has just been created. Open the **SQL Server Object
