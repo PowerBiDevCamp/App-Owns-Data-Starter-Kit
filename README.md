@@ -1122,12 +1122,12 @@ Save your changes and close the **appsettings.json** file in the
 In the **AppOwnsDataClient** project, expand the **App** folder and open
 the **appSettings.ts** file
 
-<img src="media\image106.png" style="width:5.61963in;height:1.62353in" />
+<img src="media\image106.png"  />
 
 Update the **ClientId** with the Client ID of the Azure AD application
 named **App-Owns-Data Client App.**
 
-<img src="media\image107.png" style="width:3.96226in;height:1.14471in" />
+<img src="media\image107.png" width=500 />
 
 Save your changes and close **appSettings.ts**.
 
