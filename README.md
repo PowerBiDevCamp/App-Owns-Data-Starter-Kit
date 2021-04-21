@@ -498,13 +498,10 @@ directory only**.
 Complete the following steps in the **Redirect URI** section.
 
 -   Leave the default selection of **Web** in the dropdown box
-
 -   Enter a **Redirect URI** of <https://localhost:44300/signin-oidc>
+-   Click the **Register** button to create the new Azure AD application.
 
--   Click the **Register** button to create the new Azure AD
-    application.
-
-<img src="media\image35.png" style="width:4.72857in;height:1.32309in"  />
+<img src="media\image35.png" width=600  />
 
 After creating a new Azure AD application in the Azure portal, you
 should see the Azure AD application overview page which displays
