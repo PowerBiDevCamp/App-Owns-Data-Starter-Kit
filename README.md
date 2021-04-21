@@ -1156,7 +1156,7 @@ read and write from the same database instance.
 Save your changes and close the **appsettings.json** file in the
 **AppOwnsDataWebApi** project.
 
-### Configure the AppOwnsDataClient application
+### Configure and build the AppOwnsDataClient application
 
 In the **AppOwnsDataClient** project, expand the **App** folder and open
 the **appSettings.ts** file
