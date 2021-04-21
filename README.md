@@ -951,11 +951,11 @@ Tenants** page to drill into the **Tenant Details** page.
 The **Tenant Details** page displays Power BI workspace details
 including its members, datasets and reports.
 
-<img src="media\image86.png"  width=750 />
+<img src="media\image86.png"  width=850 />
 
 Click on the back arrow to return to the **Power BI Tenants** page.
 
-<img src="media\image87.png" width=400 />
+<img src="media\image87.png" width=300 />
 
 ### Understanding the PBIX template file named SalesReportTemplate.pbix
 
