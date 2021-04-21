@@ -699,7 +699,7 @@ source files to your local developer workstation using the
 following **git** command:
 
 ```powershell
-git clone https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit.git**
+git clone https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit.git
 ```
 
 Once you have downloaded the project source files for
@@ -710,7 +710,7 @@ contains folders for four projects named **AppOwnsDataAdmin**,
 You can open the Visual Studio solution containing all four projects by
 double-clicking the solution file named **AppOwnsDataStarterKit.sln**.
 
-<img src="media\image58.png" style="width:3.77143in;height:1.55081in" />
+<img src="media\image58.png" />
 
 ### Open AppOwnsDataStarterKit.sln in Visual Studio 2019
 
@@ -720,20 +720,13 @@ named **AppOwnsDataStarterKit.sln**. You should see the four projects
 named **AppOwnsDataAdmin**, **AppOwnsDataClient**, **AppOwnsDataShared**
 and **AppOwnsDataWebApi**.
 
-<img src="media\image59.png" style="width:2.70103in;height:1.34286in" />
+<img src="media\image59.png"  />
 
 Here is a brief description of each of these projects.
-
 -   **AppOwnsDataAdmin**: ASP.NET MVC Web Application built using .NET 5
-
--   **AppOwnsClient**: Single page application built using HTML, CSS and
-    Typescript
-
--   **AppOwnsDataShared**: Class library project used to generate
-    **AppOwnsDataDB**
-
--   **AppOwnsDataWebApi**: ASP.NET Web API which provides embedding data
-    to **AppOwnsDataClient**
+-   **AppOwnsClient**: Single page application built using HTML, CSS and Typescript
+-   **AppOwnsDataShared**: Class library project used to generate **AppOwnsDataDB**
+-   **AppOwnsDataWebApi**: ASP.NET Web API which provides embedding data to **AppOwnsDataClient**
 
 ### Update the appsettings.json file of AppOwnsDataAdmin project
 
