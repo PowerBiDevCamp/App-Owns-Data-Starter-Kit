@@ -278,13 +278,13 @@ table in **AppOwnsDataDB** to record the user activity. This makes it
 possible to monitor user activity such as viewing reports, editing
 reports, creating reports and copying reports.
 
-<img src="media\image14.png" style="width:4.3in;height:1.54187in" />
+<img src="media\image14.png" width=750 />
 
 Given the architecture of this custom telemetry layer, it's now possible
 to see all user activity for report viewing and report authoring by
 examining the records in the **ActivityLog** table.
 
-<img src="media\image15.png" style="width:4.25767in;height:1.07399in" />
+<img src="media\image15.png" width=800 />
 
 In addition to capturing usage data focused on user activity, this
 telemetry layer also captures performance data which makes it possible
@@ -295,7 +295,7 @@ embeds a report. This makes it possible to monitor report performance
 across a multi-tenant environment to see if any reports require
 attention due to slow loading and rendering times.
 
-<img src="media\image16.png" style="width:3.79755in;height:1.41895in" />
+<img src="media\image16.png" width=800 />
 
 Many developer who are beginning to develop with App-Owns-Data embedding
 spend time trying to figure out how to monitor user activity by using
