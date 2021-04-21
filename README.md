@@ -626,18 +626,18 @@ name of **Reports.Embed**.
 On the summary page for **App-Owns-Data Client App**, click the **Expose
 an API** link in the left navigation.
 
-<img src="media\image50.png" style="width:3.11043in;height:1.70454in" />
+<img src="media\image50.png"  />
 
 On the **Expose an API** page, click the **Add a scope** button.
 
-<img src="media\image51.png" style="width:4.17791in;height:1.47941in" />
+<img src="media\image51.png"  />
 
 On the **Add a scope** pane, you will be prompted to set an
 **Application ID URI** before you will be able to create a new scope.
 Click **Save and continue** to accept the default setting of **api://**
 followed the application ID.
 
-<img src="media\image52.png" style="width:2.60736in;height:1.23376in" />
+<img src="media\image52.png"  />
 
 The **Add a scope** pane should now present a form to enter data for the
 new scope.
