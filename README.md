@@ -595,7 +595,7 @@ On the **Register an application** page, enter an application name of
 types** to **Accounts in any organizational directory and personal
 Microsoft accounts**.
 
-<img src="media\image47.png" width=700 />
+<img src="media\image47.png" />
 
 Complete the following steps in the **Redirect URI** section.
 
@@ -603,7 +603,7 @@ Complete the following steps in the **Redirect URI** section.
 2.  Enter a **Redirect URI** of <https://localhost:44301/>.
 3.  Click the **Register** button to create the new Azure AD application.
 
-<img src="media\image48.png" style="width:4.05521in;height:1.24325in" />
+<img src="media\image48.png" />
 
 After creating a new Azure AD application in the Azure portal, you
 should see the Azure AD application overview page which displays
