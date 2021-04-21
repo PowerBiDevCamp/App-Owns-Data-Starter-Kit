@@ -850,7 +850,7 @@ Explorer** menu command.
 Expand the **Databases** node for the server you're using and verify you
 see the **AppOwnsDataDB** database.
 
-<img src="media\image72.png" style="width:2.40491in;height:1.67944in" />
+<img src="media\image72.png" width=400 />
 
 If you expand the **Tables** node, you should see the three tables
 named **ActivityLog**, **Tenants** and **Users**.
