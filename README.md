@@ -1139,14 +1139,14 @@ the project, double-click on the **AppOwnsDataClient** node in the
 solution explorer to open the project file named
 **AppOwnsDataClient.csproj**.
 
-<img src="media\image108.png" style="width:3.33333in;height:1.27393in" />
+<img src="media\image108.png" width=100% />
 
 There is an XML element in **AppOwnsDataClient.csproj** which defines a
 post build event that calls the Node.js commands **npm install** and
 **npm run build**. For this reason, you must install Node.js before you
 can build the project.
 
-<img src="media\image109.png" style="width:2.31447in;height:0.49536in" />
+<img src="media\image109.png"  />
 
 If you haven't installed node.js, install it now [from
 here](https://nodejs.org/en/download/). Once Node.js has been installed,
