@@ -744,7 +744,7 @@ the **TenantId**, **ClientId** and **ClientSecret** with the data you
 collected when creating the Azure AD application named **App-Owns-Data
 Service App.**
 
-<img src="media\image61.png" />
+<img src="media\image61.png" width=500 />
 
 The **PowerBi** section contains a property named **ServiceRootUrl**.
 You do not have to modify this value if you are using Power BI in the
