@@ -486,14 +486,14 @@ Navigate to the [App
 registration](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page
 in the Azure portal and click the **New registration** link.
 
-<img src="media\image33.png" style="width:4.61429in;height:1.28125in"  />
+<img src="media\image33.png"  />
 
 On the **Register an application** page, enter an application name of
 **App-Owns-Data Service App** and accept the default selection
 for **Supported account types** of **Accounts in this organizational
 directory only**.
 
-<img src="media\image34.png" style="width:3.75714in;height:1.83152in" />
+<img src="media\image34.png" width=650 />
 
 Complete the following steps in the **Redirect URI** section.
 
