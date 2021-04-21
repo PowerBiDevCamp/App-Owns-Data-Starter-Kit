@@ -415,18 +415,18 @@ page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlad
 the Azure portal. Once you get to the **Groups** page in the Azure
 portal, click the **New group** link.
 
-<img src="media\image22.png" style="width:3.38571in;height:1.12676in" alt="Graphical user interface, text, application Description automatically generated" />
+<img src="media\image22.png" width=600  />
 
 In the **New Group** dialog, Select a **Group type** of **Security** and
 enter a **Group name** of **Power BI Apps**. Click the **Create** button
 to create the new Azure AD security group.
 
-<img src="media\image23.png" style="width:3.91181in;height:1.80963in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<img src="media\image23.png" width=600  />
 
 Verify that you can see the new security group named **Power BI
 Apps** on the Azure portal **Groups** page.
 
-<img src="media\image24.png" style="width:4.08772in;height:1.18963in" alt="Graphical user interface, text, application Description automatically generated" />
+<img src="media\image24.png" width=600  />
 
 ### Configure Power BI tenant-level settings for service principal access
 
@@ -445,14 +445,14 @@ principals to use Power BI APIs** section.
 Note that the **Allow service principals to use Power BI APIs** setting
 is initially set to **Disabled**.
 
-<img src="media\image27.png" style="width:2.78302in;height:1.35472in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<img src="media\image27.png" style="width:2.78302in;height:1.35472in"  />
 
 Change the setting to **Enabled**. After that, set the **Apply
 to** setting to **Specific security groups** and add the **Power BI
 Apps** security group as shown in the screenshot below. Click
 the **Apply** button to save your configuration changes.
 
-<img src="media\image28.png" style="width:3.13959in;height:2.06748in" alt="Graphical user interface, text, application Description automatically generated" />
+<img src="media\image28.png" style="width:3.13959in;height:2.06748in"  />
 
 You will see a notification indicating it might take up to 15 minutes to
 apply these changes to the organization.
@@ -469,7 +469,7 @@ have the permissions to create Office 365 groups can create new Power BI
 workspaces. You must reconfigure this setting so that service principals
 in the **Power BI Apps** group will be able to create new workspaces.
 
-<img src="media\image31.png" style="width:4.22802in;height:2.12857in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<img src="media\image31.png" style="width:4.22802in;height:2.12857in"  />
 
 In **Workspace settings**, set **Apply to** to **Specific security**
 groups, add the **Power BI Apps** security group and click
@@ -486,7 +486,7 @@ Navigate to the [App
 registration](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page
 in the Azure portal and click the **New registration** link.
 
-<img src="media\image33.png" style="width:4.61429in;height:1.28125in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<img src="media\image33.png" style="width:4.61429in;height:1.28125in"  />
 
 On the **Register an application** page, enter an application name of
 **App-Owns-Data Service App** and accept the default selection
@@ -504,7 +504,7 @@ Complete the following steps in the **Redirect URI** section.
 -   Click the **Register** button to create the new Azure AD
     application.
 
-<img src="media\image35.png" style="width:4.72857in;height:1.32309in" alt="Graphical user interface, text, application Description automatically generated" />
+<img src="media\image35.png" style="width:4.72857in;height:1.32309in"  />
 
 After creating a new Azure AD application in the Azure portal, you
 should see the Azure AD application overview page which displays
@@ -553,7 +553,7 @@ its **Value** in the **Client secrets** section. Click on the **Copy to
 clipboard** button to copy the **Value** for the Client Secret into the
 clipboard.
 
-<img src="media\image42.png" style="width:4.55714in;height:1.26103in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<img src="media\image42.png" style="width:4.55714in;height:1.26103in"  />
 
 Paste the **Client Secret** into the same text document with
 the **Client ID** and **Tenant ID**.
@@ -591,7 +591,7 @@ Navigate to the [App
 registration](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page
 in the Azure portal and click the **New registration** link.
 
-<img src="media\image46.png" style="width:7.0923in;height:1.96933in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<img src="media\image46.png" style="width:7.0923in;height:1.96933in"  />
 
 On the **Register an application** page, enter an application name of
 **App-Owns-Data Client App** and change **Supported account
@@ -795,7 +795,7 @@ Update the **AdminUser** setting with the Azure AD account name you're
 using in your test environment so that you will be able to see all the
 Power BI workspaces created by the **AppOwnsDataAdmin** application.
 
-<img src="media\image63.png" style="width:3.88571in;height:1.26146in" alt="Graphical user interface, text, application, email Description automatically generated" />
+<img src="media\image63.png" style="width:3.88571in;height:1.26146in"  />
 
 ### Create the **AppOwnsDataDB** database
 
@@ -863,7 +863,7 @@ the database that has just been created. Open the **SQL Server Object
 Explorer** by invoking the **View &gt;** **SQL Server Object
 Explorer** menu command.
 
-<img src="media\image71.png" style="width:3.2807in;height:1.73134in" alt="Graphical user interface, text, application Description automatically generated" />
+<img src="media\image71.png" style="width:3.2807in;height:1.73134in"  />
 
 Expand the **Databases** node for the server you're using and verify you
 see the **AppOwnsDataDB** database.
