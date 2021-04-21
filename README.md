@@ -595,17 +595,13 @@ On the **Register an application** page, enter an application name of
 types** to **Accounts in any organizational directory and personal
 Microsoft accounts**.
 
-<img src="media\image47.png"  />
+<img src="media\image47.png" width=700 />
 
 Complete the following steps in the **Redirect URI** section.
 
-1.  Change the setting of the dropdown box to **Single page application
-    (SPA)**
-
+1.  Change the setting of the dropdown box to **Single page application (SPA)**.
 2.  Enter a **Redirect URI** of <https://localhost:44301/>.
-
-3.  Click the **Register** button to create the new Azure AD
-    application.
+3.  Click the **Register** button to create the new Azure AD application.
 
 <img src="media\image48.png" style="width:4.05521in;height:1.24325in" />
 
