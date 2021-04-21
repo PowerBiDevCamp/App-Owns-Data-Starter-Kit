@@ -845,17 +845,17 @@ the database that has just been created. Open the **SQL Server Object
 Explorer** by invoking the **View &gt;** **SQL Server Object
 Explorer** menu command.
 
-<img src="media\image71.png" width=500  />
+<img src="media\image71.png" width=450  />
 
 Expand the **Databases** node for the server you're using and verify you
 see the **AppOwnsDataDB** database.
 
-<img src="media\image72.png" width=300 />
+<img src="media\image72.png" width=350 />
 
 If you expand the **Tables** node, you should see the three tables
 named **ActivityLog**, **Tenants** and **Users**.
 
-<img src="media\image73.png" width=350 />
+<img src="media\image73.png" width=400 />
 
 With **AppOwnsDataDB** set up, you're ready to run and test
 **AppOwnsDataAdmin** in Visual Studio 2019.
