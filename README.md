@@ -1090,14 +1090,14 @@ Inside the **ClientApp** section, update the update the
 **ClientId** with the data you collected when creating the Azure AD
 application named **App-Owns-Data Client App.**
 
-<img src="media\image104.png" style="width:3.72393in;height:0.87465in" />
+<img src="media\image104.png"  />
 
 Inside the **ServicePrincipalApp** section, update
 the **TenantId**, **ClientId** and **ClientSecret** with the data you
 collected when creating the Azure AD application named **App-Owns-Data
 Service App.**
 
-<img src="media\image105.png" style="width:3.45399in;height:0.97653in" />
+<img src="media\image105.png"  />
 
 There is no need to update the **PowerBi** section as long as your are
 using Power BI in the public cloud. If you are using Power BI in one of
@@ -1112,7 +1112,7 @@ string used in the **appsettings.json** file in the **AppOwnsDataAdmin**
 application. Obviously, it's important for both these applications to
 read and write from the same database instance.
 
-<img src="media\image62.png" style="width:6.5092in;height:0.79557in" />
+<img src="media\image62.png"  />
 
 Save your changes and close the **appsettings.json** file in the
 **AppOwnsDataWebApi** project.
