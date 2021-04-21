@@ -111,7 +111,7 @@ SQL Server database named **AppOwnsDataDB**. In addition to the
 projects named **AppOwnsDataAdmin**, **AppOwnsDataClient** and
 **AppOwnsDataWebApi** as shown in the following diagram.
 
-<img src="media\image1.png" width=600 />
+<img src="Docs\media\image1.png" width=600 />
 
 Let's begin with a brief description of each of these three web
 applications.
@@ -132,7 +132,7 @@ customer tenants. The **Onboard New Tenant** form of the
 Name** along with the configuration settings to connect to a SQL Server
 database with the customer's data.
 
-<img src="media\image2.png" width=700 />
+<img src="Docs\media\image2.png" width=700 />
 
 When you click the **Create New Tenant** button, the
 **AppOwnsDataAdmin** application makes several calls to the Power BI
@@ -146,7 +146,7 @@ the **AppOwnsDataAdmin** application retrieves the new workspace ID and
 tracks it with a new record in the **Tenants** table in the
 **AppOwnsDataDB** database.
 
-<img src="media\image3.png" width=600 />
+<img src="Docs\media\image3.png" width=600 />
 
 After creating a new Power BI workspace, the **AppOwnsDataAdmin**
 application continues the tenant onboarding process by importing a
@@ -164,7 +164,7 @@ After creating customer tenants in the **AppOwnsDataAdmin** application,
 they can be viewed, managed or deleted from the **Power BI Tenants**
 page.
 
-<img src="media\image4.png" width=700 />
+<img src="Docs\media\image4.png" width=700 />
 
 The **Edit User** form of **AppOwnsDataAdmin** application provides
 administrative users with a UI experience to assign users to a customer
@@ -172,7 +172,7 @@ tenant. It also makes it possible to configure the user permission
 assignment within a customer tenant with a granularity of view
 permissions, edit permissions and create permissions.
 
-<img src="media\image5.png" width=700 />
+<img src="Docs\media\image5.png" width=700 />
 
 ### Understanding the AppOwnsDataClient application
 
@@ -184,7 +184,7 @@ accessing the application using a mobile device or a tablet. Here is a
 screenshot of the **AppOwnsDataClient** application when run in the full
 browser experience on a desktop or laptop computer.
 
-<img src="media\image6.png" width=800 />
+<img src="Docs\media\image6.png" width=800 />
 
 The **AppOwnsDataClient** application provides a report authoring
 experience when it see the current user has edit permission or create
@@ -195,7 +195,7 @@ report editing experience provided to SaaS users in the Power BI
 Service. After customizing a report, a user with edit permissions can
 save the changes using the **File &gt; Save** command.
 
-<img src="media\image7.png" width=800 />
+<img src="Docs\media\image7.png" width=800 />
 
 We live in an age where targeting mobile devices and tablets is a common
 application requirement. The **AppOwnsDataClient** application was
@@ -209,7 +209,7 @@ report transition between the master view and the responsive view. The
 following screenshot shows what the **AppOwnsDataClient** application
 looks like when viewed on a mobile device such as an iPhone.
 
-<img src="media\image8.png" width=400 />
+<img src="Docs\media\image8.png" width=400 />
 
 ### Understanding the AppOwnsDataWebAPI application
 
@@ -243,7 +243,7 @@ identity of a single service principal giving **AppOwnsDataWebApi**
 admin access to any Power BI workspaces that have been created by
 **AppOwnsDataAdmin**.
 
-<img src="media\image9.png" width=600 />
+<img src="Docs\media\image9.png" width=600 />
 
 The **AppOwnsDataClient** application is designed to be a consumer of
 the Web API exposed by **AppOwnsDataWebApi**. The security requirements
@@ -252,7 +252,7 @@ application which makes it possible for users of the
 **AppOwnsDataClient** application to login and to make secure APIs calls
 to **AppOwnsDataWebApi**.
 
-<img src="media\image10.png" width=750 />
+<img src="Docs\media\image10.png" width=750 />
 
 When the **AppOwnsDataClient** application executes an API call on
 **AppOwnsDataWebApi**, it's required to pass an access token that's been
@@ -282,7 +282,7 @@ update the **LastLogin** value for existing users and to add a new
 record in the **Users** table of **AppOwnsDataDB** for any authenticated
 user who did not previous have an associated record.
 
-<img src="media\image11.png" width=750 />
+<img src="Docs\media\image11.png" width=750 />
 
 After the user has logged in, the **AppOwnsDataClient** application
 calls the **Embed** endpoint to retrieve a view model which contains all
@@ -290,7 +290,7 @@ the data required for embedding reports from the user's tenant workspace
 in Power BI. This view model includes an embed token which has been
 generated to give the current user the correct level of permissions.
 
-<img src="media\image12.png" width=750 />
+<img src="Docs\media\image12.png" width=750 />
 
 Any user with an organizational account or a personal account can log
 into the **AppOwnsDataClient** application. When a user logs in for the
@@ -303,7 +303,7 @@ view model with no embedding data and a blank tenant name. The
 following screen notifying the user that they need to be assigned to a
 tenant before they can begin to view reports.
 
-<img src="media\image13.png" width=800 />
+<img src="Docs\media\image13.png" width=800 />
 
 ### Designing a custom telemetry layer
 
@@ -317,13 +317,13 @@ table in **AppOwnsDataDB** to record the user activity. This makes it
 possible to monitor user activity such as viewing reports, editing
 reports, creating reports and copying reports.
 
-<img src="media\image14.png" width=750 />
+<img src="Docs\media\image14.png" width=750 />
 
 Given the architecture of this custom telemetry layer, it's now possible
 to see all user activity for report viewing and report authoring by
 examining the records in the **ActivityLog** table.
 
-<img src="media\image15.png" width=800 />
+<img src="Docs\media\image15.png" width=800 />
 
 In addition to capturing usage data focused on user activity, this
 telemetry layer also captures performance data which makes it possible
@@ -334,7 +334,7 @@ embeds a report. This makes it possible to monitor report performance
 across a multi-tenant environment to see if any reports require
 attention due to slow loading and rendering times.
 
-<img src="media\image16.png" width=800 />
+<img src="Docs\media\image16.png" width=800 />
 
 Many developer who are beginning to develop with App-Owns-Data embedding
 spend time trying to figure out how to monitor user activity by using
@@ -396,22 +396,22 @@ tracked in project configuration files for both **AppOwnsDataAdmin** and
 The **Tenants** table in **AppOwnsDataDB** is generated by a C\# class
 named **PowerBITenant**.
 
-<img src="media\image17.png"  />
+<img src="Docs\media\image17.png"  />
 
 The **Users** table is generated using the table schema defined by
 the **User** class.
 
-<img src="media\image18.png"  />
+<img src="Docs\media\image18.png"  />
 
 The **ActivityLog** table is generated using the table schema defined by
 the **ActivityLogEntry** class.
 
-<img src="media\image19.png" width=400  />
+<img src="Docs\media\image19.png" width=400  />
 
 The database model itself is created by the **AppOwnsDataDB** class
 which derives from **DbContext**.
 
-<img src="media\image20.png"  />
+<img src="Docs\media\image20.png"  />
 
 The **AppOwsDataShared** project contains a public class named
 **AppOwnsDataDbService** which contains all the shared logic to execute
@@ -420,7 +420,7 @@ read and write operations on the **AppOwnsDataDB** database. The
 **AppOwnsDataDB** by calling public methods in the
 **AppOwnsDataDbService** class.
 
-<img src="media\image21.png" width=800 />
+<img src="Docs\media\image21.png" width=800 />
 
 ## Set up your development environment
 
@@ -454,18 +454,18 @@ page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlad
 the Azure portal. Once you get to the **Groups** page in the Azure
 portal, click the **New group** link.
 
-<img src="media\image22.png" width=700  />
+<img src="Docs\media\image22.png" width=700  />
 
 In the **New Group** dialog, Select a **Group type** of **Security** and
 enter a **Group name** of **Power BI Apps**. Click the **Create** button
 to create the new Azure AD security group.
 
-<img src="media\image23.png" width=700  />
+<img src="Docs\media\image23.png" width=700  />
 
 Verify that you can see the new security group named **Power BI
 Apps** on the Azure portal **Groups** page.
 
-<img src="media\image24.png" width=700  />
+<img src="Docs\media\image24.png" width=700  />
 
 ### Configure Power BI tenant-level settings for service principal access
 
@@ -474,47 +474,47 @@ principals to use Power BI APIs**. Navigate to the Power BI Service
 admin portal at <https://app.powerbi.com/admin-portal>. In the Power BI
 Admin portal, click the **Tenant settings** link on the left.
 
-<img src="media\image25.png"  />
+<img src="Docs\media\image25.png"  />
 
 Move down to **Developer settings**  and expand **Allow service
 principals to use Power BI APIs** section.
 
-<img src="media\image26.png" />
+<img src="Docs\media\image26.png" />
 
 Note that the **Allow service principals to use Power BI APIs** setting
 is initially set to **Disabled**.
 
-<img src="media\image27.png"  />
+<img src="Docs\media\image27.png"  />
 
 Change the setting to **Enabled**. After that, set the **Apply
 to** setting to **Specific security groups** and add the **Power BI
 Apps** security group as shown in the screenshot below. Click
 the **Apply** button to save your configuration changes.
 
-<img src="media\image28.png"  />
+<img src="Docs\media\image28.png"  />
 
 You will see a notification indicating it might take up to 15 minutes to
 apply these changes to the organization.
 
-<img src="media\image29.png"  />
+<img src="Docs\media\image29.png"  />
 
 Now scroll upward in the **Tenant setting** section of the Power BI
 admin portal and locate **Workspace settings**.
 
-<img src="media\image30.png" width=600 />
+<img src="Docs\media\image30.png" width=600 />
 
 Note that a new Power BI tenant has an older policy where only users who
 have the permissions to create Office 365 groups can create new Power BI
 workspaces. You must reconfigure this setting so that service principals
 in the **Power BI Apps** group will be able to create new workspaces.
 
-<img src="media\image31.png" width=550  />
+<img src="Docs\media\image31.png" width=550  />
 
 In **Workspace settings**, set **Apply to** to **Specific security**
 groups, add the **Power BI Apps** security group and click
 the **Apply** button to save your changes.
 
-<img src="media\image32.png" width=550 />
+<img src="Docs\media\image32.png" width=550 />
 
 You have now completed the configuration of the required Power BI
 tenant-level settings.
@@ -525,14 +525,14 @@ Navigate to the [App
 registration](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page
 in the Azure portal and click the **New registration** link.
 
-<img src="media\image33.png"  />
+<img src="Docs\media\image33.png"  />
 
 On the **Register an application** page, enter an application name of
 **App-Owns-Data Service App** and accept the default selection
 for **Supported account types** of **Accounts in this organizational
 directory only**.
 
-<img src="media\image34.png" width=750 />
+<img src="Docs\media\image34.png" width=750 />
 
 Complete the following steps in the **Redirect URI** section.
 
@@ -540,7 +540,7 @@ Complete the following steps in the **Redirect URI** section.
 -   Enter a **Redirect URI** of <https://localhost:44300/signin-oidc>
 -   Click the **Register** button to create the new Azure AD application.
 
-<img src="media\image35.png" width=750  />
+<img src="Docs\media\image35.png" width=750  />
 
 After creating a new Azure AD application in the Azure portal, you
 should see the Azure AD application overview page which displays
@@ -550,7 +550,7 @@ to copy this Application ID and store it so you can use it later to
 configure the support acquiring app-only access tokens from Azure AD
 using for Client Credentials Flow.
 
-<img src="media\image36.png" width=700 />
+<img src="Docs\media\image36.png" width=700 />
 
 Copy the **Client ID** (aka Application ID) and paste it into a text
 document so you can use it later in the setup process. Note that
@@ -558,17 +558,17 @@ this **Client ID** value will be used by both the
 **AppOwnsDataAdmin** project and the **AppOwnsDataWebApi** project to
 configure authentication for the service principal with Azure AD.
 
-<img src="media\image37.png"  width=550 />
+<img src="Docs\media\image37.png"  width=550 />
 
 Next, repeat the same step by copying the **Tenant ID** and copying that
 into the text document as well.
 
-<img src="media\image38.png"  width=650 />
+<img src="Docs\media\image38.png"  width=650 />
 
 Your text document should now contain the **Client ID** and **Tenant
 ID** as shown in the following screenshot.
 
-<img src="media\image39.png" width=500 />
+<img src="Docs\media\image39.png" width=500 />
 
 Next, you need to create a Client Secret for the application. Click on
 the **Certificates & secrets** link in the left navigation to move to
@@ -576,36 +576,36 @@ the **Certificates & secrets** page. On the **Certificates &
 secrets** page, click the **New client secret** button as shown in the
 following screenshot.
 
-<img src="media\image40.png"  />
+<img src="Docs\media\image40.png"  />
 
 In the **Add a client secret** dialog, add a **Description** such
 as **Test Secret** and set **Expires** to any value you'd like from the
 dropdown list. Click the **Add** button to create the new Client Secret.
 
-<img src="media\image41.png" width=450 />
+<img src="Docs\media\image41.png" width=450 />
 
 Once you have created the Client Secret, you should be able to see
 its **Value** in the **Client secrets** section. Click on the **Copy to
 clipboard** button to copy the **Value** for the Client Secret into the
 clipboard.
 
-<img src="media\image42.png" width=700  />
+<img src="Docs\media\image42.png" width=700  />
 
 Paste the **Client Secret** into the same text document with
 the **Client ID** and **Tenant ID**.
 
-<img src="media\image43.png" width=500 />
+<img src="Docs\media\image43.png" width=500 />
 
 The last thing is to add the service principal for this app to Azure AD
 Security group named **Power BI Apps**.
 
-<img src="media\image44.png" width=750 />
+<img src="Docs\media\image44.png" width=750 />
 
 Navigate to the **Members** page for the **Power BI Apps** security
 group using the **Members** link in the left navigation. Add the Azure
 AD application named **App-Owns-Data Service App** as a group member.
 
-<img src="media\image45.png" />
+<img src="Docs\media\image45.png" />
 
 You have now completed the registration of the Azure AD application
 named **App-Owns-Data Service App**. This is the Azure application that
@@ -627,14 +627,14 @@ Navigate to the **[App
 registration](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)** page
 in the Azure portal and click the **New registration** link.
 
-<img src="media\image46.png"   />
+<img src="Docs\media\image46.png"   />
 
 On the **Register an application** page, enter an application name of
 **App-Owns-Data Client App** and change **Supported account
 types** to **Accounts in any organizational directory and personal
 Microsoft accounts**.
 
-<img src="media\image47.png" />
+<img src="Docs\media\image47.png" />
 
 Complete the following steps in the **Redirect URI** section.
 
@@ -642,7 +642,7 @@ Complete the following steps in the **Redirect URI** section.
 2.  Enter a **Redirect URI** of <https://localhost:44301/>.
 3.  Click the **Register** button to create the new Azure AD application.
 
-<img src="media\image48.png" />
+<img src="Docs\media\image48.png" />
 
 After creating a new Azure AD application in the Azure portal, you
 should see the Azure AD application overview page which displays
@@ -652,7 +652,7 @@ process. Note that this **Client ID** value will be used
 by **AppOwnsDataClient** project and the **AppOwnsDataWebApi** project
 to configure authentication with Azure AD.
 
-<img src="media\image49.png" width=500 />
+<img src="Docs\media\image49.png" width=500 />
 
 The **App-Owns-Data Client App** will be used to secure the API
 endpoints of **AppOwnsDataWebApi**. When creating an Azure AD
@@ -665,23 +665,23 @@ name of **Reports.Embed**.
 On the summary page for **App-Owns-Data Client App**, click the **Expose
 an API** link in the left navigation.
 
-<img src="media\image50.png"  />
+<img src="Docs\media\image50.png"  />
 
 On the **Expose an API** page, click the **Add a scope** button.
 
-<img src="media\image51.png"  />
+<img src="Docs\media\image51.png"  />
 
 On the **Add a scope** pane, you will be prompted to set an
 **Application ID URI** before you will be able to create a new scope.
 Click **Save and continue** to accept the default setting of **api://**
 followed the application ID.
 
-<img src="media\image52.png" width=600 />
+<img src="Docs\media\image52.png" width=600 />
 
 The **Add a scope** pane should now present a form to enter data for the
 new scope.
 
-<img src="media\image53.png" width=500 />
+<img src="Docs\media\image53.png" width=500 />
 
 Fill out the data in the **App a scope** pane using these steps.
 
@@ -690,14 +690,14 @@ Fill out the data in the **App a scope** pane using these steps.
 3.  Fill in all display names and descriptions using the text shown in the following screenshot.
 4.  Click the **Add scope** button.
 
-<img src="media\image54.png" />
+<img src="Docs\media\image54.png" />
 
 You should now see the new scopes in the **Scopes defined by this API**
 section. If you copy the scope value to the clipboard, you will see that
 is created in the format of
 **api://\[ApplicationID\]/Reports.Embed**.
 
-<img src="media\image55.png" style="width:4.73089in;height:1.43558in" />
+<img src="Docs\media\image55.png" style="width:4.73089in;height:1.43558in" />
 
 ## Open the App-Owns-Data Starter Kit solution in Visual Studio 2019
 
@@ -725,13 +725,13 @@ On the home page for this GitHub repository is the **Code** dropdown
 menu which provides a few options for downloading the source files to
 your local machine.
 
-<img src="media\image56.png" />
+<img src="Docs\media\image56.png" />
 
 You can download the **App-Owns-Data Starter Kit** project source files
 in a single ZIP archive using **[this
 link](https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit/archive/refs/heads/main.zip)**.
 
-<img src="media\image57.png" />
+<img src="Docs\media\image57.png" />
 
 If you are familiar with the **git** utility, you can clone the project
 source files to your local developer workstation using the
@@ -749,7 +749,7 @@ contains folders for four projects named **AppOwnsDataAdmin**,
 You can open the Visual Studio solution containing all four projects by
 double-clicking the solution file named **AppOwnsDataStarterKit.sln**.
 
-<img src="media\image58.png" />
+<img src="Docs\media\image58.png" />
 
 ### Open AppOwnsDataStarterKit.sln in Visual Studio 2019
 
@@ -759,7 +759,7 @@ named **AppOwnsDataStarterKit.sln**. You should see the four projects
 named **AppOwnsDataAdmin**, **AppOwnsDataClient**, **AppOwnsDataShared**
 and **AppOwnsDataWebApi**.
 
-<img src="media\image59.png"  />
+<img src="Docs\media\image59.png"  />
 
 Here is a brief description of each of these projects.
 
@@ -776,14 +776,14 @@ the **appsettings.json** file. Open **appsettings.json** and examine the
 JSON content inside. There is four important sections
 named **AzureAd**, **PowerBi, AppOwnsDataDB** and **DemoSettings**.
 
-<img src="media\image60.png" />
+<img src="Docs\media\image60.png" />
 
 Inside the **AzureAd** section, update
 the **TenantId**, **ClientId** and **ClientSecret** with the data you
 collected when creating the Azure AD application named **App-Owns-Data
 Service App.**
 
-<img src="media\image61.png" width=500 />
+<img src="Docs\media\image61.png" width=500 />
 
 The **PowerBi** section contains a property named **ServiceRootUrl**.
 You do not have to modify this value if you are using Power BI in the
@@ -797,7 +797,7 @@ of **(localdb)\\\\MSSQLLocalDB**. You can change this connection string
 to a different SQL Server instance if you'd rather create the project
 database named **AppOwnsDataDB** in a different location.
 
-<img src="media\image62.png"  />
+<img src="Docs\media\image62.png"  />
 
 In the **DemoSettings** section there is a property named **AdminUser**.
 The reason that this property exists has to do with you being able to
@@ -812,7 +812,7 @@ Update the **AdminUser** setting with the Azure AD account name you're
 using in your test environment so that you will be able to see all the
 Power BI workspaces created by the **AppOwnsDataAdmin** application.
 
-<img src="media\image63.png" width=500   />
+<img src="Docs\media\image63.png" width=500   />
 
 ### Create the **AppOwnsDataDB** database
 
@@ -825,12 +825,12 @@ the database.
 Open the Package Manager console using **Tools &gt; NuGet Package
 Manager &gt; Package Manager Console**.
 
-<img src="media\image64.png"  />
+<img src="Docs\media\image64.png"  />
 
 You should see the **Package Manager Console** where you can type and
 execute PowerShell commands.
 
-<img src="media\image65.png"  />
+<img src="Docs\media\image65.png"  />
 
 Next, you must configure the **AppOwnsDataAdmin** project as the
 solution's startup project so the Entity Framework can retrieve the
@@ -838,12 +838,12 @@ database connection string from that project's **appsettings.json**
 file. You can accomplish that by right-clicking the **AppOwnsDataAdmin**
 project and selecting **Set as Start Project**.
 
-<img src="media\image66.png" width=400 />
+<img src="Docs\media\image66.png" width=400 />
 
 Inside the **Package Manager Console** window, set the **Default
 project** to **AppOwnsDataShared**.
 
-<img src="media\image67.png" />
+<img src="Docs\media\image67.png" />
 
 Type and execute the following **Add-Migration** command to create a new
 migration in the project.
@@ -856,7 +856,7 @@ The **Add-Migration** command should run without errors. If this command
 fails you might have to modify the database connection string
 in **appsettings.json**.
 
-<img src="media\image68.png" width=650  />
+<img src="Docs\media\image68.png" width=650  />
 
 After running the **Add-Migration** command, you will see a new folder
 has been automatically created in the **AppOwnsDataShared** project
@@ -864,7 +864,7 @@ named **Migrations** with several C\# source files. There is no need to
 change anything in these source files but you can inspect what's inside
 them if you are curious how the Entity Framework Core does its work.
 
-<img src="media\image69.png" width=750 />
+<img src="Docs\media\image69.png" width=750 />
 
 Return to the **Package Manager Console** and run the
 following **Update-Database** command to generate the database
@@ -877,24 +877,24 @@ Update-Database
 The **Update-Database** command should run without errors and generate
 the **AppOwnsDataDB** database.
 
-<img src="media\image70.png" width=600 />
+<img src="Docs\media\image70.png" width=600 />
 
 In Visual Studio, you can use the **SQL Server Object Explorer** to see
 the database that has just been created. Open the **SQL Server Object
 Explorer** by invoking the **View &gt;** **SQL Server Object
 Explorer** menu command.
 
-<img src="media\image71.png" width=450  />
+<img src="Docs\media\image71.png" width=450  />
 
 Expand the **Databases** node for the server you're using and verify you
 see the **AppOwnsDataDB** database.
 
-<img src="media\image72.png" width=350 />
+<img src="Docs\media\image72.png" width=350 />
 
 If you expand the **Tables** node, you should see the three tables
 named **ActivityLog**, **Tenants** and **Users**.
 
-<img src="media\image73.png" width=400 />
+<img src="Docs\media\image73.png" width=400 />
 
 With **AppOwnsDataDB** set up, you're ready to run and test
 **AppOwnsDataAdmin** in Visual Studio 2019.
@@ -906,36 +906,36 @@ debugger by pressing the **{F5}** key or by clicking the Visual
 Studio **Play** button with the green arrow and the caption **IIS
 Express**.
 
-<img src="media\image74.png"  />
+<img src="Docs\media\image74.png"  />
 
 When the application starts, click the **Sign in** link in the upper
 right corner to begin the user login sequence.
 
-<img src="media\image75.png"  />
+<img src="Docs\media\image75.png"  />
 
 The first time you authenticate with Azure AD, you'll be prompted with
 the **Permissions requested** dialog asking you to accept the
 **Permissions requested** by the application. Click
 the **Accept** button to grant these permissions and continue.
 
-<img src="media\image76.png" width=350 />
+<img src="Docs\media\image76.png" width=350 />
 
 Once you have logged in, you should see your name in the welcome
 message.
 
-<img src="media\image77.png"  />
+<img src="Docs\media\image77.png"  />
 
 ### Create new customer tenants
 
 Start by creating a few new customer tenants. Click the **Tenants** link
 to navigate to the **Tenants** page.
 
-<img src="media\image78.png"  />
+<img src="Docs\media\image78.png"  />
 
 Click the **Onboard New Tenant** button to display the **Onboard New
 Tenant** page.
 
-<img src="media\image79.png"  />
+<img src="Docs\media\image79.png"  />
 
 When you open the **Onboard New Tenant** page, it will automatically
 populate the **Tenant Name** textbox with a value of **Tenant01**. You
@@ -943,23 +943,23 @@ can create the first tenant using the default value for **Tenant Name**
 or supply a different name. Click the **Create New Tenant** button to
 begin the process of creating a new customer tenant.
 
-<img src="media\image80.png" width=800 />
+<img src="Docs\media\image80.png" width=800 />
 
 After a few seconds, you should see the new customer tenant has been
 created.
 
-<img src="media\image81.png"  />
+<img src="Docs\media\image81.png"  />
 
 Click the **Onboard New Tenant** button again to create a second tenant.
 This time, select a different database for **Database Name** and then
 click **Create New Tenant**.
 
-<img src="media\image82.png" width=700  />
+<img src="Docs\media\image82.png" width=700  />
 
 You should now have two customer tenants. Note they each tenant has its
 own unique workspace ID.
 
-<img src="media\image83.png" />
+<img src="Docs\media\image83.png" />
 
 Now let's review what's going on behind the scenes whenever you create a
 new customer tenant. The **AppOwnsDataAdmin** application uses the Power
@@ -980,21 +980,21 @@ The **AppOwnsDataAdmin** application also creates a new record in
 the **Tenants** table of the **AppOwnsDataDB** database to track the
 relevant data associated with each customer tenant.
 
-<img src="media\image84.png" width=100% />
+<img src="Docs\media\image84.png" width=100% />
 
 Click on the **View** button for a tenant on the **Power BI
 Tenants** page to drill into the **Tenant Details** page.
 
-<img src="media\image85.png" width=750 />
+<img src="Docs\media\image85.png" width=750 />
 
 The **Tenant Details** page displays Power BI workspace details
 including its members, datasets and reports.
 
-<img src="media\image86.png"  width=850 />
+<img src="Docs\media\image86.png"  width=850 />
 
 Click on the back arrow to return to the **Power BI Tenants** page.
 
-<img src="media\image87.png" width=320 />
+<img src="Docs\media\image87.png" width=320 />
 
 ### Understanding the PBIX template file named SalesReportTemplate.pbix
 
@@ -1004,7 +1004,7 @@ creates the **Sales** dataset and the **Sales** report. This template
 file is included as part of the **AppOwnsDataAdmin** project inside the
 **wwwroot** folder at a path of **/PBIX/SalesReportTemplate.pbix**.
 
-<img src="media\image88.png" width=440 />
+<img src="Docs\media\image88.png" width=440 />
 
 If you're interested in how this template file has been created, you can
 open it in Power BI Desktop. You will see there are three tables in the
@@ -1013,7 +1013,7 @@ named **Customers** and **Sales** are populated by importing and
 refreshing data from SQL Server databases that share a common table
 schema.
 
-<img src="media\image89.png" width=850 />
+<img src="Docs\media\image89.png" width=850 />
 
 It's important to understand how this PBIX template allows the developer
 to update the database server and database name after the import
@@ -1021,12 +1021,12 @@ operation has created the **Sales** dataset in the Power BI Service.
 Click **Transform Data** to open the **Power Query Editor** window and
 then click the **Manage Parameters** button.
 
-<img src="media\image90.png" />
+<img src="Docs\media\image90.png" />
 
 In the **Manage Parameters** window, you should two **Text** parameters
 named **DatabaseServer** and **DatabaseName**.
 
-<img src="media\image91.png" width=450 />
+<img src="Docs\media\image91.png" width=450 />
 
 Click **Cancel** to close the **Manage Parameters** window and return to
 the **Power Query Editor** window.
@@ -1036,29 +1036,29 @@ Select the **Customers** query in the **Queries** list and click
 window. You should see that the call to **Sql.Database** uses the
 parameters values instead of hard-coded values.
 
-<img src="media\image92.png" width=850 />
+<img src="Docs\media\image92.png" width=850 />
 
 If you inspect the **OnboardNewTenant** method in the source file named
 [**PowerBiServiceApi.cs**](https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit/blob/main/AppOwnsDataAdmin/Services/PowerBiServiceApi.cs),
 you will find this code which updates these two parameters using the
 support in the Power BI .NET SDK.
 
-<img src="media\image93.png" width=650 />
+<img src="Docs\media\image93.png" width=650 />
 
 Close the Power Query Editor window and return to the main Power BI
 Desktop window. Have a look at the report.
 
-<img src="media\image94.png"  />
+<img src="Docs\media\image94.png"  />
 
 Now navigate to the **View** tab in the ribbon and click the **Mobile
 layout** button to see the report's mobile view.
 
-<img src="media\image95.png" width=600 />
+<img src="Docs\media\image95.png" width=600 />
 
 You should see that this report has been designed with a mobile view in
 addition to the standard master view.
 
-<img src="media\image96.png"  />
+<img src="Docs\media\image96.png"  />
 
 You can now close Power BI Desktop and move back to the
 **AppOwnsDataAdmin** application.
@@ -1069,12 +1069,12 @@ Now it's time to make use of the **AppOwnsDataAdmin** application's
 ability to embed reports. Click the **Embed** button for a customer
 tenant to navigate to the **Embed** page and view the **Sales** report.
 
-<img src="media\image97.png"  />
+<img src="Docs\media\image97.png"  />
 
 You should now see a page with an embedded report for that tenant. Click
 on the back arrow button to return to the **Tenants** page.
 
-<img src="media\image98.png"  />
+<img src="Docs\media\image98.png"  />
 
 Now test clicking the **Embed** button for other customer tenants. The
 **AppOwnsDataAdmin** application has the ability to embed the **Sales**
@@ -1088,15 +1088,15 @@ at [**https://app.powerbi.com**](https://app.powerbi.com/). You should
 be able to see and navigate to any of the Power BI workspaces that have
 been created by the **AppOwnsDataAdmin** application.
 
-<img src="media\image99.png" width=400 />
+<img src="Docs\media\image99.png" width=400 />
 
 Navigate to one of these workspaces such as **Tenant01**.
 
-<img src="media\image100.png" width=720 />
+<img src="Docs\media\image100.png" width=720 />
 
 Drill into the **Setting** page for the dataset named **Sales**.
 
-<img src="media\image101.png" width=560 />
+<img src="Docs\media\image101.png" width=560 />
 
 You should be able to verify that the **Sales** dataset has been
 configured by the **App-Owns-Data Service App**. You should also be able
@@ -1104,7 +1104,7 @@ to see the **Last refresh succeeded** message for the dataset refresh
 operation that was started by the **AppOwnsDataAdmin** as part of its
 tenant onboarding logic.
 
-<img src="media\image102.png" width=100% />
+<img src="Docs\media\image102.png" width=100% />
 
 ## Test the AppOwnsDataClient application
 
@@ -1123,20 +1123,20 @@ inside. There are four important sections
 named **ClientApp**, **ServicePrincipalApp**, **PowerBi** and
 **AppOwnsDataDB**.
 
-<img src="media\image103.png"  />
+<img src="Docs\media\image103.png"  />
 
 Inside the **ClientApp** section, update the update the
 **ClientId** with the data you collected when creating the Azure AD
 application named **App-Owns-Data Client App.**
 
-<img src="media\image104.png"  />
+<img src="Docs\media\image104.png"  />
 
 Inside the **ServicePrincipalApp** section, update
 the **TenantId**, **ClientId** and **ClientSecret** with the data you
 collected when creating the Azure AD application named **App-Owns-Data
 Service App.**
 
-<img src="media\image105.png"  />
+<img src="Docs\media\image105.png"  />
 
 There is no need to update the **PowerBi** section as long as your are
 using Power BI in the public cloud. If you are using Power BI in one of
@@ -1151,7 +1151,7 @@ string used in the **appsettings.json** file in the **AppOwnsDataAdmin**
 application. Obviously, it's important for both these applications to
 read and write from the same database instance.
 
-<img src="media\image62.png"  />
+<img src="Docs\media\image62.png"  />
 
 Save your changes and close the **appsettings.json** file in the
 **AppOwnsDataWebApi** project.
@@ -1161,12 +1161,12 @@ Save your changes and close the **appsettings.json** file in the
 In the **AppOwnsDataClient** project, expand the **App** folder and open
 the **appSettings.ts** file
 
-<img src="media\image106.png"  />
+<img src="Docs\media\image106.png"  />
 
 Update the **ClientId** with the Client ID of the Azure AD application
 named **App-Owns-Data Client App.**
 
-<img src="media\image107.png" width=550 />
+<img src="Docs\media\image107.png" width=550 />
 
 Save your changes and close **appSettings.ts**.
 
@@ -1178,21 +1178,21 @@ the project, double-click on the **AppOwnsDataClient** node in the
 solution explorer to open the project file named
 **AppOwnsDataClient.csproj**.
 
-<img src="media\image108.png" width=100% />
+<img src="Docs\media\image108.png" width=100% />
 
 There is an XML element in **AppOwnsDataClient.csproj** which defines a
 post build event that calls the Node.js commands **npm install** and
 **npm run build**. For this reason, you must install Node.js before you
 can build the project.
 
-<img src="media\image109.png" width=450 />
+<img src="Docs\media\image109.png" width=450 />
 
 If you haven't installed node.js, install it now [from
 here](https://nodejs.org/en/download/). Once Node.js has been installed,
 right-click the **AppOwnsDataClient** solution in the Solution Explorer
 and select the **Rebuild** command
 
-<img src="media\image110.png" width=525  />
+<img src="Docs\media\image110.png" width=525  />
 
 When Visual Studio runs the build process, you should be able to watch
 the **Output** window and see output messages indicating that the **npm
@@ -1201,12 +1201,12 @@ triggered the **webpack** utility to compile all the Typescript code in
 the project into a single JavaScript file for distribution named
 **bundle.js**.
 
-<img src="media\image111.png" width=100% />
+<img src="Docs\media\image111.png" width=100% />
 
 The build process should generate a new copy of **bundle.js** in the
 project at a path of **wwwroot/js**.
 
-<img src="media\image112.png" width=300 />
+<img src="Docs\media\image112.png" width=300 />
 
 ### Launch AppOwnsDataClient in the Visual Studio debugger
 
@@ -1217,49 +1217,49 @@ application at the same time so you can properly test the application's
 functionality. Right-click on the **AppOwnsDataStarterKit** solution
 node in the Solution Explorer and select the **Properties** command.
 
-<img src="media\image113.png"  />
+<img src="Docs\media\image113.png"  />
 
 On the **Setup Project** page, select the option for **Multiple startup
 projects** and configure an **Action** of **Start** for
 **AppOwnsDataWebApi**, **AppOwnsDataAdmin** and **AppOwnsDataClient** as
 shown in the following screenshot.
 
-<img src="media\image114.png"  />
+<img src="Docs\media\image114.png"  />
 
 Launch the solution in the Visual Studio debugger by pressing
 the **{F5}** key or by clicking the Visual Studio **Play** button with
 the green arrow.
 
-<img src="media\image115.png"  />
+<img src="Docs\media\image115.png"  />
 
 When the solution starts in the Visual Studio debugger, you should see
 one browser session for **AppOwnsDataAdmin** at
 <https://localhost:44300> and a second browser session for
 **AppOwnsDataClient** at <https://localhost:44301>.
 
-<img src="media\image116.png"  />
+<img src="Docs\media\image116.png"  />
 
 Sign into the **AppOwnsDataClient** application by clicking the
 **Login** link.
 
-<img src="media\image117.png"  />
+<img src="Docs\media\image117.png"  />
 
 Sign into the **AppOwnsDataClient** application using any Microsoft
 organization account or Microsoft personal account.
 
-<img src="media\image118.png"  />
+<img src="Docs\media\image118.png"  />
 
 After authenticating with your user name and password, you'll be
 prompted with the **Permissions requested** dialog. Click the **Accept**
 button to continue.
 
-<img src="media\image119.png" width=360 />
+<img src="Docs\media\image119.png" width=360 />
 
 After logging in you should see a web page like the one in the following
 screenshot inducing that the current user has not been assigned to a
 customer tenant.
 
-<img src="media\image120.png"  />
+<img src="Docs\media\image120.png"  />
 
 At this point, you have logged in with a user account that has not yet
 been assigned to a customer tenant. Consequently, you cannot see any
@@ -1275,39 +1275,39 @@ application and navigate to the **Users** page. You should see that the
 user account you used to log into **AppOwnsDataClient** is currently
 **unassigned**.
 
-<img src="media\image121.png"  />
+<img src="Docs\media\image121.png"  />
 
 Click the **Edit** button to open the **Edit User** page for this user
 account.
 
-<img src="media\image122.png"  />
+<img src="Docs\media\image122.png"  />
 
 On the **Edit User** page, drop down the **Home Tenant** options menu
 and select an available tenant.
 
-<img src="media\image123.png"  />
+<img src="Docs\media\image123.png"  />
 
 Once you have selected a tenant such as **Tenant01**, click the **Save**
 button to save your changes.
 
-<img src="media\image124.png"  />
+<img src="Docs\media\image124.png"  />
 
 You should be able to verify that this user account has been assigned to
 an existing tenant.
 
-<img src="media\image125.png"  />
+<img src="Docs\media\image125.png"  />
 
 Return to the browser session running the **AppOwnsDataClient**
 application and refresh the page. When the page refreshes, you should
 see the **Sales** report has been successfully embedded in the browser
 
-<img src="media\image126.png"  />
+<img src="Docs\media\image126.png"  />
 
 Adjust the size of the browser window to make it more narrow. Once the
 browser window width is small enough, the report should begin to render
 using the mobile view.
 
-<img src="media\image127.png" width=300 />
+<img src="Docs\media\image127.png" width=300 />
 
 ### Create and edit reports using the AppOwnsDataClient application
 
@@ -1319,12 +1319,12 @@ application and navigate to the **Users** page. Click the **Edit**
 button to open the **Edit User** page for your user account. Check the
 **Can Edit** checkbox and click **Save**.
 
-<img src="media\image128.png"  />
+<img src="Docs\media\image128.png"  />
 
 You should be able to verify that **Can Edit** property for your user
 account has been set to **True**.
 
-<img src="media\image129.png"  />
+<img src="Docs\media\image129.png"  />
 
 Return to the browser session running the **AppOwnsDataClient**
 application and refresh the page. When the application initializes, it
@@ -1332,16 +1332,16 @@ should automatically embed the **Sales** report and display the **Toggle
 Edit Mode** button. Move the report into edit mode by clicking the
 **Toggle Edit Mode** button.
 
-<img src="media\image130.png"  />
+<img src="Docs\media\image130.png"  />
 
 Make a simple customization to the report such as changing the **Default
 color** for the bar chart.
 
-<img src="media\image131.png"  />
+<img src="Docs\media\image131.png"  />
 
 Save your changes by invoking the **File &gt; Save** menu command.
 
-<img src="media\image132.png"  />
+<img src="Docs\media\image132.png"  />
 
 You've now seen how to configure edit permissions for users and you've
 tested the authoring experience for customizing a report in the browser.
@@ -1354,12 +1354,12 @@ application and navigate to the **Users** page. Click the **Edit**
 button to open the **Edit User** page for your user account. Check the
 **Can Create** checkbox and click **Save**.
 
-<img src="media\image133.png" width=650 />
+<img src="Docs\media\image133.png" width=650 />
 
 You should be able to verify that the **Can Create** property for your
 user account has been set to **True**.
 
-<img src="media\image134.png"  />
+<img src="Docs\media\image134.png"  />
 
 Return to the browser session running the **AppOwnsDataClient**
 application and refresh the page. Now when the application initializes,
@@ -1367,34 +1367,34 @@ it should display a **Create Report** section in the left navigation.
 Click on the **Sales** dataset link in the **Create Report** section in
 the left navigation to create a new report.
 
-<img src="media\image135.png"  />
+<img src="Docs\media\image135.png"  />
 
 You should now see the Power BI report designer with a new report built
 on the **Sales** dataset. Click the **Full Screen** button to move to
 full-screen mode where it will be easier to build a new report**.**
 
-<img src="media\image136.png" width=100% />
+<img src="Docs\media\image136.png" width=100% />
 
 When in full-screen mode, create a simple report layout using whatever
 visuals you'd like.
 
-<img src="media\image137.png" width=100% />
+<img src="Docs\media\image137.png" width=100% />
 
 Once you have created a simple report, press the **Esc** key to get out
 of full screen mode. Now click the **File &gt; Save As** menu command to
 save the report back to the customer tenant workspace.
 
-<img src="media\image138.png"  />
+<img src="Docs\media\image138.png"  />
 
 In the **Save your repot** dialog, enter a name such as **Sales by Year
 and Quarter** and click the **Save** button.
 
-<img src="media\image139.png"  />
+<img src="Docs\media\image139.png"  />
 
 After saving the report, you should see in the left navigation and the
 application breadcrumb are updated appropriately.
 
-<img src="media\image140.png"  />
+<img src="Docs\media\image140.png"  />
 
 You have now seen how to configure user permissions for viewing, editing
 and creating content.
@@ -1413,7 +1413,7 @@ You can run a simple SQL query against the of the raw data in the
 **ActivityLog** table to get a sense of the type of data that is being
 stored in an **ActivityLog** record.
 
-<img src="media\image141.png" />
+<img src="Docs\media\image141.png" />
 
 ### Inspect usage and performance data using AppOwsDataUsageReporting.pbix
 
@@ -1430,7 +1430,7 @@ values such as **ViewReport**, **EditReport**, **CreateReport** and
 **CopyReport**. There's also a slicer providing the ability to filter
 events for a specific user.
 
-<img src="media\image142.png"  />
+<img src="Docs\media\image142.png"  />
 
 You will notice that each record with an **Activity** value of
 **ViewReport** includes numeric values for the columns named
@@ -1449,7 +1449,7 @@ handlers for the report's **loaded** event and **rendered** event which
 measure the duration of how long it took to complete the loading and
 rendering of the report.
 
-<img src="media\image143.png"  />
+<img src="Docs\media\image143.png"  />
 
 Note that the **loaded** event executes a single time when you embed a
 report. However, the **rendered** event can execute more than once such
@@ -1465,7 +1465,7 @@ which allow you to monitor the performance of report loading and
 rendering across all tenants in a multi-tenant environment. For example,
 navigate to the **Slow Reports** page to see an example.
 
-<img src="media\image144.png" width=450 />
+<img src="Docs\media\image144.png" width=450 />
 
 The **Slow Reports** page contains a table visual which displays the
 average load time and average render time for any report that has been
@@ -1474,7 +1474,7 @@ with the longest render durations appear at the top and provide the
 ability to see which reports need attention to make them more
 performant.
 
-<img src="media\image145.png"  />
+<img src="Docs\media\image145.png"  />
 
 ## Next Steps
 
