@@ -809,7 +809,7 @@ project** to **AppOwnsDataShared**.
 Type and execute the following **Add-Migration** command to create a new
 migration in the project.
 
-```shell
+```powershell
 Add-Migration InitialCreate
 ```
 
