@@ -1315,7 +1315,7 @@ application and navigate to the **Users** page. Click the **Edit**
 button to open the **Edit User** page for your user account. Check the
 **Can Create** checkbox and click **Save**.
 
-<img src="media\image133.png" width=500 />
+<img src="media\image133.png" width=650 />
 
 You should be able to verify that the **Can Create** property for your
 user account has been set to **True**.
