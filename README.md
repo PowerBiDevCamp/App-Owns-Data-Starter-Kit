@@ -529,7 +529,7 @@ into the text document as well.
 Your text document should now contain the **Client ID** and **Tenant
 ID** as shown in the following screenshot.
 
-<img src="media\image39.png" width=600 />
+<img src="media\image39.png" width=500 />
 
 Next, you need to create a Client Secret for the application. Click on
 the **Certificates & secrets** link in the left navigation to move to
