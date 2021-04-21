@@ -462,7 +462,7 @@ apply these changes to the organization.
 Now scroll upward in the **Tenant setting** section of the Power BI
 admin portal and locate **Workspace settings**.
 
-<img src="media\image30.png" width=700 />
+<img src="media\image30.png" width=600 />
 
 Note that a new Power BI tenant has an older policy where only users who
 have the permissions to create Office 365 groups can create new Power BI
