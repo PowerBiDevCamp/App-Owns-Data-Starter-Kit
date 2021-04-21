@@ -637,12 +637,12 @@ On the **Add a scope** pane, you will be prompted to set an
 Click **Save and continue** to accept the default setting of **api://**
 followed the application ID.
 
-<img src="media\image52.png" width=500 />
+<img src="media\image52.png" width=600 />
 
 The **Add a scope** pane should now present a form to enter data for the
 new scope.
 
-<img src="media\image53.png" width=650 />
+<img src="media\image53.png" width=600 />
 
 Fill out the data in the **App a scope** pane using these steps.
 
