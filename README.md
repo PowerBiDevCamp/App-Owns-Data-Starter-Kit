@@ -642,17 +642,13 @@ followed the application ID.
 The **Add a scope** pane should now present a form to enter data for the
 new scope.
 
-<img src="media\image53.png" style="width:2.66871in;height:1.6409in" />
+<img src="media\image53.png" width=650 />
 
 Fill out the data in the **App a scope** pane using these steps.
 
 1.  Add a **Scope name** of **Reports.Embed**.
-
 2.  For the **Who can consent** setting, select **Admins and users**.
-
-3.  Fill in all display names and descriptions using the text shown in
-    the following screenshot.
-
+3.  Fill in all display names and descriptions using the text shown in the following screenshot.
 4.  Click the **Add scope** button.
 
 <img src="media\image54.png" style="width:2.6135in;height:2.37676in" />
