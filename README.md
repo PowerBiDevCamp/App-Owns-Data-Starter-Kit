@@ -613,7 +613,7 @@ process. Note that this **Client ID** value will be used
 by **AppOwnsDataClient** project and the **AppOwnsDataWebApi** project
 to configure authentication with Azure AD.
 
-<img src="media\image49.png" style="width:1.72492in;height:1.35714in" />
+<img src="media\image49.png" width=500 />
 
 The **App-Owns-Data Client App** will be used to secure the API
 endpoints of **AppOwnsDataWebApi**. When creating an Azure AD
