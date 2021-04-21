@@ -1178,43 +1178,43 @@ application at the same time so you can properly test the application's
 functionality. Right-click on the **AppOwnsDataStarterKit** solution
 node in the Solution Explorer and select the **Properties** command.
 
-<img src="media\image113.png" style="width:2.52884in;height:1.61635in" />
+<img src="media\image113.png"  />
 
 On the **Setup Project** page, select the option for **Multiple startup
 projects** and configure an **Action** of **Start** for
 **AppOwnsDataWebApi**, **AppOwnsDataAdmin** and **AppOwnsDataClient** as
 shown in the following screenshot.
 
-<img src="media\image114.png" style="width:2.70692in;height:1.8805in" />
+<img src="media\image114.png"  />
 
 Launch the solution in the Visual Studio debugger by pressing
 the **{F5}** key or by clicking the Visual Studio **Play** button with
 the green arrow.
 
-<img src="media\image115.png" style="width:5.60377in;height:1.36783in" />
+<img src="media\image115.png"  />
 
 When the solution starts in the Visual Studio debugger, you should see
 one browser session for **AppOwnsDataAdmin** at
 <https://localhost:44300> and a second browser session for
 **AppOwnsDataClient** at <https://localhost:44301>.
 
-<img src="media\image116.png" style="width:5.66038in;height:1.63522in" />
+<img src="media\image116.png"  />
 
 Sign into the **AppOwnsDataClient** application by clicking the
 **Login** link.
 
-<img src="media\image117.png" style="width:4.85535in;height:1.48998in" />
+<img src="media\image117.png"  />
 
 Sign into the **AppOwnsDataClient** application using any Microsoft
 organization account or Microsoft personal account.
 
-<img src="media\image118.png" style="width:4.84277in;height:1.50307in" />
+<img src="media\image118.png"  />
 
 After authenticating with your user name and password, you'll be
 prompted with the **Permissions requested** dialog. Click the **Accept**
 button to continue.
 
-<img src="media\image119.png" style="width:1.9457in;height:2.23899in" />
+<img src="media\image119.png" width=400 />
 
 After logging in you should see a web page like the one in the following
 screenshot inducing that the current user has not been assigned to a
