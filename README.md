@@ -1280,12 +1280,12 @@ application and navigate to the **Users** page. Click the **Edit**
 button to open the **Edit User** page for your user account. Check the
 **Can Edit** checkbox and click **Save**.
 
-<img src="media\image128.png" style="width:4.02516in;height:1.62506in" />
+<img src="media\image128.png"  />
 
 You should be able to verify that **Can Edit** property for your user
 account has been set to **True**.
 
-<img src="media\image129.png" style="width:4.7673in;height:0.90599in" />
+<img src="media\image129.png"  />
 
 Return to the browser session running the **AppOwnsDataClient**
 application and refresh the page. When the application initializes, it
@@ -1293,16 +1293,16 @@ should automatically embed the **Sales** report and display the **Toggle
 Edit Mode** button. Move the report into edit mode by clicking the
 **Toggle Edit Mode** button.
 
-<img src="media\image130.png" style="width:5.89978in;height:1.41429in" />
+<img src="media\image130.png"  />
 
 Make a simple customization to the report such as changing the **Default
 color** for the bar chart.
 
-<img src="media\image131.png" style="width:3.95598in;height:1.99411in" />
+<img src="media\image131.png"  />
 
 Save your changes by invoking the **File &gt; Save** menu command.
 
-<img src="media\image132.png" style="width:4.95294in;height:1.49686in" />
+<img src="media\image132.png"  />
 
 You've now seen how to configure edit permissions for users and you've
 tested the authoring experience for customizing a report in the browser.
@@ -1315,7 +1315,7 @@ application and navigate to the **Users** page. Click the **Edit**
 button to open the **Edit User** page for your user account. Check the
 **Can Create** checkbox and click **Save**.
 
-<img src="media\image133.png" style="width:4.38859in;height:1.83648in" />
+<img src="media\image133.png" width=500 />
 
 You should be able to verify that the **Can Create** property for your
 user account has been set to **True**.
