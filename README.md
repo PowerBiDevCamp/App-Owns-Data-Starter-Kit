@@ -1049,7 +1049,7 @@ at [**https://app.powerbi.com**](https://app.powerbi.com/). You should
 be able to see and navigate to any of the Power BI workspaces that have
 been created by the **AppOwnsDataAdmin** application.
 
-<img src="media\image99.png" style="width:1.74286in;height:1.69798in" />
+<img src="media\image99.png" width=500 />
 
 Navigate to one of these workspaces such as **Tenant01**.
 
