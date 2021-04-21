@@ -1127,7 +1127,7 @@ the **appSettings.ts** file
 Update the **ClientId** with the Client ID of the Azure AD application
 named **App-Owns-Data Client App.**
 
-<img src="media\image107.png" width=600 />
+<img src="media\image107.png" width=550 />
 
 Save your changes and close **appSettings.ts**.
 
@@ -1146,14 +1146,14 @@ post build event that calls the Node.js commands **npm install** and
 **npm run build**. For this reason, you must install Node.js before you
 can build the project.
 
-<img src="media\image109.png"  />
+<img src="media\image109.png" width=500 />
 
 If you haven't installed node.js, install it now [from
 here](https://nodejs.org/en/download/). Once Node.js has been installed,
 right-click the **AppOwnsDataClient** solution in the Solution Explorer
 and select the **Rebuild** command
 
-<img src="media\image110.png" style="width:2.99371in;height:1.02196in" />
+<img src="media\image110.png"  />
 
 When Visual Studio runs the build process, you should be able to watch
 the **Output** window and see output messages indicating that the **npm
