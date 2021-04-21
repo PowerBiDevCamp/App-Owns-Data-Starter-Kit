@@ -1053,7 +1053,7 @@ been created by the **AppOwnsDataAdmin** application.
 
 Navigate to one of these workspaces such as **Tenant01**.
 
-<img src="media\image100.png" width=500 />
+<img src="media\image100.png" width=720 />
 
 Drill into the **Setting** page for the dataset named **Sales**.
 
