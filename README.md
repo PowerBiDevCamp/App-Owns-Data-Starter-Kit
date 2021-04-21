@@ -1153,7 +1153,7 @@ here](https://nodejs.org/en/download/). Once Node.js has been installed,
 right-click the **AppOwnsDataClient** solution in the Solution Explorer
 and select the **Rebuild** command
 
-<img src="media\image110.png"  />
+<img src="media\image110.png" width=450  />
 
 When Visual Studio runs the build process, you should be able to watch
 the **Output** window and see output messages indicating that the **npm
@@ -1162,7 +1162,7 @@ triggered the **webpack** utility to compile all the Typescript code in
 the project into a single JavaScript file for distribution named
 **bundle.js**.
 
-<img src="media\image111.png" style="width:5.0597in;height:2.33911in" />
+<img src="media\image111.png" width=100% />
 
 The build process should generate a new copy of **bundle.js** in the
 project at a path of **wwwroot/js**.
