@@ -1214,13 +1214,13 @@ After authenticating with your user name and password, you'll be
 prompted with the **Permissions requested** dialog. Click the **Accept**
 button to continue.
 
-<img src="media\image119.png" width=400 />
+<img src="media\image119.png" width=300 />
 
 After logging in you should see a web page like the one in the following
 screenshot inducing that the current user has not been assigned to a
 customer tenant.
 
-<img src="media\image120.png" style="width:5.69595in;height:1.5849in" />
+<img src="media\image120.png"  />
 
 At this point, you have logged in with a user account that has not yet
 been assigned to a customer tenant. Consequently, you cannot see any
