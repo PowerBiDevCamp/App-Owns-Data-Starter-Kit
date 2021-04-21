@@ -1268,7 +1268,7 @@ Adjust the size of the browser window to make it more narrow. Once the
 browser window width is small enough, the report should begin to render
 using the mobile view.
 
-<img src="media\image127.png" width=350 />
+<img src="media\image127.png" width=300 />
 
 ### Create and edit reports using the AppOwnsDataClient application
 
