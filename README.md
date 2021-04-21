@@ -1146,7 +1146,7 @@ post build event that calls the Node.js commands **npm install** and
 **npm run build**. For this reason, you must install Node.js before you
 can build the project.
 
-<img src="media\image109.png" width=500 />
+<img src="media\image109.png" width=450 />
 
 If you haven't installed node.js, install it now [from
 here](https://nodejs.org/en/download/). Once Node.js has been installed,
