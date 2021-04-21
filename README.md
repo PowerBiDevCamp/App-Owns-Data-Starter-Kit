@@ -941,7 +941,7 @@ The **AppOwnsDataAdmin** application also creates a new record in
 the **Tenants** table of the **AppOwnsDataDB** database to track the
 relevant data associated with each customer tenant.
 
-<img src="media\image84.png" style="width:7.41512in;height:0.57055in" />
+<img src="media\image84.png" width=100% />
 
 Click on the **View** button for a tenant on the **Power BI
 Tenants** page to drill into the **Tenant Details** page.
