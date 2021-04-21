@@ -758,7 +758,7 @@ of **(localdb)\\\\MSSQLLocalDB**. You can change this connection string
 to a different SQL Server instance if you'd rather create the project
 database named **AppOwnsDataDB** in a different location.
 
-<img src="media\image62.png" style="width:5.87143in;height:0.71762in" />
+<img src="media\image62.png"  />
 
 In the **DemoSettings** section there is a property named **AdminUser**.
 The reason that this property exists has to do with you being able to
@@ -773,7 +773,7 @@ Update the **AdminUser** setting with the Azure AD account name you're
 using in your test environment so that you will be able to see all the
 Power BI workspaces created by the **AppOwnsDataAdmin** application.
 
-<img src="media\image63.png" style="width:3.88571in;height:1.26146in"  />
+<img src="media\image63.png" width=500   />
 
 ### Create the **AppOwnsDataDB** database
 
