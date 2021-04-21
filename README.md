@@ -926,12 +926,12 @@ Now let's review what's going on behind the scenes whenever you create a
 new customer tenant. The **AppOwnsDataAdmin** application uses the Power
 BI REST API to implement the following onboarding logic.
 
--   Create a new Power BI workspace
--   Import the template file named
-    [**SalesReportTemplate.pbix**](https://github.com/PowerBiDevCamp/TenantManagement/raw/main/TenantManagement/wwwroot/PBIX/DatasetTemplate.pbix) to create the **Sales** dataset and the **Sales** report
--   Update dataset parameters on **Sales** dataset to point to the customer's SQL Server database instance
--   Patch credentials for the SQL Server datasource used by the **Sales** dataset
--   Start a refresh operation on the **Sales** database to import data from the customer's database
+1   Create a new Power BI workspace
+2   Import the template file named
+3   [**SalesReportTemplate.pbix**](https://github.com/PowerBiDevCamp/TenantManagement/raw/main/TenantManagement/wwwroot/BIX/DatasetTemplate.pbix) to create the **Sales** dataset and the **Sales** report
+4   Update dataset parameters on **Sales** dataset to point to the customer's SQL Server database instance
+5   Patch credentials for the SQL Server datasource used by the **Sales** dataset
+6   Start a refresh operation on the **Sales** database to import data from the customer's database
 
 If you want to inspect the C\# code in **AppOwnsDataAdmin** that that
 implements this logic using the Power BI .NET SDK, you can examine the
