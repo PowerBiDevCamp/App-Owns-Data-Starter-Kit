@@ -867,19 +867,19 @@ debugger by pressing the **{F5}** key or by clicking the Visual
 Studio **Play** button with the green arrow and the caption **IIS
 Express**.
 
-<img src="media\image74.png" style="width:6.01227in;height:1.9418in" />
+<img src="media\image74.png"  />
 
 When the application starts, click the **Sign in** link in the upper
 right corner to begin the user login sequence.
 
-<img src="media\image75.png" style="width:7.07976in;height:2.41126in" />
+<img src="media\image75.png"  />
 
 The first time you authenticate with Azure AD, you'll be prompted with
 the **Permissions requested** dialog asking you to accept the
 **Permissions requested** by the application. Click
 the **Accept** button to grant these permissions and continue.
 
-<img src="media\image76.png" style="width:2.02857in;height:2.4903in" />
+<img src="media\image76.png" width=500 />
 
 Once you have logged in, you should see your name in the welcome
 message.
