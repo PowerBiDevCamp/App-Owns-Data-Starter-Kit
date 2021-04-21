@@ -982,12 +982,12 @@ operation has created the **Sales** dataset in the Power BI Service.
 Click **Transform Data** to open the **Power Query Editor** window and
 then click the **Manage Parameters** button.
 
-<img src="media\image90.png" style="width:4.29412in;height:1.08954in" />
+<img src="media\image90.png" />
 
 In the **Manage Parameters** window, you should two **Text** parameters
 named **DatabaseServer** and **DatabaseName**.
 
-<img src="media\image91.png" style="width:2.52201in;height:1.85287in" />
+<img src="media\image91.png" />
 
 Click **Cancel** to close the **Manage Parameters** window and return to
 the **Power Query Editor** window.
