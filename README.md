@@ -965,7 +965,7 @@ creates the **Sales** dataset and the **Sales** report. This template
 file is included as part of the **AppOwnsDataAdmin** project inside the
 **wwwroot** folder at a path of **/PBIX/SalesReportTemplate.pbix**.
 
-<img src="media\image88.png" width=500 />
+<img src="media\image88.png" width=400 />
 
 If you're interested in how this template file has been created, you can
 open it in Power BI Desktop. You will see there are three tables in the
