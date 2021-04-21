@@ -1065,7 +1065,7 @@ to see the **Last refresh succeeded** message for the dataset refresh
 operation that was started by the **AppOwnsDataAdmin** as part of its
 tenant onboarding logic.
 
-<img src="media\image102.png" style="width:6.27143in;height:1.88021in" />
+<img src="media\image102.png" />
 
 ## Test the AppOwnsDataClient application
 
@@ -1084,7 +1084,7 @@ inside. There are four important sections
 named **ClientApp**, **ServicePrincipalApp**, **PowerBi** and
 **AppOwnsDataDB**.
 
-<img src="media\image103.png" style="width:5.55215in;height:2.67802in" />
+<img src="media\image103.png"  />
 
 Inside the **ClientApp** section, update the update the
 **ClientId** with the data you collected when creating the Azure AD
