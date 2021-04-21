@@ -915,7 +915,7 @@ Click the **Onboard New Tenant** button again to create a second tenant.
 This time, select a different database for **Database Name** and then
 click **Create New Tenant**.
 
-<img src="media\image82.png" width=650  />
+<img src="media\image82.png" width=700  />
 
 You should now have two customer tenants. Note they each tenant has its
 own unique workspace ID.
