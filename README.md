@@ -642,7 +642,7 @@ followed the application ID.
 The **Add a scope** pane should now present a form to enter data for the
 new scope.
 
-<img src="media\image53.png" width=600 />
+<img src="media\image53.png" width=500 />
 
 Fill out the data in the **App a scope** pane using these steps.
 
