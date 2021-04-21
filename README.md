@@ -550,12 +550,12 @@ its **Value** in the **Client secrets** section. Click on the **Copy to
 clipboard** button to copy the **Value** for the Client Secret into the
 clipboard.
 
-<img src="media\image42.png" width=500  />
+<img src="media\image42.png" width=700  />
 
 Paste the **Client Secret** into the same text document with
 the **Client ID** and **Tenant ID**.
 
-<img src="media\image43.png" style="width:4.25714in;height:2.38934in" />
+<img src="media\image43.png" width=500 />
 
 The last thing is to add the service principal for this app to Azure AD
 Security group named **Power BI Apps**.
