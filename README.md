@@ -469,13 +469,13 @@ have the permissions to create Office 365 groups can create new Power BI
 workspaces. You must reconfigure this setting so that service principals
 in the **Power BI Apps** group will be able to create new workspaces.
 
-<img src="media\image31.png" width=600  />
+<img src="media\image31.png" width=550  />
 
 In **Workspace settings**, set **Apply to** to **Specific security**
 groups, add the **Power BI Apps** security group and click
 the **Apply** button to save your changes.
 
-<img src="media\image32.png" width=600 />
+<img src="media\image32.png" width=550 />
 
 You have now completed the configuration of the required Power BI
 tenant-level settings.
