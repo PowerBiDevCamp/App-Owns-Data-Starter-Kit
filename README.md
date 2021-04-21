@@ -550,7 +550,7 @@ its **Value** in the **Client secrets** section. Click on the **Copy to
 clipboard** button to copy the **Value** for the Client Secret into the
 clipboard.
 
-<img src="media\image42.png" style="width:4.55714in;height:1.26103in"  />
+<img src="media\image42.png" width=650  />
 
 Paste the **Client Secret** into the same text document with
 the **Client ID** and **Tenant ID**.
