@@ -1167,7 +1167,7 @@ the project into a single JavaScript file for distribution named
 The build process should generate a new copy of **bundle.js** in the
 project at a path of **wwwroot/js**.
 
-<img src="media\image112.png" style="width:1.61635in;height:1.17217in" />
+<img src="media\image112.png" width=400 />
 
 ### Launch AppOwnsDataClient in the Visual Studio debugger
 
