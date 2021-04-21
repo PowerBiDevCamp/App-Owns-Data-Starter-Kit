@@ -1374,7 +1374,7 @@ You can run a simple SQL query against the of the raw data in the
 **ActivityLog** table to get a sense of the type of data that is being
 stored in an **ActivityLog** record.
 
-<img src="media\image141.png" style="width:6.39167in;height:1.77316in" />
+<img src="media\image141.png" />
 
 ### Inspect usage and performance data using AppOwsDataUsageReporting.pbix
 
@@ -1391,7 +1391,7 @@ values such as **ViewReport**, **EditReport**, **CreateReport** and
 **CopyReport**. There's also a slicer providing the ability to filter
 events for a specific user.
 
-<img src="media\image142.png" style="width:7.37318in;height:2.69167in" />
+<img src="media\image142.png"  />
 
 You will notice that each record with an **Activity** value of
 **ViewReport** includes numeric values for the columns named
@@ -1410,7 +1410,7 @@ handlers for the report's **loaded** event and **rendered** event which
 measure the duration of how long it took to complete the loading and
 rendering of the report.
 
-<img src="media\image143.png" style="width:6.39773in;height:2.69325in" />
+<img src="media\image143.png"  />
 
 Note that the **loaded** event executes a single time when you embed a
 report. However, the **rendered** event can execute more than once such
@@ -1426,7 +1426,7 @@ which allow you to monitor the performance of report loading and
 rendering across all tenants in a multi-tenant environment. For example,
 navigate to the **Slow Reports** page to see an example.
 
-<img src="media\image144.png" style="width:3.95092in;height:0.56918in" />
+<img src="media\image144.png" width=450 />
 
 The **Slow Reports** page contains a table visual which displays the
 average load time and average render time for any report that has been
@@ -1435,7 +1435,7 @@ with the longest render durations appear at the top and provide the
 ability to see which reports need attention to make them more
 performant.
 
-<img src="media\image145.png" style="width:4.67143in;height:1.24332in" />
+<img src="media\image145.png"  />
 
 ## Next Steps
 
