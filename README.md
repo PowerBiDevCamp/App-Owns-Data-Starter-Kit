@@ -686,20 +686,21 @@ On the home page for this GitHub repository is the **Code** dropdown
 menu which provides a few options for downloading the source files to
 your local machine.
 
-<img src="media\image56.png" style="width:7.02014in;height:2.30061in" />
+<img src="media\image56.png" />
 
 You can download the **App-Owns-Data Starter Kit** project source files
-in a single ZIP archive using [this
-link](https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit/archive/refs/heads/main.zip).
+in a single ZIP archive using **[this
+link](https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit/archive/refs/heads/main.zip)**.
 
-<img src="media\image57.png" style="width:6.89268in;height:2.5092in" />
+<img src="media\image57.png" />
 
 If you are familiar with the **git** utility, you can clone the project
 source files to your local developer workstation using the
 following **git** command:
 
-**git clone
-https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit.git**
+```powershell
+git clone https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit.git**
+```
 
 Once you have downloaded the project source files for
 the **App-Owns-Data Starter Kit** solution to your developer
