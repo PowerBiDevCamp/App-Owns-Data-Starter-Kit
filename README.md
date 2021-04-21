@@ -1320,7 +1320,7 @@ button to open the **Edit User** page for your user account. Check the
 You should be able to verify that the **Can Create** property for your
 user account has been set to **True**.
 
-<img src="media\image134.png" style="width:5.19632in;height:0.99055in" />
+<img src="media\image134.png"  />
 
 Return to the browser session running the **AppOwnsDataClient**
 application and refresh the page. Now when the application initializes,
@@ -1328,18 +1328,18 @@ it should display a **Create Report** section in the left navigation.
 Click on the **Sales** dataset link in the **Create Report** section in
 the left navigation to create a new report.
 
-<img src="media\image135.png" style="width:4.31447in;height:1.15814in" />
+<img src="media\image135.png"  />
 
 You should now see the Power BI report designer with a new report built
 on the **Sales** dataset. Click the **Full Screen** button to move to
 full-screen mode where it will be easier to build a new report**.**
 
-<img src="media\image136.png" style="width:4.78069in;height:2.58209in" />
+<img src="media\image136.png" width=100% />
 
 When in full-screen mode, create a simple report layout using whatever
 visuals you'd like.
 
-<img src="media\image137.png" style="width:4.56254in;height:2.59702in" />
+<img src="media\image137.png" width=100% />
 
 Once you have created a simple report, press the **Esc** key to get out
 of full screen mode. Now click the **File &gt; Save As** menu command to
