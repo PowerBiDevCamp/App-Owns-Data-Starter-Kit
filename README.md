@@ -511,7 +511,7 @@ to copy this Application ID and store it so you can use it later to
 configure the support acquiring app-only access tokens from Azure AD
 using for Client Credentials Flow.
 
-<img src="media\image36.png" style="width:4.19082in;height:1.58571in" />
+<img src="media\image36.png" width=650 />
 
 Copy the **Client ID** (aka Application ID) and paste it into a text
 document so you can use it later in the setup process. Note that
@@ -519,17 +519,17 @@ this **Client ID** value will be used by both the
 **AppOwnsDataAdmin** project and the **AppOwnsDataWebApi** project to
 configure authentication for the service principal with Azure AD.
 
-<img src="media\image37.png" style="width:4.53769in;height:1.4in" />
+<img src="media\image37.png"  width=650 />
 
 Next, repeat the same step by copying the **Tenant ID** and copying that
 into the text document as well.
 
-<img src="media\image38.png" style="width:4.64286in;height:1.16071in" />
+<img src="media\image38.png"  width=650 />
 
 Your text document should now contain the **Client ID** and **Tenant
 ID** as shown in the following screenshot.
 
-<img src="media\image39.png" style="width:4.12857in;height:1.94248in" />
+<img src="media\image39.png"  />
 
 Next, you need to create a Client Secret for the application. Click on
 the **Certificates & secrets** link in the left navigation to move to
