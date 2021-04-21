@@ -904,18 +904,18 @@ can create the first tenant using the default value for **Tenant Name**
 or supply a different name. Click the **Create New Tenant** button to
 begin the process of creating a new customer tenant.
 
-<img src="media\image80.png" width=600 />
+<img src="media\image80.png" width=720 />
 
 After a few seconds, you should see the new customer tenant has been
 created.
 
-<img src="media\image81.png" style="width:5.97908in;height:1.38571in" />
+<img src="media\image81.png"  />
 
 Click the **Onboard New Tenant** button again to create a second tenant.
 This time, select a different database for **Database Name** and then
 click **Create New Tenant**.
 
-<img src="media\image82.png" style="width:5.88571in;height:2.2205in" />
+<img src="media\image82.png"  />
 
 You should now have two customer tenants. Note they each tenant has its
 own unique workspace ID.
