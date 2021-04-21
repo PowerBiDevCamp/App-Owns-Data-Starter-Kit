@@ -670,23 +670,17 @@ solution using Visual Studio 2019, you can also use Visual Studio Code
 if you prefer that IDE. Here are links to download this software if you
 need them.
 
--   .NET 5 SDK –
-    \[[download](https://dotnet.microsoft.com/download/dotnet/5.0)\]
-
+-   .NET 5 SDK – \[[download](https://dotnet.microsoft.com/download/dotnet/5.0)\]
 -   Node.js – \[[download](https://nodejs.org/en/download/)\]
-
--   Visual Studio 2019 –
-    \[[download](https://visualstudio.microsoft.com/downloads/)\]
-
--   Visual Studio Code –
-    \[[download](https://code.visualstudio.com/Download)\]
+-   Visual Studio 2019 – \[[download](https://visualstudio.microsoft.com/downloads/)\]
+-   Visual Studio Code – \[[download](https://code.visualstudio.com/Download)\]
 
 ### Download the source code
 
 The project source files for the **App-Owns-Data Starter Kit** solution
 are maintained in a GitHub repository at the following URL.
 
-<https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit>
+**<https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit>**
 
 On the home page for this GitHub repository is the **Code** dropdown
 menu which provides a few options for downloading the source files to
