@@ -560,7 +560,7 @@ the **Client ID** and **Tenant ID**.
 The last thing is to add the service principal for this app to Azure AD
 Security group named **Power BI Apps**.
 
-<img src="media\image44.png" width=650 />
+<img src="media\image44.png" width=750 />
 
 Navigate to the **Members** page for the **Power BI Apps** security
 group using the **Members** link in the left navigation. Add the Azure
