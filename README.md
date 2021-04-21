@@ -1057,7 +1057,7 @@ Navigate to one of these workspaces such as **Tenant01**.
 
 Drill into the **Setting** page for the dataset named **Sales**.
 
-<img src="media\image101.png" width=600 />
+<img src="media\image101.png" width=560 />
 
 You should be able to verify that the **Sales** dataset has been
 configured by the **App-Owns-Data Service App**. You should also be able
