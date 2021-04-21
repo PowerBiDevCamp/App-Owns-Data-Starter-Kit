@@ -493,7 +493,7 @@ On the **Register an application** page, enter an application name of
 for **Supported account types** of **Accounts in this organizational
 directory only**.
 
-<img src="media\image34.png" width=650 />
+<img src="media\image34.png" width=750 />
 
 Complete the following steps in the **Redirect URI** section.
 
