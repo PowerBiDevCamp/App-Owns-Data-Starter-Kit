@@ -154,6 +154,11 @@ h4 {
   border-top-right-radius: 6px;
 }
 
+  .table td, .table th {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
   .table .thead-dark th {
     background-color: #1F3044;
     padding-top: 4px;

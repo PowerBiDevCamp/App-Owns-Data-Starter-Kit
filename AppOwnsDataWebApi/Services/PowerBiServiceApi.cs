@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Identity.Web;
@@ -36,27 +35,6 @@ namespace AppOwnsDataWebApi.Services {
       return new PowerBIClient(new Uri(urlPowerBiServiceApiRoot), tokenCredentials);
     }
 
-    //public async Task<EmbeddedReport> GetReport(Guid WorkspaceId, Guid ReportId) {
-
-    //  PowerBIClient pbiClient = GetPowerBiClient();
-
-    //  // call to Power BI Service API to get embedding data
-    //  var report = await pbiClient.Reports.GetReportInGroupAsync(WorkspaceId, ReportId);
-
-    //  // generate read-only embed token for the report
-    //  var datasetId = report.DatasetId;
-    //  var tokenRequest = new GenerateTokenRequest(TokenAccessLevel.View, datasetId);
-    //  var embedTokenResponse = await pbiClient.Reports.GenerateTokenAsync(WorkspaceId, ReportId, tokenRequest);
-    //  var embedToken = embedTokenResponse.Token;
-
-    //  // return report embedding data to caller
-    //  return new EmbeddedReport {
-    //    id = report.Id.ToString(),
-    //    embedUrl = report.EmbedUrl,
-    //    name = report.Name
-    //  };
-    //}
-
     public async Task<EmbeddedViewModel> GetEmbeddedViewModel(string user) {
 
       User currentUser = this.appOwnsDataDBService.GetUser(user);
@@ -72,7 +50,24 @@ namespace AppOwnsDataWebApi.Services {
       PowerBIClient pbiClient = GetPowerBiClient();
 
       var datasets = (await pbiClient.Datasets.GetDatasetsInGroupAsync(workspaceId)).Value;
+      var embeddedDatasets = new List<EmbeddedDataset>();
+      foreach(var dataset in datasets) {
+        embeddedDatasets.Add(new EmbeddedDataset { 
+          id = dataset.Id, 
+          name = dataset.Name
+        }); ;
+      }
+
       var reports = (await pbiClient.Reports.GetReportsInGroupAsync(workspaceId)).Value;
+      var embeddedReports = new List<EmbeddedReport>();
+      foreach (var report in reports) {
+        embeddedReports.Add(new EmbeddedReport {
+          id = report.Id.ToString(),
+          name = report.Name,
+          embedUrl = report.EmbedUrl,
+          datasetId = report.DatasetId
+        });
+      }
 
       IList<GenerateTokenRequestV2Dataset> datasetRequests = new List<GenerateTokenRequestV2Dataset>();
       IList<string> datasetIds = new List<string>();
@@ -104,8 +99,8 @@ namespace AppOwnsDataWebApi.Services {
       
       return new EmbeddedViewModel {
         tenantName = currentUser.TenantName,
-        reports = reports,
-        datasets = datasets,
+        reports = embeddedReports,
+        datasets = embeddedDatasets,
         embedToken = EmbedTokenResult.Token,
         embedTokenId = EmbedTokenResult.TokenId.ToString(),
         user = currentUser.LoginId,

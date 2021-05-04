@@ -1,19 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Web;
 using Microsoft.OpenApi.Models;
+
 using AppOwnsDataShared.Models;
-using AppOwnsDataWebApi.Models;
-using AppOwnsDataWebApi.Services;
-using Microsoft.EntityFrameworkCore;
 using AppOwnsDataShared.Services;
+
+using AppOwnsDataWebApi.Services;
 
 namespace AppOwnsDataWebApi {
 
@@ -53,7 +50,9 @@ namespace AppOwnsDataWebApi {
       });
 
       // setup swagger for web service discoverability
-      services.AddControllers();
+      services.AddControllers().AddJsonOptions(options => {
+        options.JsonSerializerOptions.IncludeFields = true;
+      });
       services.AddSwaggerGen(c => {
         c.SwaggerDoc("v1", new OpenApiInfo { Title = "EmbeddingApi", Version = "v1" });
       });

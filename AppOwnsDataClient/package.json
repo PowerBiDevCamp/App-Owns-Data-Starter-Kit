@@ -1,8 +1,9 @@
 {
-  "name": "pbie-nodejs-starter",
+  "name": "app-owns-data-client",
   "version": "1.0.0",
-  "description": "",
+  "description": "Client application for App-Owns-Data Starter Kit",
   "main": "index.js",
+  "repository": "https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit",
   "scripts": {
     "build": "webpack --no-stats"
   },
@@ -11,6 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/jquery": "^3.3.31",
+    "@azure/msal-browser": "^2.3.1",
     "awesome-typescript-loader": "^5.2.1",
     "bootstrap": "^4.5.0",
     "clean-webpack-plugin": "^3.0.0",
@@ -25,8 +27,5 @@
     "url-loader": "^3.0.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^4.5.0"
-  },
-  "dependencies": {
-    "@azure/msal-browser": "^2.3.1"
   }
 }

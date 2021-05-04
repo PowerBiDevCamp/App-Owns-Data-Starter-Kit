@@ -14,6 +14,7 @@
     <tr>
       <th>Login ID</th>
       <th>User Name</th>
+      <th>Last Login</th>
       <th>Tenant</th>
       <th>Can Edit</th>
       <th>Can Create</th>
@@ -26,6 +27,7 @@
 <tr>
   <td>@user.LoginId</td>
   <td>@user.UserName</td>
+  <td>@user.LastLogin.ToString("g")</td>
   <td>@(!string.IsNullOrEmpty(user.TenantName) ? user.TenantName : Html.Raw("<i style='color:darkred'>unassigned</i>"))</td>
   <td>@user.CanEdit</td>
   <td>@user.CanCreate</td>

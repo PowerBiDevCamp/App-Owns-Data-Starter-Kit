@@ -3,6 +3,7 @@ import { ViewModel, ActivityLogEntry, User } from '../models/models';
 
 import AppSettings from '../appSettings';
 import SpaAuthService from './SpaAuthService';
+import { post } from 'jquery';
 
 export default class AppOwnsDataWebApi {
 
@@ -11,6 +12,8 @@ export default class AppOwnsDataWebApi {
     var user = new User();
     user.LoginId = LoginId;
     user.UserName = UserName;
+
+    console.log("Process user login", user);
 
     var accessToken: string = await SpaAuthService.getAccessToken();
     var postData: string = JSON.stringify(user);
@@ -60,6 +63,8 @@ export default class AppOwnsDataWebApi {
   }
 
   static LogActivity = async (activityLogEntry: ActivityLogEntry) => {
+
+    console.log("Log custom event", activityLogEntry);
 
     var accessToken: string = await SpaAuthService.getAccessToken();
     var postData: string = JSON.stringify(activityLogEntry);

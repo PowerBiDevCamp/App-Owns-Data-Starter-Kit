@@ -28,7 +28,6 @@ export default class SpaAuthService {
   static attemptSillentLogin = async () => {
     var userInfo: msal.AccountInfo = SpaAuthService.publicApplication.getAllAccounts()[0];
     if (userInfo) {
-      console.log("Logging on with credentials in " + userInfo.username);
       SpaAuthService.userName = userInfo.username;
       SpaAuthService.userDisplayName = userInfo.name;
       SpaAuthService.userIsAuthenticated = true;

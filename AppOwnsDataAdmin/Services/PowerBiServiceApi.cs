@@ -125,9 +125,10 @@ namespace AppOwnsDataAdmin.Services {
 
       Dataset dataset = GetDataset(pbiClient, workspace.Id, importName);
 
-      UpdateMashupParametersRequest req = new UpdateMashupParametersRequest(new List<UpdateMashupParameterDetails>() {
-        new UpdateMashupParameterDetails { Name = "DatabaseServer", NewValue = tenant.DatabaseServer },
-        new UpdateMashupParameterDetails { Name = "DatabaseName", NewValue = tenant.DatabaseName }
+      UpdateMashupParametersRequest req =
+        new UpdateMashupParametersRequest(new List<UpdateMashupParameterDetails>() {
+          new UpdateMashupParameterDetails { Name = "DatabaseServer", NewValue = tenant.DatabaseServer },
+          new UpdateMashupParameterDetails { Name = "DatabaseName", NewValue = tenant.DatabaseName }
       });
 
       pbiClient.Datasets.UpdateParametersInGroup(workspace.Id, dataset.Id, req);

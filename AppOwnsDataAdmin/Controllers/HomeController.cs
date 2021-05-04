@@ -116,7 +116,6 @@ namespace AppOwnsDataAdmin.Controllers {
                 Value = tenant.Name
               }).ToList(),
       };
-      //model.TenantOptions.Add(new SelectListItem {Text = "Unasigned",Value = ""});
       return View(model);
     }
 

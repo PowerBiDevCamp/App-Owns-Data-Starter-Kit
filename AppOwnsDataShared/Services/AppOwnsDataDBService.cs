@@ -64,7 +64,7 @@ namespace AppOwnsDataShared.Services {
     public IList<User> GetUsers() {
       return dbContext.Users
              .Select(user => user)
-             .OrderBy(user => user.UserName)
+             .OrderByDescending(user => user.LastLogin)
              .ToList();
     }
 
