@@ -1,0 +1,39 @@
+@model IList<AppOwnsDataShared.Models.User>
+
+<H2>Users</H2>
+
+<div class="toolbar">
+  <a id="create-workspace-button" class="btn btn-primary" asp-action="CreateUser">
+    <i class="fa fa-user-plus"></i>
+    Create New User
+  </a>
+</div>
+
+<table class="table table-bordered table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>Login ID</th>
+      <th>User Name</th>
+      <th>Last Login</th>
+      <th>Tenant</th>
+      <th>Can Edit</th>
+      <th>Can Create</th>
+      <th style="text-align:center;">View</th>
+      <th style="text-align:center;">Edit</th>
+      <th style="text-align:center;">Delete</th>
+    </tr>
+  </thead>
+  @foreach (var user in Model) {
+<tr>
+  <td>@user.LoginId</td>
+  <td>@user.UserName</td>
+  <td>@user.LastLogin.ToString("g")</td>
+  <td>@(!string.IsNullOrEmpty(user.TenantName) ? user.TenantName : Html.Raw("<i style='color:darkred'>unassigned</i>"))</td>
+  <td>@user.CanEdit</td>
+  <td>@user.CanCreate</td>
+  <td style="text-align:center"><a href="GetUser/?LoginId=@user.LoginId" class="nav nav-link"><i class="fa fa-binoculars"></i></a></td>
+  <td style="text-align:center"><a href="EditUser/?LoginId=@user.LoginId" class="nav nav-link"><i class="fa fa-edit"></i></a></td>
+  <td style="text-align:center"><a href="DeleteUser/?LoginId=@user.LoginId" class="nav nav-link"><i class="fa fa-remove"></i></a></td>
+</tr>
+  }
+</table>

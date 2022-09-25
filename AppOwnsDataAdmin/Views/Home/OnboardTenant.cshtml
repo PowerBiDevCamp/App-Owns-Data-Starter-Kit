@@ -1,0 +1,66 @@
+@model AppOwnsDataAdmin.Controllers.HomeController.OnboardTenantModel
+
+<h2 id="page-title">Onboard New Tenant</h2>
+
+<form id="new-tenant" method="post" class="form-horizontal">
+  <fieldset>
+    <div class="form-group row">
+      <label for="TenantName" class="col-sm-3 col-form-label">Tenant Name</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="TenantName" name="TenantName" placeholder="Enter tenant name" value="@Model.TenantName">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="DatabaseServerName" class="col-sm-3 col-form-label">Database Server Name</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="DatabaseServer" name="DatabaseServer" placeholder="Enter database server name" value="devcamp.database.windows.net" />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="DatabaseName" class="col-sm-3 col-form-label">Database Name</label>
+      <div class="col-sm-9">
+        <select class="form-control" id="DatabaseName" name="DatabaseName" asp-items="Model.DatabaseOptions">
+          <option selected="selected" value="@Model.SuggestedDatabase">@Model.SuggestedDatabase</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="SqlUserName" class="col-sm-3 col-form-label">SQL Server User Name</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="DatabaseUserName" name="DatabaseUserName" placeholder="Enter Azure SQL User Name" value="CptStudent" />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="SqlUserPassword" class="col-sm-3 col-form-label">SQL Server User Password</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="DatabaseUserPassword" name="DatabaseUserPassword" placeholder="Enter Azure SQL User Password" value="pass@word1" type="password" />
+      </div>
+    </div>
+    <div class="form-group row button-row">
+      <button id="create-tenant-button" type="submit" class="btn btn-primary">
+        <i class="fa fa-user-plus"></i>
+        Create New Tenant
+      </button>
+    </div>
+  </fieldset>
+</form>
+
+<div class="loading" style="display:none;">
+  <div class="loading-image">
+    <img src="~/images/loading.gif" />
+  </div>
+</div>
+
+@section Scripts {
+  <script type="text/javascript">
+    $(function () {
+
+      $("#new-tenant").submit(function () {
+        $("#new-tenant").hide();
+        $("#page-title").text("Onboarding New Tenant...");
+        $(".loading").show(100);
+      });
+
+    });
+  </script>
+}

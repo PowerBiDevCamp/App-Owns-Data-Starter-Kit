@@ -1,0 +1,127 @@
+@model AppOwnsDataAdmin.Services.PowerBiTenantDetails
+
+<h2>
+  <span><a class="btn btn-sm h2-backarrow" asp-action="Tenants"><i class="fa fa-backward"></i></a></span>
+  <span>Tenant Details</span>
+</h2>
+
+<form class="form-horizontal" role="form">
+  <fieldset>
+    <div class="form-group row">
+      <label for="Name" class="col-sm-3 col-form-label">Name</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="Name" name="Name" readonly value="@Model.Name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="WorkspaceId" class="col-sm-3 col-form-label">Created</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="Created" name="Created" readonly="readonly" value='@Model.Created.ToString("yyyy/MM/dd hh:mm tt")' />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="WorkspaceId" class="col-sm-3 col-form-label">Service Principal Profile ID</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="ProfileId" name="ProfileId" readonly="readonly" value="@Model.ProfileId">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="WorkspaceId" class="col-sm-3 col-form-label">Workspace ID</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="WorkspaceId" name="WorkspaceId" readonly="readonly" value="@Model.WorkspaceId">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="WorkspaceUrl" class="col-sm-3 col-form-label">Workspace URL</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="WorkspaceUrl" name="WorkspaceUrl" readonly="readonly" value="@Model.WorkspaceUrl">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="DatabaseServer" class="col-sm-3 col-form-label">Database Server</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="DatabaseServer" name="DatabaseServer" readonly="readonly" value="@Model.DatabaseServer">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="DatabaseName" class="col-sm-3 col-form-label">Database Name</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="DatabaseName" name="DatabaseName" readonly="readonly" value="@Model.DatabaseName">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="ClientSecret" class="col-sm-3 col-form-label">Database User Name</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="DatabaseUserName" name="DatabaseUserName" readonly="readonly" value="@Model.DatabaseUserName">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="DatabaseUserPassword" class="col-sm-3 col-form-label">Database User Password</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="DatabaseUserPassword" name="DatabaseUserPassword" readonly="readonly" value="@Model.DatabaseUserPassword" type="password">
+      </div>
+    </div>
+  </fieldset>
+</form>
+
+
+<div class="row">
+
+  <div class="col-6">
+    <h4>Members</h4>
+    <table class="table table-sm table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Member</th>
+          <th>Permissions</th>
+          <th>Member Type</th>
+        </tr>
+      </thead>
+      @foreach (var member in Model.Members) {
+        <tr>
+          <td>@(member.Profile != null ? member.Profile.DisplayName : member.DisplayName)</td>
+          <td>@member.GroupUserAccessRight</td>
+          <td>@member.PrincipalType @(member.Profile != null ? " Profile" : "")</td>
+        </tr>
+      }
+    </table>
+  </div>
+
+  <div class="col-3">
+    <h4>Datasets</h4>
+    <table class="table table-sm table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Name</th>
+          <th>Is Refreshable</th>
+        </tr>
+      </thead>
+      @foreach (var dataset in Model.Datasets) {
+        <tr>
+          <td>@dataset.Name</td>
+          <td>@dataset.IsRefreshable</td>
+        </tr>
+      }
+    </table>
+  </div>
+
+  <div class="col-3">
+    <h4>Report</h4>
+    <table class="table table-sm table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Name</th>
+          <th>Report Type</th>
+        </tr>
+      </thead>
+      @foreach (var report in Model.Reports) {
+        <tr>
+          <td>@report.Name</td>
+          <td>@report.ReportType</td>
+        </tr>
+      }
+    </table>
+
+  </div>
+
+</div>

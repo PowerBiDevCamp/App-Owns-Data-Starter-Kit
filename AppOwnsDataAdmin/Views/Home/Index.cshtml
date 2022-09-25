@@ -1,0 +1,21 @@
+﻿@using System.Security.Principal
+
+@if (User.Identity.IsAuthenticated) {
+  <div class="jumbotron">
+    <h1>Welcome @User.FindFirst("name").Value</h1>
+    <p>You have now logged into this application. You can create new Azure AD identities and Power BI tenants.</p>
+  </div>
+}
+else {
+  <div class="jumbotron">
+
+    <h1>Welcome to the App-Owns-Data Starter Kit</h1>
+
+    <p>This application was created to demonstrate managing a multitenant environment with 
+    Power BI embedding. This application automates the provisioning of Power BI workspaces and allows an adminstrators
+    to assign permissions to users .</p>
+    
+    <p>Click the <strong>sign in</strong> link in the upper right to get started.</p>
+
+  </div>
+}

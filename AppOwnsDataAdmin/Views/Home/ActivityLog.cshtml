@@ -1,0 +1,45 @@
+﻿@model IList<AppOwnsDataShared.Models.ActivityLogEntry>
+
+<H2>Activity Log</H2>
+
+<div class="toolbar">
+  <a id="refresh-activity-button" class="btn btn-primary" asp-action="ActivityLog">
+    <i class="fa fa-refresh"></i>
+    Refresh Activity Data
+  </a>
+</div>
+
+<table class="table table-bordered table-striped table-sm">
+  <thead class="thead-dark">
+    <tr>
+      <th>View</th>
+      <th>Created</th>
+      <th>Activity</th>
+      <th>User</th>
+      <th>Tenant</th>
+      <th>Report</th>
+      <th>Type</th>
+      <th>Page</th>
+      <th style="text-align:right">Load Time</th>
+      <th style="text-align:right">Render Time</th>
+    </tr>
+  </thead>
+  @foreach (var logEntry in Model) {
+    <tr>
+      <td style="text-align:center; padding:0">
+        <a href="ActivityEvent/?Id=@logEntry.Id" class="nav nav-link" style="padding:0">
+          <i style="margin:0" class="fa fa-search"></i>
+        </a>
+      </td>
+      <td>@logEntry.Created.ToString("yyyy-MM-dd 'at' hh:mm tt")</td>
+      <td>@logEntry.Activity</td>
+      <td>@logEntry.User</td>
+      <td>@logEntry.Tenant</td>
+      <td>@logEntry.Report</td>
+      <td>@logEntry.ReportType</td>
+      <td>@logEntry.PageName</td>
+      <td style="text-align:right">@( logEntry.LoadDuration == null ? "" : Convert.ToDouble(logEntry.LoadDuration/1000.0).ToString("0.00") )</td>
+      <td style="text-align:right">@( logEntry.RenderDuration == null ? "" : Convert.ToDouble(logEntry.RenderDuration/1000.0).ToString("0.00") )</td>
+    </tr>
+  }
+</table>

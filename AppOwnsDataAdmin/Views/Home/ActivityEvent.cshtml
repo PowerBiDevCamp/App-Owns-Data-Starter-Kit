@@ -1,0 +1,120 @@
+@model AppOwnsDataShared.Models.ActivityLogEntry
+
+<h2>
+  <span><a class="btn btn-sm h2-backarrow" asp-action="ActivityLog"><i class="fa fa-backward"></i></a></span>
+  <span>Activity Event Details</span>
+</h2>
+
+<form class="form-horizontal" role="form">
+  <fieldset>
+    <div class="form-group row">
+      <label for="Created" class="col-sm-3 col-form-label">Created</label>
+      <div class="col-sm-9">
+        <input class="form-control " id="Created" name="Created" readonly value='@Model.Created.ToString("yyyy/MM/dd  hh:mm tt")'>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="LoginId" class="col-sm-3 col-form-label">Login ID</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="LoginId" name="LoginId" readonly="readonly" value="@Model.LoginId">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="UserName" class="col-sm-3 col-form-label">User Name</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="UserName" name="UserName" readonly="readonly" value="@Model.User">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="Activity" class="col-sm-3 col-form-label">Activity</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="Activity" name="Activity" readonly="readonly" value="@Model.Activity">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="Tenant" class="col-sm-3 col-form-label">Tenant</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="Tenant" name="Tenant" readonly="readonly" value="@Model.Tenant">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="WorkspaceId" class="col-sm-3 col-form-label">Workspace ID</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="WorkspaceId" name="WorkspaceId" readonly="readonly" value="@Model.WorkspaceId">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="Dataset" class="col-sm-3 col-form-label">Dataset</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="Dataset" name="Dataset" readonly="readonly" value="@Model.Dataset">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="DatasetId" class="col-sm-3 col-form-label">Dataset ID</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="DatasetId" name="DatasetId" readonly="readonly" value="@Model.DatasetId">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="Report" class="col-sm-3 col-form-label">Report</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="Report" name="Report" readonly="readonly" value="@Model.Report">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="ReportId" class="col-sm-3 col-form-label">Report ID</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="ReportId" name="ReportId" readonly="readonly" value="@Model.ReportId">
+      </div>
+    </div>
+
+
+    <div class="form-group row">
+      <label for="ReportType" class="col-sm-3 col-form-label">Report Type</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="ReportType" name="ReportType" readonly="readonly" value="@Model.ReportType">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="PageName" class="col-sm-3 col-form-label">Page Display Name</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="PageName" name="PageName" readonly="readonly" value="@Model.PageName">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="OriginalReportId" class="col-sm-3 col-form-label">Original Report ID</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="OriginalReportId" name="OriginalReportId" readonly="readonly" value="@Model.OriginalReportId">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="LoadDuration" class="col-sm-3 col-form-label">Load Duration</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="LoadDuration" name="LoadDuration" readonly="readonly" value="@Model.LoadDuration">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="RenderDuration" class="col-sm-3 col-form-label">Render Duration</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="RenderDuration" name="RenderDuration" readonly="readonly" value="@Model.RenderDuration">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="CorrelationId" class="col-sm-3 col-form-label">Correlation ID</label>
+      <div class="col-sm-9">
+        <input class="form-control" id="PageName" name="PageName" readonly="readonly" value="@Model.CorrelationId" >
+      </div>
+    </div>
+
+  </fieldset>
+</form>

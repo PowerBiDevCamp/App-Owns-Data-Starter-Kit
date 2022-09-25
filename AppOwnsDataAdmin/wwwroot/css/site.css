@@ -1,0 +1,277 @@
+﻿/*  version 1.1  */
+nav {
+  margin-bottom: 0px;
+}
+
+#banner {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.top-nav-item {
+  border-left: solid 1px #CCCCCC;
+}
+
+  .top-nav-item:last-child {
+    border-right: solid 1px #CCCCCC;
+  }
+
+#user-welcome {
+  border-right: solid 1px #CCCCCC;
+  padding-right: 8px;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #DDDDDD !important;
+}
+
+.bg-light {
+  background-color: #F3F3F3 !important;
+}
+
+.bg-dark {
+  background-color: #3B3A39 !important;
+}
+
+h1 {
+  font-size: 2.0em;
+}
+
+h2 {
+  margin: 0;
+  padding: 8px;
+  font-size: 1.5em;
+  color: white;
+  background-color: #191F26;
+}
+
+a.h2-backarrow {
+  display: table-cell;
+  vertical-align: middle;
+  align-items: center;
+  border-radius: .25rem;
+  border: 1px solid #CCCCCC;
+  color: black;
+  background-color: #F2C811;
+  margin: 0px;
+  padding: 0;
+  padding-left: 2px;
+  padding-right: 4px;
+}
+
+  a.h2-backarrow i {
+    font-size: 0.9em;
+    margin: 0px;
+    padding: 0;
+  }
+
+
+h2 + p {
+  padding: 12px;
+  font-size: 1.25em;
+  background-color: #EEEEEE;
+  border: 1px solid #AAAAAA;
+  height: 180px;
+  color: darkblue;
+}
+
+h3 {
+  font-size: 1.25em;
+  color: black;
+  margin-top: 12px;
+  margin-bottom: 0px;
+}
+
+h4 {
+  font-size: 1.2em;
+  margin-top: 16px;
+  color: #444444;
+  border-bottom: 2px solid #444444;
+}
+
+  h4 + .table {
+    font-size: 0.8em;
+  }
+
+.toolbar {
+  background-color: #E6E2DD;
+  background: linear-gradient(90deg, #CCCCCC 0%, #E6E2DD 10%, #CCCCCC 25%, #AAAAAA 100%);
+  border: 2px solid #CCCCCC;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+  .toolbar i {
+    margin-right: 4px;
+  }
+
+  .toolbar a.btn {
+    margin: 8px;
+    padding: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    color: black;
+    background-color: #F2C811;
+    border: 1px solid #222222;
+    font-size: 0.9em;
+  }
+
+.btn-primary, .btn-primary:hover {
+  color: black;
+  background-color: #F2C811;
+  border: 1px solid #222222;
+  font-size: 0.9em;
+}
+
+.toolbar a.btn:hover {
+  border-radius: .25rem;
+}
+
+.jumbotron {
+  background-color: #EDBE11;
+  border: 1px solid #AAA;
+  margin-top: 16px;
+}
+
+.loading {
+  width: 100%;
+  background-color: #191F26;
+  text-align: center;
+  border-top: solid 2px #F2C811;
+}
+
+.loading-image img {
+  display: block;
+  margin: auto;
+  width: 70%;
+}
+
+.table {
+  font-size: 0.95em;
+  border-collapse: separate;
+  border: 1px solid #666666;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+  .table td, .table th {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .table .thead-dark th {
+    background-color: #1F3044;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+    .table .thead-dark th:first-child {
+      border-top-left-radius: 6px;
+    }
+
+    .table .thead-dark th:last-child {
+      border-top-right-radius: 6px;
+    }
+
+select.app-identity-select {
+  margin: 12px;
+  margin-left: 20px;
+  width: 360px;
+}
+
+.form-check-input {
+  width: 20px;
+  height: 20px;
+}
+
+.form-check-labelxx {
+  margin-top: 8px;
+}
+
+#report-container {
+  width: 100%;
+  min-height: 600px;
+  background-color: #F2C811;
+}
+
+table a.nav-link {
+  margin: 0px;
+  padding: 0px;
+  vertical-align: middle;
+  display: inline-table;
+  text-align: center;
+  background-color: #F2C811;
+  color: black;
+  border: 1px solid black;
+  border-radius: 2px;
+  width: 30px;
+  height: 30px;
+}
+
+.form-group {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.form-control, .form-control[readonly] {
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 32px;
+  background-color: #EFEFEF;
+}
+
+.col-form-label{
+  padding: 0;
+  margin:0;
+  margin-top: 4px;
+}
+
+fieldset {
+  border: 1px solid black;
+  background-color: #E6E2DD;
+  padding: 2px;
+  padding-top: 4px;
+}
+
+.app-identity-section {
+  border: 2px inset #CCCCCC;
+  background-color: #E6E2E4;
+  padding: 6px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-top: 8px;
+}
+
+label {
+  text-align: right;
+}
+
+  label::after {
+    content: ":";
+  }
+
+.table {
+  margin-top: 12px;
+  border-radius: 8px;
+}
+
+.table-sm th, td {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.button-row {
+  padding-left: 16px;
+  margin-left: 0px;
+  margin-right: 0px;
+  border-top: 1px solid black;
+  padding-top: 16px;
+}
+
+#permissions-messages {
+  margin-left: 8px;
+  font-size: 0.75em;
+  color: darkred;
+  font-style: italic;
+}
