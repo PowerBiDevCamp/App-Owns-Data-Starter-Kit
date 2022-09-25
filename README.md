@@ -1,4 +1,4 @@
-## <span style="color: red" > This Repo is under construction. Please expect changes until the final content for this update is posted on September 29, 2022.</span> 
+**Warning:** This Repo is under construction. Please expect changes until the final content for this update is posted on September 29, 2022.
 
 # The App-Owns-Data Starter Kit
 
