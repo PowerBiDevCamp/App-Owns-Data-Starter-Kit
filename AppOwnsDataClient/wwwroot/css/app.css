@@ -1,0 +1,218 @@
+﻿
+#content-box {
+}
+
+#embed-container {
+  background-color: #EDBE11;
+  text-align: center; 
+}
+
+iframe {
+  border-style: none;
+  text-align: center;
+}
+
+ul i {
+  padding-right: 4px;
+}
+
+h1 {
+  font-size: 2.0em;
+}
+
+h2 {
+  font-size: 1.25em;
+}
+
+h3 {
+  font-size: 1.1em;
+}
+
+h4 {
+  font-size: 1.0em;
+}
+
+.mb-3, .my-3 {
+  margin-bottom: 0 !important;
+}
+
+nav {
+  margin-bottom: 0px;
+}
+
+i {
+  margin-right: 4px;
+}
+
+
+#top-banner {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.jumbotron {
+  background-color: #EDBE11;
+  border: 1px solid #AAA;
+  margin-top: 16px;
+}
+
+#view-unassigned .jumbotron {
+  background-color:  lightsalmon;
+}
+
+#spinner-message {
+  font-size: 1.25em;
+  margin-bottom: 24px;
+}
+
+.spinner-border {
+  width: 5rem;
+  height: 5rem;
+  color: #222222;
+}
+/* styles for embed page */
+#tenant-header {
+  background-color: black;
+  padding: 4px;
+  padding-bottom: 4px;
+  width: 100%;
+}
+
+#tenant-name {
+  float: left;
+  color: white;
+  font-size: 1.0em;
+  width: 16%;
+  margin-left: 4px;
+  border-right: 2px solid #444444;
+}
+
+
+#embed-toolbar {
+  color: white;
+  font-size: 1.0em;
+}
+
+  #embed-toolbar button {
+    margin: 0px;
+    font-size: 9px;
+    font-weight: bold;
+    padding: 2px;
+    color: #222;
+    background-color: #F2C811;
+    border-color: #111;
+    margin-right: 12px;
+    margin-top: 4px;
+    padding-left: 6px;
+    padding-right: 6px;
+    display: inline;
+    float: right;
+  }
+
+  #breadcrumb {
+    margin-left: 8px;
+  }
+
+#content-box {
+  padding-left: 0;
+  padding-right: 0;
+  border: solid 1px black;
+}
+
+#left-nav {
+  background-color: black;
+  color: white;
+  padding: 0;
+  border: 1px solid black;
+}
+
+  #left-nav .navbar-header {
+    color: black;
+    background-color: #EDBE11;
+    padding: 2px;
+    padding-left: 8px;
+    border-bottom: 1px solid #333333;
+    font-size: 12px;
+  }
+
+.dropdown-toggle::after {
+  position: absolute;
+  right: 8px;
+  top: 45%;
+}
+
+#left-nav .navbar-collapse, #left-nav .dropdown {
+  background-color: white;
+  color: black;
+  padding: 8px;
+  font-size: 12px;
+  border-bottom: 1px solid #333333;
+}
+
+#left-nav .navbar-collapse {
+  padding: 8px;
+}
+
+#left-nav .dropdown {
+  padding: 0px;
+}
+
+  #left-nav .dropdown button {
+    margin: 0px;
+    padding: 4px;
+    width: 100%;
+    text-align: left;
+  }
+
+.no-content {
+  font-style: italic;
+  margin-left: 16px;
+  color: #88AAAA;
+}
+
+a.nav-link {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+table a.nav-link {
+  margin: 0px;
+  padding: 4px;
+  padding-left: 6px;
+  background-color: #F2C811;
+  color: black;
+  border: 1px solid black;
+  border-radius: 4px;
+  text-align: center;
+}
+
+
+.card {
+  min-height: 160px;
+  background-color: #EEEEEE;
+}
+
+.card-text {
+  font-size: 14px;
+}
+
+.dropdown-item {
+  padding: 2px;
+  padding-left: 8px;
+}
+
+.dropdown-divider {
+  border-color: black;
+}
+
+#loading-spinner-container {
+  width: 100%;
+  text-align: center;
+  margin: 24px;
+  padding: 48px;
+  background-color: #EDBE11;
+}
+
+#view-authenticated {
+  min-width: 320px;
+}
