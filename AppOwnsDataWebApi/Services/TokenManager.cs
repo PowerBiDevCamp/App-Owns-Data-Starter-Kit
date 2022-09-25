@@ -16,12 +16,13 @@ namespace AppOwnsDataWebApi.Services {
 
     private static string CachedToken { get; set; }
     private static DateTime CachedTokenExpires { get; set; }
-    private const int MinimumTokenLifetime = 2700; // (45 minutes * 60 seconds)
+    private int embedTokenLifetime { get; set; }
 
     public TokenManager(IConfiguration configuration) {
       this.TenantId = configuration["ServicePrincipalApp:TenantId"];
       this.ClientId = configuration["ServicePrincipalApp:ClientId"];
       this.ClientSecret = configuration["ServicePrincipalApp:ClientSecret"];
+      this.embedTokenLifetime = int.Parse(configuration["PowerBi:EmbedTokenLifetime"]);
       this.PowerBiScopes = new string[] { "https://analysis.windows.net/powerbi/api/.default" };
     }
 
@@ -47,8 +48,8 @@ namespace AppOwnsDataWebApi.Services {
       var accessTokenRequest = app.AcquireTokenForClient(this.PowerBiScopes).ExecuteAsync().Result; ;
 
       CachedToken = accessTokenRequest.AccessToken;
+      int MinimumTokenLifetime = embedTokenLifetime * 60; // minutes * seconds
       CachedTokenExpires = accessTokenRequest.ExpiresOn.DateTime.AddSeconds(-MinimumTokenLifetime);
-
     }
    
   }
