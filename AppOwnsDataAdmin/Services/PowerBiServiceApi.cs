@@ -152,12 +152,16 @@ namespace AppOwnsDataAdmin.Services {
         });
       }
 
-      // 
-      pbiClient.Groups.AddGroupUser(workspace.Id, new GroupUser {
-        Identifier = "2667e2f2-ea90-4ce0-8e7c-f4bb72cae75c",
-        PrincipalType = PrincipalType.App,        
-        GroupUserAccessRight = "Contributor"
-      });
+      // use this code to add service principal as workspace member
+      // enter servicePrincipalObjectId for your service principal
+      string servicePrincipalObjectId = "";
+      if(!servicePrincipalObjectId.Equals("")) {
+        pbiClient.Groups.AddGroupUser(workspace.Id, new GroupUser {
+          Identifier = servicePrincipalObjectId,
+          PrincipalType = PrincipalType.App,
+          GroupUserAccessRight = "Contributor"
+        });
+      }
 
       // upload sample PBIX file #1
       string importName = "Sales";
