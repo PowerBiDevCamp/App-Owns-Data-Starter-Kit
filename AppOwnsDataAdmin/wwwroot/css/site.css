@@ -1,4 +1,4 @@
-﻿/*  version 1.1  */
+﻿
 nav {
   margin-bottom: 0px;
 }
@@ -215,6 +215,7 @@ table a.nav-link {
 
 .form-control, .form-control[readonly] {
   margin: 0;
+  margin-bottom: 4px;
   padding-top: 0;
   padding-bottom: 0;
   height: 32px;
@@ -231,7 +232,9 @@ fieldset {
   border: 1px solid black;
   background-color: #E6E2DD;
   padding: 2px;
-  padding-top: 4px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
 }
 
 .app-identity-section {
