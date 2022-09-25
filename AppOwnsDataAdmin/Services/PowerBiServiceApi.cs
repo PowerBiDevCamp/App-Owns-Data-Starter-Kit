@@ -45,7 +45,6 @@ namespace AppOwnsDataAdmin.Services {
     private string targetCapacityId { get;  }
     private PowerBIClient pbiClient { get; set; }
 
-
     public PowerBiServiceApi(IConfiguration configuration, ITokenAcquisition tokenAcquisition, AppOwnsDataDBService AppOwnsDataDBService, IWebHostEnvironment env) {
       this.Configuration = configuration;
       this.urlPowerBiServiceApiRoot = configuration["PowerBi:ServiceRootUrl"];
@@ -73,16 +72,13 @@ namespace AppOwnsDataAdmin.Services {
     }
 
     private void SetCallingContext(string ProfileId = "") {
-
-      if (ProfileId.Equals("")) {
-        pbiClient = GetPowerBiClient();
+      if (ProfileId.Equals("")) { 
+        pbiClient = GetPowerBiClient(); 
       }
-      else {
-        pbiClient = GetPowerBiClientForProfile(new Guid(ProfileId));
+      else { 
+        pbiClient = GetPowerBiClientForProfile(new Guid(ProfileId)); 
       }
-
     }
-
 
     public async Task<EmbeddedReportViewModel> GetReport(Guid WorkspaceId, Guid ReportId) {
 
@@ -285,63 +281,7 @@ namespace AppOwnsDataAdmin.Services {
 
       Guid reportId = import.Reports[0].Id;
 
-      UpdatePaginatedReportDatasource(Workspace.Id, reportId, TargetDataset.Id);
-
     }
-
-    public void UpdatePaginatedReportDatasource(Guid WorkspaceId, Guid ReportId, string DatasetId) {
-
-      var report = pbiClient.Reports.GetReportInGroup(WorkspaceId, ReportId);
-
-      var reportDatasources = pbiClient.Reports.GetDatasourcesInGroup(WorkspaceId, report.Id);
-      Datasource reportDatasource = reportDatasources.Value[0];
-
-
-      string Server = "pbiazure://api.powerbi.com/";
-      string Database = "sobe_wowvirtualserver-" + DatasetId;
-
-      UpdateRdlDatasourceDetails updateRdlDatasourceDetails = new UpdateRdlDatasourceDetails {
-        DatasourceName = "PowerBiDataset",
-        ConnectionDetails = new RdlDatasourceConnectionDetails {
-          Server = Server,
-          Database = Database
-        }
-      };
-
-      List<UpdateRdlDatasourceDetails> updateRdlDatasourceDetailsList = new List<UpdateRdlDatasourceDetails>();
-      updateRdlDatasourceDetailsList.Add(updateRdlDatasourceDetails);
-      UpdateRdlDatasourcesRequest updateDatasourcesRequest = new UpdateRdlDatasourcesRequest(updateRdlDatasourceDetailsList);
-      pbiClient.Reports.UpdateDatasourcesInGroup(WorkspaceId, report.Id, updateDatasourcesRequest);
-
-      //PatchDatasetAsDatasourceCredentials(WorkspaceId, DatasetId);
-
-    }
-
-    public void PatchDatasetAsDatasourceCredentials(Guid WorkspaceId, string DatasetId) {
-
-
-      var datasources = (pbiClient.Datasets.GetDatasourcesInGroup(WorkspaceId, DatasetId)).Value;
-      var datasource = datasources[0];
-
-      var datasourceId = datasource.DatasourceId;
-      var gatewayId = datasource.GatewayId;
-
-      UpdateDatasourceRequest req = new UpdateDatasourceRequest {
-        CredentialDetails = new CredentialDetails {
-          CredentialType = CredentialType.OAuth2,
-          UseCallerAADIdentity = true,
-          EncryptedConnection = EncryptedConnection.NotEncrypted,
-          EncryptionAlgorithm = EncryptionAlgorithm.None,
-          PrivacyLevel = PrivacyLevel.None,
-          UseEndUserOAuth2Credentials = true
-        }
-      };
-
-      // Execute Patch command to update Azure SQL datasource credentials
-      pbiClient.Gateways.UpdateDatasource((Guid)gatewayId, (Guid)datasourceId, req);
-
-    }
-
 
     public async Task<EmbeddedReportViewModel> GetReportEmbeddingData(PowerBiTenant Tenant) {
 
@@ -367,7 +307,6 @@ namespace AppOwnsDataAdmin.Services {
       };
 
     }
-
 
   }
 
