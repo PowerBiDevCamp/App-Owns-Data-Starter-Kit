@@ -1,18 +1,19 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMsal, useIsAuthenticated, useAccount } from "@azure/msal-react";
-import { Box, Button, Icon } from '@mui/material';
-import { AccountCircle } from '@mui/icons-material';
 
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import Menu, { MenuProps } from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-
-import { PowerBiLoginRequest } from "../AuthConfig";
-
 import Divider from '@mui/material/Divider';
+
+import AccountCircle from '@mui/icons-material/AccountCircle';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+
+import { PowerBiLoginRequest } from "../AuthConfig";
 
 const LoginMenu = () => {
   const navigate = useNavigate();
@@ -42,35 +43,24 @@ const LoginMenu = () => {
     return (
       <Box sx={{ marginLeft: "auto" }}>
         <Button
-          id="demo-customized-button"
-          aria-controls={open ? 'demo-customized-menu' : undefined}
-          aria-haspopup="true"
-          aria-expanded={open ? 'true' : undefined}
+          sx={{ color: "white", mr: "12px;", mt: "4px" }}
           disableElevation
           onClick={handleClick}
-          startIcon={ <AccountCircle /> }
-          endIcon={<KeyboardArrowDownIcon />}
-          sx={{color:"white", mr: "12px;", mt: "4px" }}
-        >
-         
-        {account?.name}
+          startIcon={<AccountCircle />}
+          endIcon={<KeyboardArrowDownIcon />} >
+          {account?.name}
         </Button>
         <Menu
-          id="demo-customized-menu"
-          MenuListProps={{
-            'aria-labelledby': 'demo-customized-button'
-          }}
           anchorEl={anchorEl}
           open={open}
-          onClose={handleClose}
-        >
-          <MenuItem onClick={()=>{handleClose();navigate("profile")}} disableRipple sx={{width:1}} >
-            <AccountCircle sx={{mr:1}} />
+          onClose={handleClose} >
+          <MenuItem onClick={() => { handleClose(); navigate("profile") }} disableRipple sx={{ width: 1 }} >
+            <AccountCircle sx={{ mr: 1 }} />
             User Profile
           </MenuItem>
           <Divider sx={{ my: 0.5 }} />
-          <MenuItem onClick={()=>{handleClose();logoutUser();}} disableRipple>
-            <LogoutIcon sx={{mr:1}} />
+          <MenuItem onClick={() => { handleClose(); logoutUser(); }} disableRipple>
+            <LogoutIcon sx={{ mr: 1 }} />
             Logout
           </MenuItem>
         </Menu>

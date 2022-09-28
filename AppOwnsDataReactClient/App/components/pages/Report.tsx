@@ -21,7 +21,7 @@ import * as models from "powerbi-models";
 require('powerbi-models');
 require('powerbi-client');
 
-import { Box } from '@mui/material';
+import Box from '@mui/material/Box';
 
 export type ViewMode = "FitToPage" | "FitToWidth" | "ActualSize";
 
@@ -33,7 +33,6 @@ const Report = () => {
   const account = useAccount(accounts[0] || {});
 
   const navigate = useNavigate();
-
   const { id } = useParams();
 
   const { embeddingData, refreshEmbeddingData } = useContext(AppContext);
@@ -42,8 +41,10 @@ const Report = () => {
   const [embedTokenExpiration, setEmbedTokenExpiration] = useState<string>(null);
   const [embedTokenAcquired, setEmbedTokenAcquired] = useState<boolean>(false);
   const [embedTokenExpirationDisplay, setEmbedTokenExpirationDisplay] = useState<string>("");
+
   const [embeddedReport, setEmbeddedReport] = useState<powerbi.Report | null>(null);
   const [embeddedNewReport, setEmbeddedNewReport] = useState<powerbi.Embed | null>(null);
+
   const [embedType, setEmbedType] = useState<"ExistingReport" | "NewReport" | null>(null);
   const [reportType, setReportType] = useState<"PowerBiReport" | "PaginatedReport" | null>(null);
   const [viewMode, setViewMode] = useState<ViewMode>("FitToPage");
@@ -124,11 +125,8 @@ const Report = () => {
     window.powerbi.reset(embedContainer.current);
     var embeddedReport: powerbi.Report = (window.powerbi.embed(embedContainer.current, config) as powerbi.Report);
 
-    console.log(embeddedReport);
-
     setEmbeddedReport(embeddedReport);
     setEmbeddedNewReport(null);
-
 
     embeddedReport.off("loaded")
     embeddedReport.on("loaded", async (event: any) => {
@@ -138,6 +136,7 @@ const Report = () => {
     embeddedReport.off("rendered");
     embeddedReport.on("rendered", async (event: any) => {
       if (!initialLoadComplete) {
+        // gather data from initial load and log ViewReport activity
         renderDuration = Date.now() - timerStart;
         var correlationId: string = await embeddedReport.getCorrelationId();
         var pageName: string = Report.reportType === "PowerBIReport" ? (await embeddedReport.getActivePage()).displayName : "";
@@ -146,11 +145,11 @@ const Report = () => {
       }
       if (pageChangeInProgress) {
         pageChangeInProgress = false;
+        // gather data from page change event and log PageChanged activity
         renderDuration = Date.now() - timerStart;
         var correlationId: string = await embeddedReport.getCorrelationId();
         var pageName: string = (await embeddedReport.getActivePage()).displayName;
         await logPageChangedActivity(correlationId, Report, pageName, renderDuration);
-
       }
     });
 
@@ -168,9 +167,9 @@ const Report = () => {
     embeddedReport.on("saved", async (event: any) => {
 
       if (event.detail.saveAs) {
-        // handle save-as to to create new report as copy
+        // handle save-as with newly created report
         await refreshEmbedToken();
-        refreshEmbeddingData();
+        await refreshEmbeddingData();
         var newReportId = event.detail.reportObjectId;
         var newReportName = event.detail.reportName;
         logCopyReportActivity(Report, newReportId, newReportName);
@@ -185,6 +184,49 @@ const Report = () => {
 
     embeddedReport.on("error", (event: any) => {
       console.log("ERROR in embedded report", event);
+    });
+
+  };
+
+  const embedPaginatedReport = async (Report: PowerBiReport) => {
+
+    window.powerbi.reset(embedContainer.current);
+
+    if (Report?.name) {
+      setReportPath(embeddingData.tenantName + " > " + Report.name);
+    }
+    else {
+      setReportPath("...");
+    }
+
+    setEmbedType("ExistingReport");
+    setReportType("PaginatedReport");
+
+    var config: models.IPaginatedReportLoadConfiguration = {
+      type: 'report',
+      id: Report.id,
+      embedUrl: Report.embedUrl,
+      accessToken: embedToken,
+      tokenType: models.TokenType.Embed,
+      settings: {
+        commands: {
+          parameterPanel: {
+            enabled: true,
+            expanded: true
+          }
+        }
+      }
+    };
+
+    var embeddedReport: powerbi.Report = (window.powerbi.embed(embedContainer.current, config) as powerbi.Report);
+
+    setEmbeddedReport(embeddedReport);
+    setEmbeddedNewReport(null);
+
+    await logViewReportActivity("", Report, "", undefined, undefined);
+
+    embeddedReport.on("error", (event: any) => {
+      console.log("ERROR in paginated report", event);
     });
 
   };
@@ -236,53 +278,6 @@ const Report = () => {
 
     embeddedNewReport.on("error", (event: any) => {
       console.log("ERROR in embedded report", event);
-    });
-
-  };
-
-  const embedPaginatedReport = async (Report: PowerBiReport) => {
-
-    window.powerbi.reset(embedContainer.current);
-
-    if (Report?.name) {
-      setReportPath(embeddingData.tenantName + " > " + Report.name);
-    }
-    else {
-      setReportPath("...");
-    }
-
-    setEmbedType("ExistingReport");
-    setReportType("PaginatedReport");
-
-    var config: models.IPaginatedReportLoadConfiguration = {
-      type: 'report',
-      id: Report.id,
-      embedUrl: Report.embedUrl,
-      accessToken: embedToken,
-      tokenType: models.TokenType.Embed,
-      settings: {
-        commands: {
-          parameterPanel: {
-            enabled: true,
-            expanded: true
-          }
-        }
-      }
-    };
-
-    console.log("Embedding paginated report");
-
-    // Embed the report and display it within the div container                
-    var embeddedReport: powerbi.Report = (window.powerbi.embed(embedContainer.current, config) as powerbi.Report);
-
-    setEmbeddedReport(embeddedReport);
-    setEmbeddedNewReport(null);
-
-    console.log("Log paginated report veiw");
-    await logViewReportActivity("", Report, "", undefined, undefined);
-
-    embeddedReport.on("error", (event: any) => {
-      console.log("ERROR in paginated report", event);
     });
 
   };
@@ -376,40 +371,29 @@ const Report = () => {
   };
 
   const refreshEmbedToken = async () => {
-
-    setEmbedToken(null);
     let tokenResult = await AppOwnsDataWebApi.GetEmbedToken();
     setEmbedToken(tokenResult.embedToken);
     setEmbedTokenExpiration(tokenResult.embedTokenExpiration);
-    setEmbedTokenExpirationDisplay(reportOnExpiration(tokenResult.embedTokenExpiration));
-
-    console.log("Embed token refreshed with expiration of " + tokenResult.embedTokenExpiration);
+    setEmbedTokenExpirationDisplay(checkOnTokenExpiration(tokenResult.embedTokenExpiration));
 
     if (embeddedReport) {
-      console.log("setting refreshed access token on report ");
       embeddedReport.setAccessToken(tokenResult.embedToken);
     }
 
     if (embeddedNewReport) {
-      console.log("setting refreshed access token on report ");
       embeddedNewReport.setAccessToken(tokenResult.embedToken);
     }
 
   };
 
-  const reportOnExpiration = (EmbedTokenExpiration: string): string => {
+  const checkOnTokenExpiration = (EmbedTokenExpiration: string): string => {
 
     var secondsToExpire = Math.floor((new Date(EmbedTokenExpiration).getTime() - new Date().getTime()) / 1000);
 
-    console.log("reportOnExpiration", secondsToExpire);
-
-    // refresh embed token two minutes before it expires
     var minutesBeforeExpiration = 2;
     if (secondsToExpire < (60 * minutesBeforeExpiration)) {
       let response = refreshEmbedToken();
-      Promise.
-      response.then();
-      return "Refreshing embed token...";      
+      return "Refreshing embed token...";
     }
 
     var minutes = Math.floor(secondsToExpire / 60);
@@ -428,24 +412,19 @@ const Report = () => {
 
   // call Web API to retreive embed token and embed report
   useEffect(() => {
-    console.log("useEffect #1");
-    if (isAuthenticated) {
-      console.log("useEffect #1A");
+
+    if (isAuthenticated && embedContainer.current && embeddingData.tenantName != null) {
       if (!embedTokenAcquired) {
-        console.log("useEffect #1AA");
         let tokenResult = AppOwnsDataWebApi.GetEmbedToken().then((tokenResult) => {
           setEmbedToken(tokenResult.embedToken);
           setEmbedTokenExpiration(tokenResult.embedTokenExpiration);
           setEmbedTokenAcquired(true);
-          setEmbedTokenExpirationDisplay(reportOnExpiration(tokenResult.embedTokenExpiration));
+          setEmbedTokenExpirationDisplay(checkOnTokenExpiration(tokenResult.embedTokenExpiration));
           return;
         });
       }
-      console.log("useEffect #1B");
 
-      if (embedTokenAcquired && embedContainer.current) {
-        console.log("useEffect #1BA");
-
+      if (embedTokenAcquired) {
         let report: PowerBiReport = embeddingData.reports?.find((report) => report.id === id);
         if (report) {
           if (report.reportType === "PowerBIReport") {
@@ -466,15 +445,13 @@ const Report = () => {
 
     }
 
-  }, [id, embeddingData, embedTokenAcquired]);
+  }, [isAuthenticated, embeddingData, embedTokenAcquired, embedContainer.current, id]);
 
   // set up repeating effect to update display for embed token expiration time 
   useEffect(() => {
-    console.log("useEffect #2");
     if (isAuthenticated && embedTokenAcquired) {
-      console.log("useEffect #2A");
       window.setTimeout(() => {
-        setEmbedTokenExpirationDisplay(reportOnExpiration(embedTokenExpiration));
+        setEmbedTokenExpirationDisplay(checkOnTokenExpiration(embedTokenExpiration));
       }, 1000);
     }
   }, [isAuthenticated, embedTokenAcquired, embedToken, embedTokenExpiration, embedTokenExpirationDisplay]);

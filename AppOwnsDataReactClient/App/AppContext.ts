@@ -14,23 +14,23 @@ export interface EmbeddingData {
 }
 
 export const EmbeddingDataDefaults: EmbeddingData = {
-    tenantName: null,
-    reports: [],
-    datasets: [],
-    user: null,
-    userCanEdit: null,
-    userCanCreate: null,
-    workspaceArtifactsLoading: false,
+  tenantName: null,
+  reports: [],
+  datasets: [],
+  user: null,
+  userCanEdit: null,
+  userCanCreate: null,
+  workspaceArtifactsLoading: false,
 }
 
 export interface AppContextProps {
   embeddingData: EmbeddingData;
-  refreshEmbeddingData: () => void;  
+  refreshEmbeddingData: () => void;
 }
 
 export const AppContext = createContext<AppContextProps>({
   embeddingData: EmbeddingDataDefaults,
-  refreshEmbeddingData: () => {},
+  refreshEmbeddingData: () => { },
 });
 
 

@@ -4,11 +4,26 @@ import { useMsal, useIsAuthenticated, useAccount } from "@azure/msal-react";
 
 import { AppContext } from "../../AppContext";
 
-import { Container, Typography, Alert } from '@mui/material';
-import { Table, TableBody, TableRow, TableCell, TableContainer, Paper }  from '@mui/material';
-import { List, ListItem, ListItemButton, ListItemText, Grid } from '@mui/material';
-import { Avatar, Box, ListItemAvatar } from '@mui/material';
-import { Assessment, Schema } from '@mui/icons-material';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import Alert from '@mui/material/Alert';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableRow from '@mui/material/TableRow';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import Paper from '@mui/material/Paper';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import Grid from '@mui/material/Grid';
+import Avatar from '@mui/material/Avatar';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Typography from '@mui/material/Typography';
+
+import Assessment from '@mui/icons-material/Assessment';
+import Schema from '@mui/icons-material/Schema';
 
 import DataLoading from './../DataLoading';
 

@@ -9,7 +9,9 @@ export default class AppOwnsDataWebApi {
   //public static ApiRoot: string = "https://localhost:44302/api/";
 
   private static GetAccessToken = async (): Promise<string> => {
+
     const account = msalInstance?.getActiveAccount();
+
     if (account) {
       let authResult: AuthenticationResult;
       try {
@@ -105,8 +107,6 @@ export default class AppOwnsDataWebApi {
     var accessToken: string = await AppOwnsDataWebApi.GetAccessToken();
     var postData: string = JSON.stringify(ExportRequest);
 
-    let filename = '';
-
     let fetchResponse = await fetch(restUrl, {
       method: "POST",
       body: postData,
@@ -120,7 +120,7 @@ export default class AppOwnsDataWebApi {
     const header = fetchResponse.headers.get('Content-Disposition');
 
     const parts = header!.split(';');
-    filename = parts[1].split('=')[1];
+    let filename = parts[1].split('=')[1];
     let blob = await fetchResponse.blob();
 
     var url = window.URL.createObjectURL(blob);

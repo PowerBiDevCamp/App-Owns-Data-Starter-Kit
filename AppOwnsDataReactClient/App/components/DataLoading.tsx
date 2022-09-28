@@ -1,7 +1,9 @@
 import { useLayoutEffect, useRef } from 'react';
-import { Box, Typography ,CircularProgress, SxProps } from '@mui/material';
 
-
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import CircularProgress from '@mui/material/CircularProgress'
+import { SxProps } from '@mui/system/styleFunctionSx/styleFunctionSx';
 
 const DataLoading = () => {
   let topContaner = useRef();
@@ -10,18 +12,15 @@ const DataLoading = () => {
 
   let topContainerProps: SxProps = { width: 1, backgroundColor: "#F4D03F", textAlign: "center", p: 3 };
 
-  let userMessgeProps : SxProps = { m: 2, color: "Black", fontSize:"24px" };
+  let userMessgeProps: SxProps = { m: 2, color: "Black", fontSize: "24px" };
 
-  let progressIndicatorProps : SxProps = { mt: "18px", color: "Black" };
-
+  let progressIndicatorProps: SxProps = { mt: "18px", color: "Black" };
 
   useLayoutEffect(() => {
     var container: HTMLElement = topContaner.current;
-    container.style.height =  (window.innerHeight - 50) + "px";
+    container.style.height = (window.innerHeight - 50) + "px";
     var indicator: HTMLElement = progressIndicator.current;
   });
-
-
 
   return (
     <Box ref={topContaner} sx={topContainerProps} >

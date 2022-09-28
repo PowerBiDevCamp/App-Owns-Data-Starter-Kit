@@ -3,11 +3,10 @@ import { useState, useRef, useContext } from 'react';
 import { AppContext } from "../../../AppContext";
 
 import AppOwnsDataWebApi from './../../../services/AppOwnsDataWebApi';
-
 import { ExportFileRequest } from '../../../models/models';
 
-import * as powerbi from "powerbi-client";
-import * as models from "powerbi-models";
+import powerbi from "powerbi-client";
+import models from "powerbi-models";
 
 import { ViewMode } from './../Report'
 
@@ -15,12 +14,45 @@ import { ViewMode } from './../Report'
 require('powerbi-models');
 require('powerbi-client');
 
-import { Box, Toolbar, Button, Divider, Menu, MenuItem, TextField, Switch, SxProps } from '@mui/material';
-import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, LinearProgress } from '@mui/material';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import TextField from '@mui/material/TextField';
+import Switch from '@mui/material/Switch';
+import { SxProps } from '@mui/system/styleFunctionSx/styleFunctionSx';
 
-import { Fullscreen, Edit, Pageview, Download, PictureAsPdf, Image, Slideshow, SyncAlt, Refresh, Article, Bookmark } from '@mui/icons-material';
-import { KeyboardArrowDown, SaveAs, Save, Visibility, FitScreen, PhotoSizeSelectActual, Check, Filter } from '@mui/icons-material';
-import { RadioButtonUnchecked, RadioButtonChecked, FilterAlt, Menu as MenuIcon } from '@mui/icons-material';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import LinearProgress from '@mui/material/LinearProgress';
+
+import Fullscreen from '@mui/icons-material/Fullscreen';
+import Edit from '@mui/icons-material/Edit';
+import Pageview from '@mui/icons-material/Pageview';
+import Download from '@mui/icons-material/Download';
+import PictureAsPdf from '@mui/icons-material/PictureAsPdf';
+import Image from '@mui/icons-material/Image';
+import Slideshow from '@mui/icons-material/Slideshow';
+import SyncAlt from '@mui/icons-material/SyncAlt';
+import Refresh from '@mui/icons-material/Refresh';
+import Article from '@mui/icons-material/Article';
+import Bookmark from '@mui/icons-material/Bookmark';
+import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
+import SaveAs from '@mui/icons-material/SaveAs';
+import Save from '@mui/icons-material/Save';
+import Visibility from '@mui/icons-material/Visibility';
+import FitScreen from '@mui/icons-material/FitScreen';
+import PhotoSizeSelectActual from '@mui/icons-material/PhotoSizeSelectActual';
+
+import RadioButtonUnchecked from '@mui/icons-material/RadioButtonUnchecked';
+import RadioButtonChecked from '@mui/icons-material/RadioButtonChecked';
+import FilterAlt from '@mui/icons-material/FilterAlt';
+import MenuIcon from '@mui/icons-material/Menu';
 
 interface ReportToolbarProps {
   report: powerbi.Report;
@@ -46,12 +78,11 @@ const ReportToolbar = ({ report, editMode, setEditMode, showNavigation, setShowN
   const [anchorElementExport, setAnchorElementExport] = useState<null | HTMLElement>(null);
   const [anchorElementView, setAnchorElementView] = useState<null | HTMLElement>(null);
   const [anchorElementViewMode, setAnchorElementViewMode] = useState<null | HTMLElement>(null);
-
   const [openSaveAsDialog, setOpenSaveAsDialog] = useState(false);
   const [newReportName, setNewReportName] = useState("");
-  const refReportName = useRef<HTMLInputElement>(null);
-
   const [openExportProgressDialog, setOpenExportProgressDialog] = useState(false);
+
+  const refReportName = useRef<HTMLInputElement>(null);
 
   const menuButtonProperties: SxProps = { fontSize: "9px", color: "#555555", ml: 1 };
   const menuItemProps: SxProps = { fontSize: "11px", px: 1.5, py: 0, m: 0 };
@@ -90,7 +121,6 @@ const ReportToolbar = ({ report, editMode, setEditMode, showNavigation, setShowN
   const onExportPageToPNG = async () => {
     setAnchorElementExport(null);
     setOpenExportProgressDialog(true);
-    let workspaceId = ""; // appContextData.currentWorkspaceId;
     let reportId = report.getId();
     let currentPage = await report.getActivePage();
     let currentPageName = currentPage.name;
@@ -194,8 +224,6 @@ const ReportToolbar = ({ report, editMode, setEditMode, showNavigation, setShowN
     });
   };
 
-
-
   const onToggleEditMode = () => {
     report.switchMode(editMode ? "view" : "edit");
     setEditMode(!editMode);
@@ -240,7 +268,6 @@ const ReportToolbar = ({ report, editMode, setEditMode, showNavigation, setShowN
     <>
       <Box sx={{ width: 1, backgroundColor: "#F3F2F1", p: 0, m: 0 }} >
         <Toolbar disableGutters variant='dense' sx={{ p: 0, m: 0, minHeight: "32px" }} >
-
           {editMode && (
             <>
               <Button startIcon={<Article />} endIcon={<KeyboardArrowDown />} sx={menuButtonProperties}
@@ -253,15 +280,14 @@ const ReportToolbar = ({ report, editMode, setEditMode, showNavigation, setShowN
                 </MenuItem>
                 <Divider sx={{ my: 0.5 }} />
                 {embeddingData.userCanCreate &&
-                    <MenuItem sx={menuItemProps} onClick={onFileSaveAs} disableRipple >
-                      <SaveAs sx={{ mr: 1 }} /> Save As
-                    </MenuItem>
+                  <MenuItem sx={menuItemProps} onClick={onFileSaveAs} disableRipple >
+                    <SaveAs sx={{ mr: 1 }} /> Save As
+                  </MenuItem>
                 }
               </Menu>
               <Divider orientation='vertical' flexItem />
             </>
           )}
-
           <>
             <Button startIcon={<Download />} endIcon={<KeyboardArrowDown />} sx={menuButtonProperties}
               onClick={(event) => { setAnchorElementExport(event.currentTarget); }} >
@@ -293,7 +319,6 @@ const ReportToolbar = ({ report, editMode, setEditMode, showNavigation, setShowN
                 <Slideshow sx={{ mr: 1 }} /> Export Report to PowerPoint (PPTX)
               </MenuItem>
             </Menu>
-
             <Divider orientation='vertical' flexItem />
           </>
 
@@ -391,7 +416,7 @@ const ReportToolbar = ({ report, editMode, setEditMode, showNavigation, setShowN
       <Dialog open={openExportProgressDialog} onClose={() => { setOpenExportProgressDialog(false); }} >
         <DialogTitle>Power BI Report Export Job in Progress</DialogTitle>
         <DialogContent >
-          <DialogContentText sx={{ display: "block", verticalAlign: "middle", width:"100%", backgroundColor: "lightblue" }} >
+          <DialogContentText sx={{ display: "block", verticalAlign: "middle", width: "100%", backgroundColor: "lightblue" }} >
             <LinearProgress />
           </DialogContentText>
         </DialogContent>
@@ -399,7 +424,6 @@ const ReportToolbar = ({ report, editMode, setEditMode, showNavigation, setShowN
           <Button onClick={() => { setOpenExportProgressDialog(false); }}>Cancel</Button>
         </DialogActions>
       </Dialog>
-
     </>
   )
 }

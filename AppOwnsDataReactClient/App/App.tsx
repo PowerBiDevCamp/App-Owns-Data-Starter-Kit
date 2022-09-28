@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter } from "react-router-dom";
 
-
 import PageLayout from './components/PageLayout'
-import { CssBaseline } from '@mui/material';
+import CssBaseline from '@mui/material/CssBaseline';
 
 import { useMsal, useIsAuthenticated, useAccount } from "@azure/msal-react";
 
@@ -37,31 +36,23 @@ const App = () => {
   useEffect(() => {
 
     const getEmbeddingDataAsync = async () => {
-
       setWorkspaceArtifactsLoading(true);
-
       let viewModel = await AppOwnsDataWebApi.GetEmbeddingData();
-
       setTenantName(viewModel.tenantName);
-
       setReports(viewModel.reports);
       setDatasets(viewModel.datasets);
-
       setUser(account.name);
       setUserCanEdit(viewModel.userCanEdit);
       setUserCanCreate(viewModel.userCanCreate);
       setWorkspaceArtifactsLoading(false);
-
     }
-
     if (isAuthenticated) {
       getEmbeddingDataAsync()
     };
 
   }, [isAuthenticated]);
- 
-  return (
 
+  return (
     <AppContext.Provider value={{
       embeddingData: {
         tenantName: tenantName,

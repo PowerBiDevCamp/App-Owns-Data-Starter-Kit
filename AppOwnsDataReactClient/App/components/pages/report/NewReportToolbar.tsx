@@ -1,20 +1,31 @@
 import { useState, useRef, useContext } from 'react';
-import { AppContext } from "../../../AppContext";
 
-import * as powerbi from "powerbi-client";
-import * as models from "powerbi-models";
-
-import { ViewMode } from './../Report'
+import powerbi from "powerbi-client";
 
 // ensure Power BI JavaScript API has loaded
 require('powerbi-models');
 require('powerbi-client');
 
-import { Box, Toolbar, Button, Divider, Menu, MenuItem, TextField, SxProps } from '@mui/material';
-import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import TextField from '@mui/material/TextField';
+import { SxProps } from '@mui/system/styleFunctionSx/styleFunctionSx';
 
-import { Fullscreen, Article } from '@mui/icons-material';
-import { KeyboardArrowDown, SaveAs } from '@mui/icons-material';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+
+
+import Fullscreen from '@mui/icons-material/Fullscreen';
+import Article from '@mui/icons-material/Article';
+import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
+import SaveAs from '@mui/icons-material/SaveAs';
 
 interface NewReportToolbarProps {
   report: powerbi.Embed;
@@ -90,7 +101,6 @@ const NewReportToolbar = ({ report }: NewReportToolbarProps) => {
         <DialogActions>
           <Button disabled={newReportName === ""} onClick={async () => {
             setOpenSaveAsDialog(false);
-            console.log("Save new report: " + newReportName)
             await report.saveAs({ name: newReportName });
           }}>Save</Button>
           <Button onClick={() => { setOpenSaveAsDialog(false); }}>Cancel</Button>

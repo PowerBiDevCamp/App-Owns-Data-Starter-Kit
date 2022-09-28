@@ -3,8 +3,17 @@ import { useMsal, useIsAuthenticated, useAccount } from "@azure/msal-react";
 
 import PageNotAccessible from './../PageNotAccessible';
 
-import { Container, Button, Paper, Typography, Divider } from '@mui/material';
-import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell } from '@mui/material';
+import Container from '@mui/material/Container';
+import Table from '@mui/material/Table';
+import TableHead from '@mui/material/TableHead';
+import TableBody from '@mui/material/TableBody';
+import TableRow from '@mui/material/TableRow';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
 
 const Profile = () => {
   const isAuthenticated = useIsAuthenticated();
@@ -58,10 +67,9 @@ const Profile = () => {
         </TableContainer>
 
         <Divider />
+        <br />
 
-        <Button onClick={() => {
-          setShowTokenClaims(!showTokenClaims);
-        }} >
+        <Button onClick={() => { setShowTokenClaims(!showTokenClaims); }} >
           {showTokenClaims ? "Hide Token Claims" : "Show Token Claims"}
         </Button>
 
