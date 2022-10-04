@@ -206,8 +206,7 @@ database, the solution contains four Web application projects named
 **AppOwnsDataAdmin**, **AppOwnsDataWebApi**, **AppOwnsDataClient** and
 **AppOwnsDataReactClient** and as shown in the following diagram.
 
-![](./images/media/image1.png){width="2.863905293088364in"
-height="1.2732436570428696in"}
+![](./images/media/image1.png)
 
 Let\'s begin with a brief description of the database and each of these
 four web applications.
@@ -239,8 +238,7 @@ customer tenants. The **Onboard New Tenant** form of the
 Name** along with the configuration settings to connect to a SQL Server
 database with the customer\'s data.
 
-![](./images/media/image2.png){width="4.213018372703412in"
-height="1.4878718285214347in"}
+![](./images/media/image2.png)
 
 The App-Owns-Data Starter Kit demonstrates using the best practice of
 creating and managing Power BI workspaces using ***service principal
@@ -265,8 +263,7 @@ Power BI workspace, the **AppOwnsDataAdmin** application retrieves the
 service principal ID and the new workspace ID and tracks them in a new
 record in the **Tenants** table in the **AppOwnsDataDB** database.
 
-![](./images/media/image3.png){width="2.2544378827646545in"
-height="1.0594739720034996in"}
+![](./images/media/image3.png)
 
 After creating a new Power BI workspace, the **AppOwnsDataAdmin**
 application continues the tenant onboarding process by importing a
