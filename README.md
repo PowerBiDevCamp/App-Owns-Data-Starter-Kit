@@ -115,16 +115,10 @@ demonstrate implementing the following application requirements that are
 common when developing with App-Owns-Data embedding in a multi-tenant.
 
 - Onboarding new customer tenants
-
 - Assigning and managing user permissions
-
-- Implementing the customer-facing clients as a Single Page Applications
-  (SPA)
-
+- Implementing the customer-facing clients as a Single Page Applications (SPA)
 - Creating a custom telemetry layer to log user activity
-
 - Monitoring user activity for viewing, editing and creating reports
-
 - Monitoring the performance of report loading and rendering
 
 ## Solution Architecture
@@ -143,16 +137,12 @@ four web applications.
 
 - **AppOwnsDataDB**: custom database to track tenants, user permissions
   and user activity
-
 - **AppOwnsDataAdmin**: administrative app to create tenants and manage
   user permissions
-
 - **AppOwnsDataWebApi**: custom Web API used by client-side SPA
   applications
-
 - **AppOwnsDataClient**: customer-facing SPA developed using JQuery,
   Bootstrap, Typescript and webpack
-
 - **AppOwnsDataReactClient** : customer-facing SPA developed using
   React-JS, Material UI, Typescript and webpack
 
