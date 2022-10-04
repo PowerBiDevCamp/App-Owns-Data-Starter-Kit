@@ -1,1 +1,1 @@
-pandoc -s --extract-media ./images "App-Owns-Data Starter Kit.docx" -t markdown -o test.md
+pandoc -s --extract-media ./images "App-Owns-Data Starter Kit.docx" -t gfm -o test.md
