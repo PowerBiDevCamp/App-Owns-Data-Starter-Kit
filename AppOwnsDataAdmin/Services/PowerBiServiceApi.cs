@@ -42,7 +42,7 @@ namespace AppOwnsDataAdmin.Services {
 
     private ITokenAcquisition tokenAcquisition { get; }
     private string urlPowerBiServiceApiRoot { get; }
-    private string targetCapacityId { get;  }
+    private string targetCapacityId { get; }
     private PowerBIClient pbiClient { get; set; }
 
     public PowerBiServiceApi(IConfiguration configuration, ITokenAcquisition tokenAcquisition, AppOwnsDataDBService AppOwnsDataDBService, IWebHostEnvironment env) {
@@ -72,11 +72,11 @@ namespace AppOwnsDataAdmin.Services {
     }
 
     private void SetCallingContext(string ProfileId = "") {
-      if (ProfileId.Equals("")) { 
-        pbiClient = GetPowerBiClient(); 
+      if (ProfileId.Equals("")) {
+        pbiClient = GetPowerBiClient();
       }
-      else { 
-        pbiClient = GetPowerBiClientForProfile(new Guid(ProfileId)); 
+      else {
+        pbiClient = GetPowerBiClientForProfile(new Guid(ProfileId));
       }
     }
 
@@ -132,7 +132,7 @@ namespace AppOwnsDataAdmin.Services {
       Group workspace = pbiClient.Groups.CreateGroup(request);
 
       // assign new workspace to dedicated capacity 
-      if(targetCapacityId != "") {
+      if (targetCapacityId != "") {
         pbiClient.Groups.AssignToCapacity(workspace.Id, new AssignToCapacityRequest {
           CapacityId = new Guid(targetCapacityId),
         });
@@ -140,6 +140,18 @@ namespace AppOwnsDataAdmin.Services {
 
       tenant.WorkspaceId = workspace.Id.ToString();
       tenant.WorkspaceUrl = "https://app.powerbi.com/groups/" + workspace.Id.ToString() + "/";
+
+      // This code adds service principal as workspace Contributor member
+      // -- Adding service principal as member is required due to security bug when 
+      // -- creating embed token for paginated report using service princpal profiles 
+      var userServicePrincipal = pbiClient.Groups.GetGroupUsers(workspace.Id).Value[0];
+      string servicePrincipalObjectId = userServicePrincipal.Identifier;
+      pbiClient.Groups.AddGroupUser(workspace.Id, new GroupUser {
+        Identifier = servicePrincipalObjectId,
+        PrincipalType = PrincipalType.App,
+        GroupUserAccessRight = "Contributor"
+      });
+
 
       // add user as new workspace admin to make demoing easier
       string adminUser = Configuration["DemoSettings:AdminUser"];
@@ -149,17 +161,6 @@ namespace AppOwnsDataAdmin.Services {
           PrincipalType = PrincipalType.User,
           EmailAddress = adminUser,
           GroupUserAccessRight = "Admin"
-        });
-      }
-
-      // use this code to add service principal as workspace member
-      // enter servicePrincipalObjectId for your service principal
-      string servicePrincipalObjectId = "";
-      if(!servicePrincipalObjectId.Equals("")) {
-        pbiClient.Groups.AddGroupUser(workspace.Id, new GroupUser {
-          Identifier = servicePrincipalObjectId,
-          PrincipalType = PrincipalType.App,
-          GroupUserAccessRight = "Contributor"
         });
       }
 
@@ -181,8 +182,11 @@ namespace AppOwnsDataAdmin.Services {
 
       pbiClient.Datasets.RefreshDatasetInGroup(workspace.Id, dataset.Id);
 
-      string PaginatedReportName = "Sales Summary";
-      PublishRDL(workspace, PaginatedReportName, dataset);
+      if (targetCapacityId != "") {
+        // only import paginated report if workspace has been associated with dedicated capacity
+        string PaginatedReportName = "Sales Summary";
+        PublishRDL(workspace, PaginatedReportName, dataset);
+      }
 
       return tenant;
     }
@@ -218,7 +222,7 @@ namespace AppOwnsDataAdmin.Services {
       // swtch back to service principal to delete service principal profile
       SetCallingContext();
       pbiClient.Profiles.DeleteProfile(new Guid(tenant.ProfileId));
- 
+
     }
 
     public void PublishPBIX(Guid WorkspaceId, string ImportName) {
@@ -260,7 +264,7 @@ namespace AppOwnsDataAdmin.Services {
     }
 
     public void PublishRDL(Group Workspace, string ImportName, Dataset TargetDataset) {
-      
+
       string rdlFilePath = this.Env.WebRootPath + @"/PBIX/SalesSummaryPaginated.rdl";
 
       FileStream stream = new FileStream(rdlFilePath, FileMode.Open, FileAccess.Read);
@@ -270,7 +274,7 @@ namespace AppOwnsDataAdmin.Services {
       stream.Close();
 
       rdlFileContent = rdlFileContent.Replace("{{TargetDatasetId}}", TargetDataset.Id.ToString())
-                                     .Replace("{{PowerBIWorkspaceName}}",Workspace.Name )
+                                     .Replace("{{PowerBIWorkspaceName}}", Workspace.Name)
                                      .Replace("{{PowerBIDatasetName}}", TargetDataset.Name);
 
       MemoryStream contentSteam = new MemoryStream(Encoding.ASCII.GetBytes(rdlFileContent));

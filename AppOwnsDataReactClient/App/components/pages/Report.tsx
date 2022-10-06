@@ -164,6 +164,7 @@ const Report = () => {
       }
     });
 
+    embeddedReport.off("saved");
     embeddedReport.on("saved", async (event: any) => {
 
       if (event.detail.saveAs) {
@@ -182,6 +183,7 @@ const Report = () => {
 
     });
 
+    embeddedReport.off("error");
     embeddedReport.on("error", (event: any) => {
       console.log("ERROR in embedded report", event);
     });
@@ -225,6 +227,7 @@ const Report = () => {
 
     await logViewReportActivity("", Report, "", undefined, undefined);
 
+    embeddedReport.off("error");
     embeddedReport.on("error", (event: any) => {
       console.log("ERROR in paginated report", event);
     });
@@ -265,6 +268,7 @@ const Report = () => {
     setEmbeddedNewReport(embeddedNewReport);
     setEmbeddedReport(null);
 
+    embeddedReport.off("saved");
     embeddedNewReport.on("saved", async (event: any) => {
       await refreshEmbedToken();
       refreshEmbeddingData();
@@ -275,7 +279,7 @@ const Report = () => {
       navigate("/reports/" + newReportId + "/?edit=true&newReport=true");
     });
 
-
+    embeddedReport.off("error");
     embeddedNewReport.on("error", (event: any) => {
       console.log("ERROR in embedded report", event);
     });
@@ -370,11 +374,21 @@ const Report = () => {
     await AppOwnsDataWebApi.LogActivity(logEntry);
   };
 
-  const refreshEmbedToken = async () => {
+  const getEmbedToken = async () => {
     let tokenResult = await AppOwnsDataWebApi.GetEmbedToken();
     setEmbedToken(tokenResult.embedToken);
     setEmbedTokenExpiration(tokenResult.embedTokenExpiration);
-    setEmbedTokenExpirationDisplay(checkOnTokenExpiration(tokenResult.embedTokenExpiration));
+    setEmbedTokenAcquired(true);
+    monitorTokenExpiration(tokenResult.embedTokenExpiration);
+  };
+
+  const refreshEmbedToken = async () => {
+
+    let tokenResult = await AppOwnsDataWebApi.GetEmbedToken();
+    setEmbedToken(tokenResult.embedToken);
+    setEmbedTokenExpiration(tokenResult.embedTokenExpiration);
+    setEmbedTokenExpirationDisplay("refreshing embed token");
+    monitorTokenExpiration(tokenResult.embedTokenExpiration);
 
     if (embeddedReport) {
       embeddedReport.setAccessToken(tokenResult.embedToken);
@@ -386,20 +400,22 @@ const Report = () => {
 
   };
 
-  const checkOnTokenExpiration = (EmbedTokenExpiration: string): string => {
+  const monitorTokenExpiration = (EmbedTokenExpiration: string): void => {
 
     var secondsToExpire = Math.floor((new Date(EmbedTokenExpiration).getTime() - new Date().getTime()) / 1000);
 
-    var minutesBeforeExpiration = 2;
-    if (secondsToExpire < (60 * minutesBeforeExpiration)) {
-      let response = refreshEmbedToken();
-      return "Refreshing embed token...";
+    // auto-refresh embed token 2 minutes before it expires
+    var secondsBeforeExpirationForAutoRefresh = 2 * 60;
+    if (secondsToExpire < secondsBeforeExpirationForAutoRefresh) {
+      refreshEmbedToken();
     }
-
-    var minutes = Math.floor(secondsToExpire / 60);
-    var seconds = secondsToExpire % 60;
-    var timeToExpire = "Token Expiration: " + String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0");
-    return timeToExpire;
+    else {
+      var minutes = Math.floor(secondsToExpire / 60);
+      var seconds = secondsToExpire % 60;
+      var timeToExpire = "Token Expiration: " + String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0");
+      if (timeToExpire === embedTokenExpirationDisplay) { timeToExpire += " "; }
+      setEmbedTokenExpirationDisplay(timeToExpire);
+    }
   };
 
   // set height of embed container DIV
@@ -414,17 +430,13 @@ const Report = () => {
   useEffect(() => {
 
     if (isAuthenticated && embedContainer.current && embeddingData.tenantName != null) {
-      if (!embedTokenAcquired) {
-        let tokenResult = AppOwnsDataWebApi.GetEmbedToken().then((tokenResult) => {
-          setEmbedToken(tokenResult.embedToken);
-          setEmbedTokenExpiration(tokenResult.embedTokenExpiration);
-          setEmbedTokenAcquired(true);
-          setEmbedTokenExpirationDisplay(checkOnTokenExpiration(tokenResult.embedTokenExpiration));
-          return;
-        });
-      }
 
-      if (embedTokenAcquired) {
+      if (!embedTokenAcquired) {
+        // get embed token for the first time
+        getEmbedToken();
+      }
+      else {
+        // embed existing report if id match id from URL
         let report: PowerBiReport = embeddingData.reports?.find((report) => report.id === id);
         if (report) {
           if (report.reportType === "PowerBIReport") {
@@ -435,26 +447,25 @@ const Report = () => {
           }
           return;
         }
-
+        // embed new report using this dataset if id matches id from URL
         let dataset: PowerBiDataset = embeddingData.datasets?.find((dataset) => dataset.id === id);
         if (dataset) {
           embedNewReport(dataset);
           return;
         }
       }
-
     }
-
+ 
   }, [isAuthenticated, embeddingData, embedTokenAcquired, embedContainer.current, id]);
 
   // set up repeating effect to update display for embed token expiration time 
   useEffect(() => {
     if (isAuthenticated && embedTokenAcquired) {
       window.setTimeout(() => {
-        setEmbedTokenExpirationDisplay(checkOnTokenExpiration(embedTokenExpiration));
+        monitorTokenExpiration(embedTokenExpiration);
       }, 1000);
     }
-  }, [isAuthenticated, embedTokenAcquired, embedToken, embedTokenExpiration, embedTokenExpirationDisplay]);
+  }, [isAuthenticated, embedTokenAcquired, embedTokenExpiration, embedTokenExpirationDisplay]);
 
   if (!isAuthenticated) {
     return <PageNotAccessible />;
@@ -465,6 +476,7 @@ const Report = () => {
     }
     else {
       return (
+
         <Box sx={{ display: "grid", gridAutoFlow: "row", width: 1 }}>
 
           <ReportPath reportPath={reportPath} tokenExpiration={embedTokenExpirationDisplay} refreshEmbedToken={refreshEmbedToken} />
@@ -473,13 +485,15 @@ const Report = () => {
             <ReportToolbar report={embeddedReport}
               editMode={editMode} setEditMode={setEditMode} showNavigation={showNavigation} setShowNavigation={setShowNavigation}
               showFiltersPane={showFiltersPane} setShowFiltersPane={setShowFiltersPane} viewMode={viewMode} setViewMode={setViewMode}
-              showBookmarksPane={showBookmarksPane} setShowBookmarksPane={setShowBookmarksPane} setEmbedToken={setEmbedToken} setEmbedTokenExpiration={setEmbedTokenExpiration} />}
+              showBookmarksPane={showBookmarksPane} setShowBookmarksPane={setShowBookmarksPane} setEmbedToken={setEmbedToken}
+              setEmbedTokenExpiration={setEmbedTokenExpiration} />}
 
           {embedType === "NewReport" && <NewReportToolbar report={embeddedNewReport} />}
 
           <Box ref={embedContainer} sx={{ width: "100%", borderBottom: 1, borderBottomColor: "#CCCCCC" }} />
 
         </Box>
+
       );
     }
   }

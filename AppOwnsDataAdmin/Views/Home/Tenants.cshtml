@@ -1,6 +1,6 @@
 @model IList<AppOwnsDataShared.Models.PowerBiTenant>
 
-<H2>Power BI Tenants</H2>
+<H2>Customer Tenants</H2>
 
 <div class="toolbar">
   <a id="create-workspace-button" class="btn btn-primary" asp-action="OnboardTenant">
@@ -24,7 +24,7 @@
   @foreach (var tenant in Model) {
     <tr>
       <td>@tenant.Name</td>
-      <td style="text-align:center">@tenant.Created.ToString("yyyy-MM-dd 'at' hh:mm tt")</td>
+      <td>@tenant.Created.ToString("yyyy-MM-dd 'at' hh:mm tt")</td>
       <td>@tenant.WorkspaceId</td>
       <td style="text-align:center"><a href="~/Home/Embed/?TenantName=@tenant.Name" class="nav nav-link" target="_blank"><i class="fa fa-bar-chart"></a></td>
       <td style="text-align:center"><a href="@tenant.WorkspaceUrl" class="nav nav-link" target="_blank"><i class="fa fa-line-chart"></a></td>

@@ -5,8 +5,8 @@ import { AppContext } from "../../../AppContext";
 import AppOwnsDataWebApi from './../../../services/AppOwnsDataWebApi';
 import { ExportFileRequest } from '../../../models/models';
 
-import powerbi from "powerbi-client";
-import models from "powerbi-models";
+import * as powerbi from "powerbi-client";
+import * as models from "powerbi-models";
 
 import { ViewMode } from './../Report'
 
@@ -101,21 +101,31 @@ const ReportToolbar = ({ report, editMode, setEditMode, showNavigation, setShowN
   };
 
   const onExportPageToPDF = async () => {
+
+    // close Export menu and open export progress dialog
     setAnchorElementExport(null);
     setOpenExportProgressDialog(true);
 
+    // get report data for ExportFile operation
     let reportId = report.getId();
     let currentPage = await report.getActivePage();
     let currentPageName = currentPage.name;
     let bookmark = await report.bookmarksManager.capture({ allPages: false, personalizeVisuals: false });
+
+    // create ExportFileRequest variable with parameters for export
     const exportRequest: ExportFileRequest = {
       ReportId: reportId,
       ExportType: "PDF",
       BookmarkState: bookmark.state,
       PageName: currentPageName,
     };
+
+    // Call ExportFile from AppOwnsDataWebApi
     await AppOwnsDataWebApi.ExportFile(exportRequest);
+
+    // close export progress dialog
     setOpenExportProgressDialog(false);
+
   };
 
   const onExportPageToPNG = async () => {
@@ -155,14 +165,21 @@ const ReportToolbar = ({ report, editMode, setEditMode, showNavigation, setShowN
   const onExportReportToPDF = async () => {
     setAnchorElementExport(null);
     setOpenExportProgressDialog(true);
+
     let reportId = report.getId();
     let bookmark = await report.bookmarksManager.capture({ allPages: false, personalizeVisuals: false });
+
+    // create ExportFileRequest variable with parameters for export
     const exportRequest: ExportFileRequest = {
       ReportId: reportId,
       ExportType: "PDF",
       BookmarkState: bookmark.state
     };
+
+    // Call ExportFile from AppOwnsDataWebApi
     await AppOwnsDataWebApi.ExportFile(exportRequest);
+
+    // close dialog
     setOpenExportProgressDialog(false);
   };
 
@@ -278,11 +295,13 @@ const ReportToolbar = ({ report, editMode, setEditMode, showNavigation, setShowN
                 <MenuItem sx={menuItemProps} onClick={onFileSave} disableRipple >
                   <Save sx={{ mr: 1 }} /> Save
                 </MenuItem>
-                <Divider sx={{ my: 0.5 }} />
                 {embeddingData.userCanCreate &&
-                  <MenuItem sx={menuItemProps} onClick={onFileSaveAs} disableRipple >
-                    <SaveAs sx={{ mr: 1 }} /> Save As
-                  </MenuItem>
+                  <>
+                    <Divider sx={{ my: 0.5 }} />
+                    <MenuItem sx={menuItemProps} onClick={onFileSaveAs} disableRipple >
+                      <SaveAs sx={{ mr: 1 }} /> Save As
+                    </MenuItem>
+                  </>
                 }
               </Menu>
               <Divider orientation='vertical' flexItem />
@@ -421,7 +440,7 @@ const ReportToolbar = ({ report, editMode, setEditMode, showNavigation, setShowN
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => { setOpenExportProgressDialog(false); }}>Cancel</Button>
+          <Button onClick={() => { setOpenExportProgressDialog(false); }}>Dismiss</Button>
         </DialogActions>
       </Dialog>
     </>

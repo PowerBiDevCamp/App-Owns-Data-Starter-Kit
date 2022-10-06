@@ -1,12 +1,13 @@
-﻿import { AuthenticationResult } from '@azure/msal-browser';
+﻿
+import { AuthenticationResult } from '@azure/msal-browser';
 import { msalInstance } from './../index';
 import { userPermissionScopes } from "../AuthConfig";
 import { ViewModel, EmbedTokenResult, ActivityLogEntry, User, ExportFileRequest } from '../models/models';
 
 export default class AppOwnsDataWebApi {
 
-  public static ApiRoot: string = "https://appownsdatawebapi.azurewebsites.net/api/";
   //public static ApiRoot: string = "https://localhost:44302/api/";
+  public static ApiRoot: string = "https://appownsdatawebapi.azurewebsites.net/api/";
 
   private static GetAccessToken = async (): Promise<string> => {
 
@@ -31,7 +32,7 @@ export default class AppOwnsDataWebApi {
 
   };
 
-  static LoginUser = async (LoginId: string, UserName: string) => {
+  static LoginUser = async (LoginId: string, UserName: string): Promise<void> => {
 
     var user = new User();
     user.LoginId = LoginId;
@@ -42,7 +43,7 @@ export default class AppOwnsDataWebApi {
 
     var restUrl = AppOwnsDataWebApi.ApiRoot + "UserLogin/";
 
-    return fetch(restUrl, {
+    await fetch(restUrl, {
       method: "POST",
       body: postData,
       headers: {
@@ -51,6 +52,8 @@ export default class AppOwnsDataWebApi {
         "Authorization": "Bearer " + accessToken
       }
     });
+
+    return;
   }
 
   static GetEmbeddingData = async (): Promise<ViewModel> => {
@@ -65,7 +68,7 @@ export default class AppOwnsDataWebApi {
         "Authorization": "Bearer " + accessToken
       }
     }).then(response => response.json())
-      .then(response => { return response; });
+      .then(response => response);
   }
 
   static GetEmbedToken = async (): Promise<EmbedTokenResult> => {
@@ -80,32 +83,14 @@ export default class AppOwnsDataWebApi {
         "Authorization": "Bearer " + accessToken
       }
     }).then(response => response.json())
-      .then(response => { return response; });
+      .then(response => response);
   }
 
-  static LogActivity = async (activityLogEntry: ActivityLogEntry) => {
+  static LogActivity = async (activityLogEntry: ActivityLogEntry): Promise<void> => {
 
     var accessToken: string = await AppOwnsDataWebApi.GetAccessToken();
     var postData: string = JSON.stringify(activityLogEntry);
     var restUrl = AppOwnsDataWebApi.ApiRoot + "ActivityLog/";
-
-    return fetch(restUrl, {
-      method: "POST",
-      body: postData,
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-        "Authorization": "Bearer " + accessToken
-      }
-    });
-
-  }
-
-  static ExportFile = async (ExportRequest: ExportFileRequest): Promise<void> => {
-
-    var restUrl: string = AppOwnsDataWebApi.ApiRoot + "ExportFile/";
-    var accessToken: string = await AppOwnsDataWebApi.GetAccessToken();
-    var postData: string = JSON.stringify(ExportRequest);
 
     let fetchResponse = await fetch(restUrl, {
       method: "POST",
@@ -117,12 +102,38 @@ export default class AppOwnsDataWebApi {
       }
     });
 
-    const header = fetchResponse.headers.get('Content-Disposition');
+    return;
 
+  }
+
+  static ExportFile = async (ExportRequest: ExportFileRequest): Promise<void> => {
+
+    var restUrl: string = AppOwnsDataWebApi.ApiRoot + "ExportFile/";
+    var accessToken: string = await AppOwnsDataWebApi.GetAccessToken();
+
+    // prepare JSON body for POST request to retrieve exported report file
+    var postData: string = JSON.stringify(ExportRequest);
+
+    // execute POST request synchronously to retrieve exported report file
+    let fetchResponse = await fetch(restUrl, {
+      method: "POST",
+      body: postData,
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + accessToken
+      }
+    });
+
+    // Once POST call returns, get file name from HTTP response
+    const header = fetchResponse.headers.get('Content-Disposition');
     const parts = header!.split(';');
     let filename = parts[1].split('=')[1];
+
+    // get blob with export file content
     let blob = await fetchResponse.blob();
 
+    // trigger export file download in browser window
     var url = window.URL.createObjectURL(blob);
     var a = document.createElement('a');
     a.href = url;
@@ -131,6 +142,11 @@ export default class AppOwnsDataWebApi {
     a.click();
     a.remove();
 
+    // return control to caller using await
+    return;
   }
 
 }
+
+
+
