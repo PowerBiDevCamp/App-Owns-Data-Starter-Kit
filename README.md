@@ -18,6 +18,8 @@ extended with paginated reports and with a new project named
 **AppOwnsDataReactClient** which demonstrates using React-JS and
 Material UI to implement App-Owns-Data embedding.
 
+Note that this document is available for download in either [DOCX](https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit/raw/main/Docs/App-Owns-Data%20Starter%20Kit.docx) or [PDF](https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit/raw/main/Docs/App-Owns-Data%20Starter%20Kit.pdf) format. If you are looking for the original release of the App-Owns-Data Starter Kit from July 2021, you can find that [here](https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit/tree/V1_July2021).
+
 
 ## Table of contents
 - [Introduction](https://github.com/PowerBiDevCamp/App-Owns-Data-Starter-Kit#introduction)
