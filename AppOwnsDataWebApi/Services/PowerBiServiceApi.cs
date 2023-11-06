@@ -209,7 +209,7 @@ namespace AppOwnsDataWebApi.Services {
           fileFormat = FileFormat.PNG;
           break;
         default:
-          throw new ApplicationException("Power BI reports do not support exort to " + request.ExportType);
+          throw new ApplicationException("Power BI reports do not support export to " + request.ExportType);
       }
 
       SetCallingContext(currentTenant.ProfileId);
